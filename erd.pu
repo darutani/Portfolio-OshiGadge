@@ -1,0 +1,62 @@
+@startuml OshiGadge
+
+entity users {
+  *id [PK]
+  --
+  name
+  email
+  password
+}
+
+entity gadgets {
+  *id [PK]
+  --
+  user_id [FK]
+  name
+  start_date
+  category
+  reason
+  point
+  usage
+}
+
+entity favorites {
+  *id [PK]
+  --
+  user_id [FK]
+  gadget_id [FK]
+}
+
+entity comments {
+  *id [PK]
+  --
+  user_id [FK]
+  gadget_id [FK]
+}
+
+entity inquiries as "inquiries\n問い合わせ" {
+  *id [PK]
+  --
+}
+
+entity profile_images {
+  *id [PK]
+  --
+  user_id [FK]
+}
+
+entity gadget_images {
+  *id [PK]
+  --
+  gadget_id [FK]
+}
+
+users ||--o{ gadgets
+users ||-u-o| profile_images
+users ||--o{ comments
+users ||--o{ favorites
+gadgets ||-r-o{ comments
+gadgets ||-d-o{ gadget_images
+gadgets ||-l-o{ favorites
+
+@enduml
