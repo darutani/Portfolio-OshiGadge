@@ -1,0 +1,57 @@
+<%= form_with(model: gadget) do |form| %>
+  <% if gadget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gadget.errors.count, "error") %> prohibited this gadget from being saved:</h2>
+
+      <ul>
+        <% gadget.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_area :reason %>
+  </div>
+
+  <div class="field">
+    <%= form.label :point %>
+    <%= form.text_area :point %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usage %>
+    <%= form.text_area :usage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :feature %>
+    <%= form.text_area :feature %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

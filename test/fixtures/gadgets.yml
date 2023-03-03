@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  name: MyString
+  start_date: 2023-03-03
+  category: MyString
+  reason: MyText
+  point: MyText
+  usage: MyText
+  feature: MyText
+
+two:
+  user_id: 1
+  name: MyString
+  start_date: 2023-03-03
+  category: MyString
+  reason: MyText
+  point: MyText
+  usage: MyText
+  feature: MyText
