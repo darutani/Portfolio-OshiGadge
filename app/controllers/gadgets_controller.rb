@@ -1,6 +1,9 @@
 class GadgetsController < ApplicationController
   before_action :set_gadget, only: %i[ show edit update destroy ]
 
+  def top
+  end
+
   # GET /gadgets or /gadgets.json
   def index
     @gadgets = Gadget.all
