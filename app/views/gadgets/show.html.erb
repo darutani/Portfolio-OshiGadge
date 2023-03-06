@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @gadget.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gadget.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @gadget.start_date %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @gadget.category %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @gadget.reason %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @gadget.point %>
+</p>
+
+<p>
+  <strong>Usage:</strong>
+  <%= @gadget.usage %>
+</p>
+
+<p>
+  <strong>Feature:</strong>
+  <%= @gadget.feature %>
+</p>
+
+<%= link_to 'Edit', edit_gadget_path(@gadget) %> |
+<%= link_to 'Back', gadgets_path %>

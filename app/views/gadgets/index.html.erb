@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gadgets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>Category</th>
+      <th>Reason</th>
+      <th>Point</th>
+      <th>Usage</th>
+      <th>Feature</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gadgets.each do |gadget| %>
+      <tr>
+        <td><%= gadget.user_id %></td>
+        <td><%= gadget.name %></td>
+        <td><%= gadget.start_date %></td>
+        <td><%= gadget.category %></td>
+        <td><%= gadget.reason %></td>
+        <td><%= gadget.point %></td>
+        <td><%= gadget.usage %></td>
+        <td><%= gadget.feature %></td>
+        <td><%= link_to 'Show', gadget %></td>
+        <td><%= link_to 'Edit', edit_gadget_path(gadget) %></td>
+        <td><%= link_to 'Destroy', gadget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gadget', new_gadget_path %>

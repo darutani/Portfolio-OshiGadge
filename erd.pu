@@ -18,6 +18,7 @@ entity gadgets {
   reason
   point
   usage
+  feature
 }
 
 entity favorites {
