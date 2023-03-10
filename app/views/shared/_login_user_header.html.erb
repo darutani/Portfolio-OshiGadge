@@ -1,32 +1,32 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">推しガジェ</a>
+      <%= link_to "推しガジェ", root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">マイページ</a>
+            <%= link_to "マイページ", user_mygadgets_path(current_user.id), class: "nav-link active", 'aria-current': "page" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ガジェット登録</a>
+            <%= link_to "ガジェット登録", new_gadget_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ユーザー一覧</a>
+            <%= link_to "ユーザー一覧", users_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">新着投稿一覧</a>
+            <%= link_to "新着投稿一覧", gadgets_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">アカウント情報</a>
+            <%= link_to "アカウント情報", edit_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ログアウト</a>
+            <%= link_to "ログアウト", destroy_user_session_path	, class: "nav-link", method: :delete %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">お問い合わせ</a>
+            <%= link_to "お問い合わせ", root_path, class: "nav-link" %>
           </li>
         </ul>
       </div>

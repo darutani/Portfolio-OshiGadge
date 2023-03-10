@@ -3,9 +3,17 @@
 entity users {
   *id [PK]
   --
-  name
   email
   password
+}
+
+entity profiles {
+  *id [PK]
+  --
+  user_id [FK]
+  name
+  introduction
+  icon_image
 }
 
 entity gadgets {
@@ -40,12 +48,6 @@ entity inquiries as "inquiries\n問い合わせ" {
   --
 }
 
-entity profile_images {
-  *id [PK]
-  --
-  user_id [FK]
-}
-
 entity gadget_images {
   *id [PK]
   --
@@ -53,7 +55,7 @@ entity gadget_images {
 }
 
 users ||--o{ gadgets
-users ||-u-o| profile_images
+users ||-u-|| profiles
 users ||--o{ comments
 users ||--o{ favorites
 gadgets ||-r-o{ comments
