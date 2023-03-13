@@ -27,10 +27,16 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+# 環境変数設定
 gem 'dotenv-rails'
+# irbからpryへ変更
 gem 'pry-rails'
+# ログイン機能
 gem 'devise'
+# 国際化
 gem 'rails-i18n'
+# amazon s3
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

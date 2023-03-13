@@ -1,4 +1,39 @@
-<h1>New Gadget</h1>
+<h2>ガジェットを登録</h2>
+
+<%= form_with model: @gadget, url: gadgets_path, local: true do |f| %>
+  <div class="field">
+    <%= f.label :gadget_name, class: "form-label" %><br />
+    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category, class: "form-label" %><br />
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :, class: "form-label" %><br />
+    <%= f.file_field :, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category, class: "form-label" %><br />
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :category, class: "form-label" %><br />
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :category, class: "form-label" %><br />
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
 
 <%= render 'form', gadget: @gadget %>
 

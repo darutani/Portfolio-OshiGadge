@@ -13,7 +13,6 @@ entity profiles {
   user_id [FK]
   name
   introduction
-  icon_image
 }
 
 entity gadgets {
