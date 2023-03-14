@@ -7,4 +7,10 @@ class UsersController < ApplicationController
 
   def show_favorites
   end
+
+  def edit_profile
+  end
+
+  def account
+  end
 end
