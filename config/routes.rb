@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
+  devise_for :users,
+    controllers: {
+      registrations: 'users/registrations',
+      passwords: 'users/passwords'
+    }
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
@@ -19,6 +20,6 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index', as: 'users'
   get '/users/mygadgets/:id', to: 'users#show_mygadgets', as: 'user_mygadgets'
   get '/users/favorites/:id', to: 'users#show_favorites', as: 'user_favorites'
-
-  resources :profiles, only: [:edit]
+  get 'users/profile/:id/edit', to: 'users#edit_profile', as: 'edit_user_profile'
+  get 'users/account/:id', to: 'users#account', as: 'user_account'
 end
