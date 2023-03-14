@@ -28,7 +28,7 @@ class GadgetsController < ApplicationController
 
     respond_to do |format|
       if @gadget.save
-        format.html { redirect_to gadget_url(@gadget), notice: "Gadget was successfully created." }
+        format.html { redirect_to gadget_url(@gadget), notice: "新規ガジェットを登録しました" }
         format.json { render :show, status: :created, location: @gadget }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -68,6 +68,6 @@ class GadgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gadget_params
-      params.require(:gadget).permit(:user_id, :name, :start_date, :category, :reason, :point, :usage, :feature)
+      params.require(:gadget).permit(:user_id, :name, :start_date, :category, :reason, :point, :usage, :feature, :image).merge(user_id:current_user.id)
     end
 end
