@@ -6,7 +6,7 @@ class GadgetsController < ApplicationController
 
   # GET /gadgets or /gadgets.json
   def index
-    @gadgets = Gadget.all
+    @gadgets = Gadget.all.order('created_at DESC')
   end
 
   # GET /gadgets/1 or /gadgets/1.json
