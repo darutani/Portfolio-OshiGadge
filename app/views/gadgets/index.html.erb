@@ -13,10 +13,10 @@
       <h4><%= gadget.name %></h4>
       <p><%= gadget.category %></p>
       <p><%= gadget.start_date %></p>
-      <p><%= gadget.feature %></p>
-      <p><%= gadget.point %></p>
-      <p><%= gadget.usage %></p>
-      <p><%= gadget.reason %></p>
+      <p><%= safe_join(gadget.feature.split("\n"),tag(:br)) %></p>
+      <p><%= safe_join(gadget.point.split("\n"),tag(:br)) %></p>
+      <p><%= safe_join(gadget.usage.split("\n"),tag(:br)) %></p>
+      <p><%= safe_join(gadget.reason.split("\n"),tag(:br)) %></p>
     </div>
     <div>
       <%= image_tag gadget.image %>
