@@ -1,41 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Gadgets</h1>
+<h2>新着投稿一覧</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Start date</th>
-      <th>Category</th>
-      <th>Reason</th>
-      <th>Point</th>
-      <th>Usage</th>
-      <th>Feature</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div>
+  <% @gadgets.each do |gadget| %>
+    <div>
+      <%= gadget.user.avatar %>
+      <p><%= gadget.user.name %></p>
+      <p><%= gadget.created_at %></p>
+    </div>
+    <div>
+      <h4><%= gadget.name %></h4>
+      <p><%= gadget.category %></p>
+      <p><%= gadget.start_date %></p>
+      <p><%= safe_join(gadget.feature.split("\n"),tag(:br)) %></p>
+      <p><%= safe_join(gadget.point.split("\n"),tag(:br)) %></p>
+      <p><%= safe_join(gadget.usage.split("\n"),tag(:br)) %></p>
+      <p><%= safe_join(gadget.reason.split("\n"),tag(:br)) %></p>
+    </div>
+    <div>
+      <%= image_tag gadget.image %>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @gadgets.each do |gadget| %>
-      <tr>
-        <td><%= gadget.user_id %></td>
-        <td><%= gadget.name %></td>
-        <td><%= gadget.start_date %></td>
-        <td><%= gadget.category %></td>
-        <td><%= gadget.reason %></td>
-        <td><%= gadget.point %></td>
-        <td><%= gadget.usage %></td>
-        <td><%= gadget.feature %></td>
-        <td><%= link_to 'Show', gadget %></td>
-        <td><%= link_to 'Edit', edit_gadget_path(gadget) %></td>
-        <td><%= link_to 'Destroy', gadget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <%= link_to 'New Gadget', new_gadget_path %>

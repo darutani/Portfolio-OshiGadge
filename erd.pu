@@ -5,12 +5,6 @@ entity users {
   --
   email
   password
-}
-
-entity profiles {
-  *id [PK]
-  --
-  user_id [FK]
   name
   introduction
 }
@@ -54,7 +48,6 @@ entity gadget_images {
 }
 
 users ||--o{ gadgets
-users ||-u-|| profiles
 users ||--o{ comments
 users ||--o{ favorites
 gadgets ||-r-o{ comments

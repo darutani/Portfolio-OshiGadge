@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+  has_many :gadgets
   has_one_attached :avatar
 
   # Include default devise modules. Others available are:

@@ -11,7 +11,7 @@
   </div>
   <div class="field">
     <%= f.label :gadget_image, class: "form-label" %><br />
-    <%= f.file_field :image, class: "form-control" %>
+    <%= f.file_field :image, class: "form-control", accept: 'image/jpeg, image/jpg, image/png, image/bmp' %>
   </div>
   <div class="field">
     <%= f.label :start_date, class: "form-label" %><br />
