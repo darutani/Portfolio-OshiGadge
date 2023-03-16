@@ -5,7 +5,7 @@
 <div>
   <% @gadgets.each do |gadget| %>
     <div>
-      <%= gadget.user.avatar %>
+      <%= image_tag gadget.user.avatar %>
       <p><%= gadget.user.name %></p>
       <p><%= gadget.created_at %></p>
     </div>
