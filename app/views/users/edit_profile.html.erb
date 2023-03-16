@@ -1,0 +1,24 @@
+<h2>プロフィール編集</h2>
+
+<%= form_with model: @user, url: user_registration_path, method: :patch, local: true do |f| %>
+  <div class="field">
+    <%= f.label :name, "ユーザー名", class: "form-label" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "プロフィール画像", class: "form-label" %>
+    <%= f.file_field :image, accept: 'image/jpeg, image/jpg, image/png, image/bmp', class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, "自己紹介", class: "form-label" %><br />
+    <%= f.text_area :introduction, autocomplete: "introduction", class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
+
+<%= link_to "戻る", :back %>
