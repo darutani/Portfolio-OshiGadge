@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show_mygadgets
+    @user = User.find(params[:id])
+    @gadgets = @user.gadgets
   end
 
   def show_favorites
