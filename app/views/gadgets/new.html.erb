@@ -2,7 +2,7 @@
 
 <%= form_with model: @gadget, url: gadgets_path, local: true do |f| %>
   <div class="field">
-    <%= f.label :gadget_name, class: "form-label" %><br />
+    <%= f.label :name, "ガジェット名", class: "form-label" %><br />
     <%= f.text_field :name, autofocus: true, class: "form-control" %>
   </div>
   <div class="field">
@@ -10,7 +10,7 @@
     <%= f.text_field :category, class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :gadget_image, class: "form-label" %><br />
+    <%= f.label :image, "ガジェット画像", class: "form-label" %><br />
     <%= f.file_field :image, class: "form-control", accept: 'image/jpeg, image/jpg, image/png, image/bmp' %>
   </div>
   <div class="field">

@@ -41,7 +41,7 @@ class GadgetsController < ApplicationController
   def update
     respond_to do |format|
       if @gadget.update(gadget_params)
-        format.html { redirect_to gadget_url(@gadget), notice: "Gadget was successfully updated." }
+        format.html { redirect_to gadget_url(@gadget), notice: "ガジェット情報を更新しました" }
         format.json { render :show, status: :ok, location: @gadget }
       else
         format.html { render :edit, status: :unprocessable_entity }
