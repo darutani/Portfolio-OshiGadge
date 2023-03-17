@@ -1,44 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @gadget.user_id %>
-</p>
+<div>
+  <%= image_tag @gadget.user.avatar.variant(resize_to_limit: [100, 100]) %>
+  <p><%= @gadget.user.name %></p>
+  <p>登録日時：<%= @gadget.created_at %></p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @gadget.name %>
-</p>
+<div>
+  <%= image_tag @gadget.image %>
+</div>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @gadget.start_date %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @gadget.category %>
-</p>
-
-<p>
-  <strong>Reason:</strong>
-  <%= @gadget.reason %>
-</p>
-
-<p>
-  <strong>Point:</strong>
-  <%= @gadget.point %>
-</p>
-
-<p>
-  <strong>Usage:</strong>
-  <%= @gadget.usage %>
-</p>
-
-<p>
-  <strong>Feature:</strong>
-  <%= @gadget.feature %>
-</p>
+<div>
+  <p>
+    <strong>Name:</strong><br>
+    <%= @gadget.name %>
+  </p>
+  <p>
+    <strong>Category:</strong><br>
+    <%= @gadget.category %>
+  </p>
+  <p>
+    <strong>Start date:</strong><br>
+    <%= @gadget.start_date %>
+  </p>
+  <p>
+    <strong>Feature:</strong><br>
+    <%= safe_join(@gadget.feature.split("\n"),tag(:br)) %>
+  </p>
+  <p>
+    <strong>Point:</strong><br>
+    <%= safe_join(@gadget.point.split("\n"),tag(:br)) %>
+  </p>
+  <p>
+    <strong>Usage:</strong><br>
+    <%= safe_join(@gadget.usage.split("\n"),tag(:br)) %>
+  </p>
+  <p>
+    <strong>Reason:</strong><br>
+    <%= safe_join(@gadget.reason.split("\n"),tag(:br)) %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_gadget_path(@gadget) %> |
-<%= link_to 'Back', gadgets_path %>
+<%= link_to 'Back', :back %>
