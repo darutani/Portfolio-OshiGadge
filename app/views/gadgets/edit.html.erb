@@ -1,6 +1,43 @@
-<h1>Editing Gadget</h1>
+<h2>ガジェットを編集</h2>
 
-<%= render 'form', gadget: @gadget %>
+<%= form_with model: @gadget, url: gadget_path, local: true do |f| %>
+  <div class="field">
+    <%= f.label :name, "ガジェット名", class: "form-label" %><br />
+    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :category, class: "form-label" %><br />
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :image, "ガジェット画像", class: "form-label" %><br />
+    <%= f.file_field :image, class: "form-control", accept: 'image/jpeg, image/jpg, image/png, image/bmp' %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date, class: "form-label" %><br />
+    <%= f.date_field :start_date, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :feature, class: "form-label" %><br />
+    <%= f.text_area :feature, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :point, class: "form-label" %><br />
+    <%= f.text_area :point, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :reason, class: "form-label" %><br />
+    <%= f.text_area :reason, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :usage, class: "form-label" %><br />
+    <%= f.text_area :usage, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @gadget %> |
-<%= link_to 'Back', gadgets_path %>
+<%= link_to 'Back', :back %>
