@@ -1,1 +1,29 @@
-w
+<div>
+  <div>
+    <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
+    <p><%= @user.name %></p>
+  </div>
+  <div>
+    <%= link_to "プロフィールを編集", edit_user_profile_path(@user.id) %>
+  </div>
+</div>
+
+<div>
+  <div>
+    <p><strong>自己紹介</strong></p>
+    <p><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></p>
+  </div>
+  <div>
+    <p>登録数</P>
+    <p>フォロー</P>
+    <p>フォロワー</P>
+  </div>
+</div>
+
+<div>
+  <p>My ガジェット</p>
+  <p>お気に入り</p>
+</div>
+
+<%= link_to "新規登録", new_gadget_path %>
+

@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show_favorites
+    @user = User.find(params[:id])
+    @gadgets = @user.gadgets
   end
 
   def edit_profile
