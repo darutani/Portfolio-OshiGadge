@@ -18,5 +18,6 @@ class UsersController < ApplicationController
   end
 
   def account
+    @user = User.find(params[:id])
   end
 end
