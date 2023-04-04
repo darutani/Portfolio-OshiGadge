@@ -1,0 +1,30 @@
+footer {
+  padding: 20px 16px;
+}
+
+footer .logo {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+footer .info {
+  padding-left: 5px;
+}
+
+footer .info .info-title {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+footer .info .info-content {
+  font-size: 1.1rem;
+}
+
+footer .copyright {
+  text-align: center;
+  margin-top: 25px;
+}
+
+
+
