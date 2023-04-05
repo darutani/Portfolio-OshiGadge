@@ -1,6 +1,10 @@
 class User < ApplicationRecord
+  MAX_USER_NAME_LENGTH = 20
+
   has_many :gadgets
   has_one_attached :avatar
+
+  validates :name, presence: true, length: { maximum: MAX_USER_NAME_LENGTH }, uniqueness: { case_sensitive: false }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
