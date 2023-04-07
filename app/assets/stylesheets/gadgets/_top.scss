@@ -1,0 +1,84 @@
+@import "components/parts";
+
+.title {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position:center center;
+
+  .app-name {
+    text-align: center;
+
+    h1 {
+      font-size: 4.0rem;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      font-size: 2.0rem;
+    }
+  }
+
+  .description {
+    padding-top: 15rem;
+    text-align: center;
+
+    p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+// registration-and-login
+.registration-and-login {
+  padding-top: 15px;
+  padding-bottom: 40px;
+
+  .registration-button {
+    text-align: center;
+    padding-bottom: 20px;
+
+    .registration {
+      font-size: 19px;
+    }
+  }
+
+  .login-button {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+
+    .login {
+      font-size: 19px;
+    }
+
+    .guest-login {
+      font-size: 16px;
+    }
+  }
+
+  .btn {
+    background: $color-fourth;
+    color: $color-first;
+    width:  130px;
+    height: 40px;
+  }
+}
+
+// 一覧部分共通
+.lists-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  a {
+    color: $color-fifth;
+    font-size: 1.2rem;
+  }
+}
