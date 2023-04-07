@@ -1,11 +1,11 @@
 <div class="container">
-  <h2>ユーザー新規登録</h2>
+  <h2 class="form-title">ユーザー新規登録</h2>
 
   <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field mb-5">
-      <div class="label-required">
+      <div class="label-container">
         <%= f.label :name, class: "form-label" %>
         <span class="minimum-length"><%= "(#{User::MAX_USER_NAME_LENGTH}文字以上)" %></span>
         <span class="required-mark">必須</span>
@@ -14,14 +14,14 @@
     </div>
 
     <div class="field mb-5">
-      <div class="label-required">
+      <div class="label-container">
         <%= f.label :email, class: "form-label" %><span class="required-mark">必須</span>
       </div>
       <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field mb-5">
-      <div class="label-required">
+      <div class="label-container">
         <%= f.label :password, class: "form-label" %>
         <span class="minimum-length"><%= "（#{@minimum_password_length}文字以上）" if @minimum_password_length %></span>
         <span class="required-mark">必須</span>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="field mb-5">
-      <div class="label-required">
+      <div class="label-container">
         <%= f.label :password_confirmation, class: "form-label" %><span class="required-mark">必須</span>
       </div>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
@@ -41,11 +41,11 @@
     </div>
   <% end %>
 
-  <p>ユーザーが本サービスへの登録申込をしたことをもって利用規約およびプライバシーポリシーのすべての条項に同意したものとみなします。</p>
+  <div class="consent-decree">
+    <p>ユーザーが本サービスへの登録申込をしたことをもって利用規約およびプライバシーポリシーのすべての条項に同意したものとみなします。</p>
+  </div>
 
   <div class="login-link">
     <%= link_to "ログインはこちら", user_session_path %>
   </div>
-
-
 </div>
