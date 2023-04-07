@@ -1,0 +1,54 @@
+.label-required {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+
+  label {
+    font-size: 1.7rem;
+    margin: 0;
+  }
+
+  .minimum-length {
+    font-size: 1.5rem;
+  }
+
+  .required-mark {
+    color: #FFFFFF;
+    background-color: #F17272;
+    font-weight: bold;
+    margin-left: 8px;
+    border-radius: 8px;
+    padding: 2px 6px;
+    display: inline-block;
+    font-size: 0.75em;
+  }
+}
+
+input {
+  font-size: 1.5rem;
+  height: 3.5rem;
+}
+
+.actions .btn {
+  background-color: #393E46;
+  color: #F7F7F7;
+  height: 4rem;
+  font-size: 2rem;
+  font-weight: 550;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.login-link {
+  text-align: center;
+  margin: 50px 0 30px;
+
+  a {
+    color: #679EF1;
+    font-size: 2rem;
+    font-weight: 550;
+  }
+}
+
