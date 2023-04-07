@@ -1,0 +1,42 @@
+// 一覧の詳細へのリンクボタン
+.detail-link-container {
+  padding: 0 15px;
+  margin: 10px 0;
+
+  .detail-link {
+    display: block;
+    background-color: $color-fourth;
+    text-align: center;
+    border-radius: 5px;
+    color: $color-second;
+    font-size: 1.3rem;
+    // padding: 8px 0;
+  }
+}
+
+// 一覧ページへのリンクボタン
+.list-link-container {
+  padding: 0 15px;
+
+  .list-link {
+    display: block;
+    background-color: $color-second;
+    text-align: center;
+    padding: 8px 0;
+    color: $color-fourth;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+// formのボタン
+.actions {
+
+  .btn {
+    background-color: $color-fourth;
+    color: $color-first;
+    height: 4.5rem;
+    font-size: 2rem;
+    font-weight: 550;
+  }
+}

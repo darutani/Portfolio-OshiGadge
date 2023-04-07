@@ -1,26 +1,9 @@
-/*
-*= require_self
-*= require_tree .
-*/
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  background-color: #F7F7F7;
-  color: #393E46;
-  padding-top: 57px;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1, h2, h3, h4, h5 {
-  font-weight: bold;
-}
-
-hr {
-  margin: 0;
-}
+@import "base/colors";
+@import "base/typography";
+@import "components/forms";
+@import "common";
+@import "layouts/header";
+@import "layouts/footer";
+@import "devise/sessions/new";
+@import "users/registrations/new";
+@import "gadgets/top";

@@ -1,5 +1,5 @@
 <div class="title">
-  <div class="title-wrapper">
+  <div class="container">
     <div class="app-name">
       <h1>OshiGadge</h1>
       <h4>−推しガジェ−</h4>
@@ -27,76 +27,76 @@
     </div>
   </div>
 <% end %>
-<div class="new-posts">
-  <div class="new-posts-title">
+<div class="container">
+  <div class="lists-title">
     <h2>新着投稿一覧</h2>
     <%= link_to "新着投稿一覧はこちら", gadgets_path %>
   </div>
-  <div class="post-list">
+  <div class="lists">
     <% @gadgets.each do |gadget| %>
-      <div class="post">
+      <div class="list-item">
         <div class="post-container">
           <div class="content">
             <%= link_to user_mygadgets_path(gadget.user.id) do %>
-              <div class="user-info">
-                <div class="icon-image">
+              <div class="info-container">
+                <div class="icon-image-sm">
                   <%= image_tag gadget.user.avatar %>
                 </div>
-                <div class="user-content">
+                <div class="user-name-and-creationdate">
                   <p class="user-name"><%= gadget.user.name %></p>
-                  <p><%= gadget.created_at %></p>
+                  <p class="creationdate"><%= gadget.created_at %></p>
                 </div>
               </div>
             <% end %>
             <p class="gadget-name"><%= gadget.name %></p>
             <p class="gadget-category"><%= gadget.category %></p>
           </div>
-          <div class="image">
+          <div class="gadget-image-md">
             <%= image_tag gadget.image, size: "125x110" %>
           </div>
         </div>
-        <div class="post-button">
-          <P><%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn" %></P>
+        <div class="detail-link-container">
+          <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="post-list-link">
-    <P><%= link_to "新着投稿一覧はこちら", gadgets_path %></P>
+  <div class="list-link-container">
+    <%= link_to "新着投稿一覧はこちら", gadgets_path, class: "btn list-link" %>
   </div>
 </div>
-<div class="users-index">
-  <div class="users-index-title">
+<div class="container">
+  <div class="lists-title">
     <h2>ユーザー一覧</h2>
     <%= link_to "ユーザー一覧はこちら", users_path %>
   </div>
-  <div class="users-list">
+  <div class="lists">
     <% @users.each do |user| %>
-      <div class="user-container">
+      <div class="list-item">
         <%= link_to user_mygadgets_path(user.id) do %>
-          <div class="user-info">
-            <div class="icon-image">
+          <div class="info-container">
+            <div class="icon-image-sm">
               <%= image_tag user.avatar %>
             </div>
-            <div class="user-content">
+            <div class="user-name-only">
               <p class="user-name"><%= user.name %></p>
             </div>
           </div>
         <% end %>
-        <div class="gadget-image">
+        <div class="gadget-image-sm">
           <% user.gadgets.each do |gadget| %>
             <%= link_to gadget_path(gadget.id) do %>
               <%= image_tag gadget.image, size: "65x65" %>
             <% end %>
           <% end %>
         </div>
-        <div class="user-button">
-          <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn" %></P>
+        <div class="detail-link-container">
+          <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="user-list-link">
-    <P><%= link_to "ユーザー一覧はこちら", users_path %></P>
+  <div class="list-link-container">
+    <P><%= link_to "ユーザー一覧はこちら", users_path, class: "btn list-link" %></P>
   </div>
 </div>
