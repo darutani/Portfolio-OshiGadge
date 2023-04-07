@@ -28,3 +28,15 @@
     font-weight: bold;
   }
 }
+
+// formのボタン
+.actions {
+
+  .btn {
+    background-color: $color-fourth;
+    color: $color-first;
+    height: 4.5rem;
+    font-size: 2rem;
+    font-weight: 550;
+  }
+}
