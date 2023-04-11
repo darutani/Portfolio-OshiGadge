@@ -1,28 +1,36 @@
-<p id="notice"><%= notice %></p>
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-<h2>新着投稿一覧</h2>
+    <h2 class="form-title">新着投稿一覧</h2>
 
-<div>
-  <% @gadgets.each do |gadget| %>
-    <div>
-      <%= image_tag gadget.user.avatar %>
-      <p><%= gadget.user.name %></p>
-      <p><%= gadget.created_at %></p>
+    <div class="lists">
+      <% @gadgets.each do |gadget| %>
+        <div class="list-item">
+          <div class="post-container">
+            <div class="content">
+              <%= link_to user_mygadgets_path(gadget.user.id) do %>
+                <div class="info-container">
+                  <div class="icon-image-sm">
+                    <%= image_tag gadget.user.avatar %>
+                  </div>
+                  <div class="user-name-and-creationdate">
+                    <p class="user-name"><%= gadget.user.name %></p>
+                    <p class="creationdate"><%= gadget.created_at %></p>
+                  </div>
+                </div>
+              <% end %>
+              <p class="gadget-name"><%= gadget.name %></p>
+              <p class="gadget-category"><%= gadget.category %></p>
+            </div>
+            <div class="gadget-image-md">
+              <%= image_tag gadget.image, size: "125x110" %>
+            </div>
+          </div>
+          <div class="detail-link-container">
+            <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div>
-      <h4><%= gadget.name %></h4>
-      <p><%= gadget.category %></p>
-      <p><%= gadget.start_date %></p>
-      <p><%= safe_join(gadget.feature.split("\n"),tag(:br)) %></p>
-      <p><%= safe_join(gadget.point.split("\n"),tag(:br)) %></p>
-      <p><%= safe_join(gadget.usage.split("\n"),tag(:br)) %></p>
-      <p><%= safe_join(gadget.reason.split("\n"),tag(:br)) %></p>
-    </div>
-    <div>
-      <%= image_tag gadget.image %>
-    </div>
-  <% end %>
-</div>
-
-
-<%= link_to 'New Gadget', new_gadget_path %>
+    <%= paginate @gadgets, theme: 'bootstrap-5' %>
+  </div>
