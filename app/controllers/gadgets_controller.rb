@@ -6,25 +6,21 @@ class GadgetsController < ApplicationController
     @users = User.all.order('created_at DESC').limit(5)
   end
 
-  # GET /gadgets or /gadgets.json
   def index
-    @gadgets = Gadget.all.order('created_at DESC')
+    # @gadgets = Gadget.all.order('created_at DESC')
+    @gadgets = Gadget.all.order('created_at DESC').page(params[:page])
   end
 
-  # GET /gadgets/1 or /gadgets/1.json
   def show
   end
 
-  # GET /gadgets/new
   def new
     @gadget = Gadget.new
   end
 
-  # GET /gadgets/1/edit
   def edit
   end
 
-  # POST /gadgets or /gadgets.json
   def create
     @gadget = Gadget.new(gadget_params)
 

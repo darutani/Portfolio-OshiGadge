@@ -37,6 +37,9 @@ gem 'devise'
 gem 'rails-i18n'
 # amazon s3
 gem 'aws-sdk-s3', require: false
+# ページネーションの実装のためのkaminari
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
