@@ -1,31 +1,37 @@
 @import "components/parts";
 
 .title {
-  background-image: url('background.jpg');
+  background-image: url('background_image.jpg');
   background-size: cover;
-  background-position:center center;
+  background-position: right;
+  color: $color-fourth;
 
-  .app-name {
-    text-align: center;
+  .wrapper {
+    background-color: rgba(229, 229, 229, 0.706);
+    padding: 20px 32px;
 
-    h1 {
-      font-size: 4.0rem;
-      margin-bottom: 0;
+    .app-name {
+      text-align: center;
+      margin-bottom: 40px;
+
+      h1 {
+        font-size: 5.0rem;
+        margin-bottom: 0;
+      }
+
+      h4 {
+        font-size: 2.5rem;
+      }
     }
 
-    h4 {
-      font-size: 2.0rem;
-    }
-  }
+    .description {
+      text-align: center;
 
-  .description {
-    padding-top: 15rem;
-    text-align: center;
-
-    p {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 0;
+      p {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 0;
+      }
     }
   }
 }
