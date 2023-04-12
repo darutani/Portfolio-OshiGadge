@@ -7,7 +7,6 @@ class GadgetsController < ApplicationController
   end
 
   def index
-    # @gadgets = Gadget.all.order('created_at DESC')
     @gadgets = Gadget.all.order('created_at DESC').page(params[:page])
   end
 
