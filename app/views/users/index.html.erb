@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h2>ユーザー一覧</h2>
+  <h2 class="form-title">ユーザー一覧</h2>
 
-<div>
-  <% @users.each do |user| %>
-    <div>
-      <%= link_to user_mygadgets_path(user.id) do %>
-        <% if user.avatar.attached? %>
-          <%= image_tag user.avatar.variant(resize_to_limit: [100, 100]) %>
-        <% end %>
-        <p><%= user.name %></p>
-      <% end %>
-    </div>
-    <% if user.gadgets.any? %>
-      <div>
-        <h4>登録ガジェット</h4>
-        <div class="gadgets">
-          <% user.gadgets.each do |gadget| %>
-            <div class="gadget">
-              <%= image_tag gadget.image %>
-              <p><%= link_to gadget.name, gadget_path(gadget.id) %></p>
+  <div class="lists">
+    <% @users.each do |user| %>
+      <div class="list-item">
+        <%= link_to user_mygadgets_path(user.id) do %>
+          <div class="info-container">
+            <div class="icon-image-sm">
+              <%= image_tag user.avatar %>
             </div>
+            <div class="user-name-only">
+              <p class="user-name"><%= user.name %></p>
+            </div>
+          </div>
+        <% end %>
+        <div class="user-introduction">
+          <p><%= user.introduction %></p>
+        </div>
+        <div class="gadget-image-sm">
+          <% user.gadgets.each do |gadget| %>
+            <%= link_to gadget_path(gadget.id) do %>
+              <%= image_tag gadget.image, size: "65x65" %>
+            <% end %>
           <% end %>
+        </div>
+        <div class="detail-link-container">
+          <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
         </div>
       </div>
     <% end %>
-  <% end %>
+  </div>
+  <%= paginate @users %>
 </div>
