@@ -28,3 +28,8 @@
 .pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
+
+// gapのデザイン
+.pagination .disabled .page-link {
+  background-color: $color-first;
+}
