@@ -4,43 +4,43 @@
   <%= form_with model: @gadget, url: gadget_path, local: true do |f| %>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :name, "ガジェット名", class: "form-label" %><br />
+        <%= f.label :name, "ガジェット名", class: "form-label" %>
       </div>
       <%= f.text_field :name, autofocus: true, class: "form-control" %>
     </div>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :category, class: "form-label" %><br />
+        <%= f.label :category, class: "form-label" %>
       </div>
       <%= f.text_field :category, class: "form-control" %>
     </div>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :image, "ガジェット画像", class: "form-label" %><br />
+        <%= f.label :image, "ガジェット画像", class: "form-label" %>
       </div>
       <%= f.file_field :image, class: "form-control", accept: 'image/jpeg, image/jpg, image/png, image/bmp' %>
     </div>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :start_date, class: "form-label" %><br />
+        <%= f.label :start_date, class: "form-label" %>
       </div>
       <%= f.date_field :start_date, class: "form-control" %>
     </div>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :point, class: "form-label" %><br />
+        <%= f.label :point, class: "form-label" %>
       </div>
       <%= f.text_area :point, class: "form-control", rows: 8 %>
     </div>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :reason, class: "form-label" %><br />
+        <%= f.label :reason, class: "form-label" %>
       </div>
       <%= f.text_area :reason, class: "form-control", rows: 8 %>
     </div>
     <div class="field mb-5">
       <div class="label-container">
-        <%= f.label :usage, class: "form-label" %><br />
+        <%= f.label :usage, class: "form-label" %>
       </div>
       <%= f.text_area :usage, class: "form-control", rows: 8 %>
     </div>
