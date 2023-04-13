@@ -39,8 +39,10 @@
     <% end %>
   </div>
 
-  <div class="gadget-new-registration-btn-container">
-    <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>
-  </div>
+  <% if current_user == @user %>
+    <div class="gadget-new-registration-btn-container">
+      <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>
+    </div>
+  <% end %>
 </div>
 
