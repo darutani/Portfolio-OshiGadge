@@ -11,6 +11,7 @@ class GadgetsController < ApplicationController
   end
 
   def show
+    @gadget = Gadget.find(params[:id])
   end
 
   def new
