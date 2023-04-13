@@ -13,7 +13,7 @@
           <li><%= link_to "ガジェット登録", new_gadget_path, class: "dropdown-item" %></li>
           <li><%= link_to "ユーザー一覧", users_path, class: "dropdown-item" %></li>
           <li><%= link_to "新着投稿一覧", gadgets_path, class: "dropdown-item" %></li>
-          <li><%= link_to "アカウント情報", edit_user_registration_path, class: "dropdown-item" %></li>
+          <li><%= link_to "アカウント情報", user_account_path(current_user.id), class: "dropdown-item" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
           <li><%= link_to "お問い合わせ", root_path, class: "dropdown-item" %></li>
         </ul>
