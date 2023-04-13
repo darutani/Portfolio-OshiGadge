@@ -1,29 +1,56 @@
-<div>
-  <div>
-    <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
-    <p><%= @user.name %></p>
+<div class="container">
+  <div class="user-info-and-link-profile">
+    <div class="icon-image-lg">
+      <%= image_tag @user.avatar %>
+      <p><%= @user.name %>さん</p>
+    </div>
+    <div class="edit-profile-btn-container">
+      <%= link_to "プロフィールを編集", edit_user_profile_path(@user.id), class: "btn edit-profile-btn" %>
+    </div>
   </div>
-  <div>
-    <%= link_to "プロフィールを編集", edit_user_profile_path(@user.id) %>
-  </div>
-</div>
 
-<div>
-  <div>
-    <p><strong>自己紹介</strong></p>
+  <div class="inroduction">
     <p><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></p>
   </div>
-  <div>
-    <p>登録数</P>
-    <p>フォロー</P>
-    <p>フォロワー</P>
+
+  <div class="mypage-link-lists">
+    <p class="link-page"><%= link_to "My ガジェット", user_mygadgets_path(@user.id) %></p>
+    <p class="current-page">お気に入り</p>
   </div>
+
+  <div class="lists">
+    <% @gadgets.each do |gadget| %>
+      <div class="list-item">
+        <div class="post-container">
+          <div class="content">
+            <%= link_to user_mygadgets_path(gadget.user.id) do %>
+              <div class="info-container">
+                <div class="icon-image-sm">
+                  <%= image_tag gadget.user.avatar %>
+                </div>
+                <div class="user-name-and-creationdate-sm">
+                  <p class="user-name-sm"><%= gadget.user.name %></p>
+                  <p class="creationdate-sm"><%= gadget.created_at %></p>
+                </div>
+              </div>
+            <% end %>
+            <p class="gadget-name"><%= gadget.name %></p>
+            <p class="gadget-category"><%= gadget.category %></p>
+          </div>
+          <div class="gadget-image-md">
+            <%= image_tag gadget.image, size: "125x110" %>
+          </div>
+        </div>
+        <div class="detail-link-container">
+          <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if current_user == @user %>
+    <div class="gadget-new-registration-btn-container">
+      <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>
+    </div>
+  <% end %>
 </div>
-
-<div>
-  <p>My ガジェット</p>
-  <p>お気に入り</p>
-</div>
-
-<%= link_to "新規登録", new_gadget_path %>
-
