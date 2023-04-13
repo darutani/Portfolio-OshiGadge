@@ -1,42 +1,52 @@
-<h2>ガジェットを登録</h2>
+<div class="container">
+  <h2 class="form-title">ガジェットを登録</h2>
 
-<%= form_with model: @gadget, url: gadgets_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label :name, "ガジェット名", class: "form-label" %><br />
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :category, class: "form-label" %><br />
-    <%= f.text_field :category, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :image, "ガジェット画像", class: "form-label" %><br />
-    <%= f.file_field :image, class: "form-control", accept: 'image/jpeg, image/jpg, image/png, image/bmp' %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date, class: "form-label" %><br />
-    <%= f.date_field :start_date, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :feature, class: "form-label" %><br />
-    <%= f.text_area :feature, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :point, class: "form-label" %><br />
-    <%= f.text_area :point, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :reason, class: "form-label" %><br />
-    <%= f.text_area :reason, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :usage, class: "form-label" %><br />
-    <%= f.text_area :usage, class: "form-control" %>
-  </div>
+  <%= form_with model: @gadget, url: gadgets_path, local: true do |f| %>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :name, "ガジェット名", class: "form-label" %>
+      </div>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :category, class: "form-label" %>
+      </div>
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :image, "ガジェット画像", class: "form-label" %>
+      </div>
+      <%= f.file_field :image, class: "form-control", accept: 'image/jpeg, image/jpg, image/png, image/bmp' %>
+    </div>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :start_date, class: "form-label" %>
+      </div>
+      <%= f.date_field :start_date, class: "form-control" %>
+    </div>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :point, class: "form-label" %>
+      </div>
+      <%= f.text_area :point, class: "form-control", rows: 8 %>
+    </div>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :reason, class: "form-label" %>
+      </div>
+      <%= f.text_area :reason, class: "form-control", rows: 8 %>
+    </div>
+    <div class="field mb-5">
+      <div class="label-container">
+        <%= f.label :usage, class: "form-label" %>
+      </div>
+      <%= f.text_area :usage, class: "form-control", rows: 8 %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "登録" %>
-  </div>
-<% end %>
-
-<%= link_to '戻る', user_mygadgets_path(current_user.id) %>
+    <div class="actions mb-3 pt-4 d-grid mx-auto">
+      <%= f.submit "登録", class: "btn" %>
+    </div>
+  <% end %>
+</div>
