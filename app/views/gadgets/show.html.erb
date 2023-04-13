@@ -1,45 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<div>
-  <%= image_tag @gadget.user.avatar.variant(resize_to_limit: [100, 100]) %>
-  <p><%= @gadget.user.name %></p>
-  <p>登録日時：<%= @gadget.created_at %></p>
+  <div>
+    <%= link_to user_mygadgets_path(@gadget.user.id) do %>
+      <div class="info-container">
+        <div class="icon-image-md">
+          <%= image_tag @gadget.user.avatar %>
+        </div>
+        <div class="user-name-and-creationdate-md">
+          <p class="user-name-md"><%= @gadget.user.name %></p>
+          <p class="creationdate-md"><%= @gadget.created_at %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="gadget-image-lg">
+    <%= image_tag @gadget.image %>
+  </div>
+
+  <div class="gadget-details-container">
+    <div class="gadget-detail">
+      <p class="category">ガジェット名</p>
+      <p class="content"><%= @gadget.name %></p>
+    </div>
+    <div class="gadget-detail">
+      <p class="category">カテゴリー</p>
+      <P class="content"><%= @gadget.category %></P>
+    </div>
+    <div class="gadget-detail">
+      <p class="category">使用開始日</p>
+      <P class="content"><%= @gadget.start_date %></P>
+    </div>
+    <div class="gadget-detail">
+      <p class="category">推しポイント</p>
+      <P class="content"><%= safe_join(@gadget.point.split("\n"),tag(:br)) %></P>
+    </div>
+    <div class="gadget-detail">
+      <p class="category">使用用途</p>
+      <P class="content"><%= safe_join(@gadget.usage.split("\n"),tag(:br)) %></P>
+    </div>
+    <div class="gadget-detail">
+      <p class="category">選んだ理由</p>
+      <P class="content"><%= safe_join(@gadget.reason.split("\n"),tag(:br)) %></P>
+    </div>
+  </div>
+
+  <div class="edit-btn-container">
+    <%= link_to '編集する', edit_gadget_path(@gadget), class: "btn edit-btn" %>
+  </div>
 </div>
-
-<div>
-  <%= image_tag @gadget.image %>
-</div>
-
-<div>
-  <p>
-    <strong>Name:</strong><br>
-    <%= @gadget.name %>
-  </p>
-  <p>
-    <strong>Category:</strong><br>
-    <%= @gadget.category %>
-  </p>
-  <p>
-    <strong>Start date:</strong><br>
-    <%= @gadget.start_date %>
-  </p>
-  <p>
-    <strong>Feature:</strong><br>
-    <%= safe_join(@gadget.feature.split("\n"),tag(:br)) %>
-  </p>
-  <p>
-    <strong>Point:</strong><br>
-    <%= safe_join(@gadget.point.split("\n"),tag(:br)) %>
-  </p>
-  <p>
-    <strong>Usage:</strong><br>
-    <%= safe_join(@gadget.usage.split("\n"),tag(:br)) %>
-  </p>
-  <p>
-    <strong>Reason:</strong><br>
-    <%= safe_join(@gadget.reason.split("\n"),tag(:br)) %>
-  </p>
-</div>
-
-<%= link_to 'Edit', edit_gadget_path(@gadget) %> |
-<%= link_to 'Back', :back %>
