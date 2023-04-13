@@ -76,6 +76,23 @@
   }
 }
 
+// アイコン画像（大）＋ユーザー名
+.icon-image-lg {
+
+  img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+}
+
 // ユーザー情報共通
 .info-container {
   display: flex;

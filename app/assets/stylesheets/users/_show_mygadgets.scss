@@ -1,0 +1,61 @@
+@import "components/parts";
+@import "components/buttons";
+
+.user-info-and-link-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inroduction {
+  font-size: 1.2rem;
+  margin: 10px 0 30px 0;
+}
+
+.mypage-link-lists {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+
+  .current-page {
+    font-weight: bold;
+    border-bottom: 3px solid $color-fourth;
+  }
+}
+
+.mygadget-lists {
+
+  .category-container {
+    margin: 40px 0;
+
+    h4 {
+      font-size: 1.8rem;
+      margin: 10px 0;
+      border-left: 4px solid $color-fourth;
+      padding-left: 3px;
+    }
+  }
+
+  .mygadget-detail {
+    background-color: $color-second;
+    padding: 8px;
+
+    .gadget-image {
+      img {
+        width: 100%;
+        height: 40vw;
+      }
+    }
+
+    .gadget-name {
+      margin: 10px 0;
+
+      h5 {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
