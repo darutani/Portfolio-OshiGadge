@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def account
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 end

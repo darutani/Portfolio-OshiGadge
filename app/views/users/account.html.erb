@@ -1,8 +1,14 @@
-<h2>アカウント情報</h2>
+<div class="container">
+  <h2 class="form-title">アカウント情報</h2>
 
-<h4>メールアドレス</h4>
-<p><%= @user.email %></p>
-<h4>パスワード</h4>
-<p>●●●●●●●●</p>
+  <div class="account-info">
+    <h4>メールアドレス</h4>
+    <p><%= @user.email %></p>
+    <h4>パスワード</h4>
+    <p>●●●●●●●●</p>
+  </div>
 
-<%= link_to "編集", edit_user_registration_path %>
+  <div class="actions mb-3 pt-4 d-grid mx-auto">
+    <%= link_to "編集", edit_user_registration_path, class: "btn d-flex align-items-center justify-content-center" %>
+  </div>
+</div>
