@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'top'
     end
     resource :likes, only: [:create, :destroy]
+    get 'liked_users', on: :member
   end
 
   devise_for :users,
