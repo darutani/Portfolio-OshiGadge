@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h2 class="form-title">いいねしたユーザー</h2>
+
+  <div class="lists">
+    <% @users.each do |user| %>
+      <div class="list-item">
+        <%= link_to user_mygadgets_path(user.id) do %>
+          <div class="info-container">
+            <div class="icon-image-sm">
+              <%= image_tag user.avatar %>
+            </div>
+            <div class="user-name-only">
+              <p class="user-name"><%= user.name %></p>
+            </div>
+          </div>
+        <% end %>
+        <div class="user-introduction">
+          <p><%= user.introduction %></p>
+        </div>
+        <div class="detail-link-container">
+          <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @users %>
+</div>

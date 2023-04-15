@@ -59,7 +59,8 @@ class GadgetsController < ApplicationController
   end
 
   def liked_users
-    
+    @gadget = Gadget.find(params[:id])
+    @users = User.joins(:likes).where(likes: { gadget_id: @gadget.id }).order('likes.created_at DESC').page(params[:page])
   end
 
   private
