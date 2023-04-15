@@ -21,7 +21,7 @@
 
   <%# いいね %>
   <div class="likes-and-comments" id="likes-and-comments-<%= @gadget.id %>">
-    <%= render partial: 'shared/likes_and_comments', locals: {gadget: @gadget, custom_view: 'show'} %>
+    <%= render partial: 'shared/likes_and_liked_users', locals: {gadget: @gadget} %>
   </div>
 
   <div class="gadget-details-container">

@@ -1,42 +1,15 @@
 <% if gadget.liked_by?(current_user) %>
-  <% if custom_view == 'other' %>
-    <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :delete, remote: true, class: 'like-button' do %>
-      <i class="fas fa-thumbs-up me-2" style="color: black;"></i> <%= gadget.likes.count %>
-    <% end %>
-  <% elsif custom_view == 'show' %>
-    <%= link_to gadget_likes_path(gadget, custom_view: 'show'), method: :delete, remote: true, class: 'like-button' do %>
-      <i class="fas fa-thumbs-up me-2" style="color: black;"></i>
-    <% end %>
-    <%= link_to liked_users_gadget_path(gadget), class: 'like-button' do %>
-      <P><strong><%= gadget.likes.count %></strong> 件のいいね</P>
-    <% end %>
+  <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :delete, remote: true, class: 'like-button' do %>
+    <i class="fas fa-thumbs-up me-2" style="color: black;"></i> <%= gadget.likes.count %>
   <% end %>
 <% else %>
   <% if user_signed_in? %>
-    <% if custom_view == 'other' %>
-      <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :post, remote: true, class: 'like-button' do %>
-        <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
-      <% end %>
-    <% elsif custom_view == 'show' %>
-      <%= link_to gadget_likes_path(gadget, custom_view: 'show'), method: :post, remote: true, class: 'like-button' do %>
-        <i class="far fa-thumbs-up me-2"></i>
-      <% end %>
-      <%= link_to liked_users_gadget_path(gadget), class: 'like-button' do %>
-        <P><strong><%= gadget.likes.count %></strong> 件のいいね</P>
-      <% end %>
+    <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :post, remote: true, class: 'like-button' do %>
+      <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
     <% end %>
   <% else %>
-    <% if custom_view == 'other' %>
-      <%= link_to new_user_session_path, class: 'like-button' do %>
-        <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
-      <% end %>
-    <% elsif custom_view == 'show' %>
-      <%= link_to new_user_session_path, class: 'like-button' do %>
-        <i class="far fa-thumbs-up me-2"></i>
-      <% end %>
-      <%= link_to liked_users_gadget_path(gadget), class: 'like-button' do %>
-        <P><strong><%= gadget.likes.count %></strong> 件のいいね</P>
-      <% end %>
+    <%= link_to new_user_session_path, class: 'like-button' do %>
+      <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
     <% end %>
   <% end %>
 <% end %>
