@@ -22,7 +22,7 @@ entity gadgets {
   feature
 }
 
-entity favorites {
+entity likes {
   *id [PK]
   --
   user_id [FK]
@@ -49,9 +49,9 @@ entity gadget_images {
 
 users ||--o{ gadgets
 users ||--o{ comments
-users ||--o{ favorites
+users ||--o{ likes
 gadgets ||-r-o{ comments
 gadgets ||-d-o{ gadget_images
-gadgets ||-l-o{ favorites
+gadgets ||-l-o{ likes
 
 @enduml

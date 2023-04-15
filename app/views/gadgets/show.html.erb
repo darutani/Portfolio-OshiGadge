@@ -19,6 +19,11 @@
     <%= image_tag @gadget.image %>
   </div>
 
+  <%# いいね %>
+  <div class="likes-and-comments" id="likes-and-comments-<%= @gadget.id %>">
+    <%= render partial: 'shared/likes_and_liked_users', locals: {gadget: @gadget} %>
+  </div>
+
   <div class="gadget-details-container">
     <div class="gadget-detail">
       <p class="category">ガジェット名</p>

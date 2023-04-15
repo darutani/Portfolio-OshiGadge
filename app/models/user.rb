@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   MAX_USER_NAME_LENGTH = 20
 
-  has_many :gadgets
+  has_many :gadgets, dependent: :destroy
   has_one_attached :avatar
+  has_many :likes, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: MAX_USER_NAME_LENGTH }, uniqueness: { case_sensitive: false }
 
