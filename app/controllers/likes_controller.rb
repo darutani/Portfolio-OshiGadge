@@ -4,6 +4,7 @@ class LikesController < ApplicationController
   def create
     @gadget = Gadget.find(params[:gadget_id])
     @like = current_user.likes.create(gadget_id: params[:gadget_id])
+    @custom_view = params[:custom_view]
     @like.save
 
     respond_to do |format|
@@ -20,6 +21,7 @@ class LikesController < ApplicationController
   def destroy
     @gadget = Gadget.find(params[:gadget_id])
     @like = current_user.likes.find_by(gadget_id: params[:gadget_id])
+    @custom_view = params[:custom_view]
     @like.destroy
 
     respond_to do |format|

@@ -1,1 +1,6 @@
-$("#likes-and-comments-<%= @gadget.id %>").html("<%= escape_javascript(render partial: 'shared/likes_and_comments', locals: {gadget: @gadget}) %>");
+<% if @custom_view == 'other' %>
+  $("#likes-and-comments-<%= @gadget.id %>").html("<%= escape_javascript(render partial: 'shared/likes_and_comments', locals: { gadget: @gadget, custom_view: 'other' }) %>");
+<% elsif @custom_view == 'show' %>
+  $("#likes-and-comments-<%= @gadget.id %>").html("<%= escape_javascript(render partial: 'shared/likes_and_comments', locals: { gadget: @gadget, custom_view: 'show' }) %>");
+<% end %>
+
