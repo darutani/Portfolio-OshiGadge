@@ -3,13 +3,28 @@ class LikesController < ApplicationController
 
   def create
     @gadget = Gadget.find(params[:gadget_id])
-    current_user.likes.create!(gadget: @gadget)
-    redirect_to @gadget
+    @like = current_user.likes.create(gadget_id: params[:gadget_id])
+    @like.save
+
+    respond_to do |format|
+      if @like.save
+        format.html { redirect_to @gadget, notice: 'Liked the gadget.' }
+        format.js
+      else
+        format.html { redirect_to @gadget, alert: 'Failed to like the gadget.' }
+        format.js { render :error }
+      end
+    end
   end
 
   def destroy
     @gadget = Gadget.find(params[:gadget_id])
-    current_user.likes.find_by(gadget_id: @gadget.id).destroy!
-    redirect_to @gadget
+    @like = current_user.likes.find_by(gadget_id: params[:gadget_id])
+    @like.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @gadget, notice: 'Unliked the gadget.' }
+      format.js
+    end
   end
 end
