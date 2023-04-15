@@ -1,17 +1,15 @@
-<div class="likes-and-comments" id="likes-and-comments">
-  <% if gadget.liked_by?(current_user) %>
-    <%= link_to gadget_likes_path(gadget), method: :delete, remote: true, class: 'like-button' do %>
-      <i class="fas fa-thumbs-up me-2" style="color: black;"></i> <%= gadget.likes.count %>
+<% if gadget.liked_by?(current_user) %>
+  <%= link_to gadget_likes_path(gadget), method: :delete, remote: true, class: 'like-button' do %>
+    <i class="fas fa-thumbs-up me-2" style="color: black;"></i> <%= gadget.likes.count %>
+  <% end %>
+<% else %>
+  <% if user_signed_in? %>
+    <%= link_to gadget_likes_path(gadget), method: :post, remote: true, class: 'like-button' do %>
+      <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
     <% end %>
   <% else %>
-    <% if user_signed_in? %>
-      <%= link_to gadget_likes_path(gadget), method: :post, remote: true, class: 'like-button' do %>
-        <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
-      <% end %>
-    <% else %>
-      <%= link_to new_user_session_path, class: 'like-button' do %>
-        <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
-      <% end %>
+    <%= link_to new_user_session_path, class: 'like-button' do %>
+      <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
     <% end %>
   <% end %>
-</div>
+<% end %>

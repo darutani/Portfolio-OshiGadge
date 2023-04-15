@@ -1,1 +1,1 @@
-$("#likes-and-comments").html("<%= escape_javascript(render partial: 'shared/likes_and_comments', locals: {gadget: @gadget}) %>");
+$("#likes-and-comments-<%= @gadget.id %>").html("<%= escape_javascript(render partial: 'shared/likes_and_comments', locals: {gadget: @gadget}) %>");
