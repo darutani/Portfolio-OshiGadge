@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   def show_favorites
     @user = User.find(params[:id])
-    @gadgets = @user.gadgets
+    @gadgets = Gadget.joins(:likes).where(likes: { user_id: @user.id }).order('likes.created_at DESC')
+
   end
 
   def edit_profile
