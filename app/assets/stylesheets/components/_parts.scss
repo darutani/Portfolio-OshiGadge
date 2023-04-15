@@ -171,6 +171,19 @@
 }
 
 // いいねとコメントアイコン
-.likes-and-comments a {
-  font-size: 1.8rem;
+.likes-and-comments {
+
+  a {
+    font-size: 1.8rem;
+  }
+
+  p {
+    display: inline;
+    margin-left: 8px;
+    font-size: 1.5rem;
+  }
+
+  strong {
+    font-size: 1.7rem;
+  }
 }
