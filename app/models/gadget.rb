@@ -7,4 +7,8 @@ class Gadget < ApplicationRecord
   validates :category, presence: true
   validates :point, presence: true
 
+  # いいね済かどうかの判定
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
 end
