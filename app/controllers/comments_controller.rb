@@ -7,9 +7,10 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      # 成功時の処理
+      redirect_to gadget_path(@gadget)
     else
-      # 失敗時の処理
+      flash[:alert] = "コメントの投稿に失敗しました。"
+      render 'gadgets/show'
     end
   end
 
