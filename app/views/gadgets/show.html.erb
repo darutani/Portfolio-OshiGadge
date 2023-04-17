@@ -54,4 +54,52 @@
   <div class="edit-btn-container">
     <%= link_to '編集する', edit_gadget_path(@gadget), class: "btn edit-btn" %>
   </div>
+
+  <div class="comments-container">
+    <div class="comments-title justify-content-between d-flex align-items-center border-start border-dark border-5 ps-1 mb-4">
+      <div class="d-flex align-items-center">
+        <h4 class="mb-0 fs-2">コメント</h4>
+        <P class="ms-3 fs-5">全<%= @gadget.comments.count %>件</P>
+      </div>
+      <div>
+        <%= link_to "コメントを全て見る", gadget_comments_path(@gadget.id), class: "fs-5 text-secondary" %>
+      </div>
+    </div>
+    <div class="comments">
+      <% @gadget.comments.each do |comment| %>
+        <div class="comment mb-4">
+          <div class="d-flex justify-content-between mb-2">
+            <div class="d-flex align-items-center">
+              <div class="icon-image-sm">
+                <%= image_tag comment.user.avatar %>
+              </div>
+              <div class="user-name-and-creationdate-sm">
+                <p class="user-name-sm"><%= comment.user.name %></p>
+                <p class="creationdate-sm"><%= comment.created_at %></p>
+              </div>
+            </div>
+            <div class="d-flex align-items-end">
+              <% if comment.user == current_user %>
+                <%= link_to "削除", [comment.gadget, comment], method: :delete, data: { confirm: "本当に削除しますか？" } %>
+              <% end %>
+            </div>
+          </div>
+          <P class="ps-2 fs-5"><%= comment.content %></P>
+        </div>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <%= form_with(model: [ @gadget, @gadget.comments.build ], local: true) do |form| %>
+        <div class="row mt-5">
+          <div class="col-10">
+            <%= form.text_area :content, rows: 1, class: "form-control h-100" %>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <%= form.submit "送信", class: "btn btn-secondary text-light fw-bold fs-5 h-100" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
