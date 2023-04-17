@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:update, :destroy]
 
   def create
     @gadget = Gadget.find(params[:gadget_id])
@@ -34,6 +35,14 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def ensure_correct_user
+    comment = Comment.find(params[:id])
+    unless comment.user_id == current_user.id
+      flash[:alert] = "権限がありません。"
+      redirect_to(root_path)
+    end
   end
   
 end
