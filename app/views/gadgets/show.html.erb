@@ -62,7 +62,9 @@
         <P class="ms-3 fs-5">全<%= @gadget.comments.count %>件</P>
       </div>
       <div>
-        <%= link_to "コメントを全て見る", gadget_comments_path(@gadget.id), class: "fs-5 text-secondary" %>
+        <% if @gadget.comments.count >= 6 %>
+          <%= link_to "コメントを全て見る", gadget_comments_path(@gadget.id), class: "fs-5 text-secondary" %>
+        <% end %>
       </div>
     </div>
     <div class="comments">
