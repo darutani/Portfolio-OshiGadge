@@ -43,6 +43,9 @@
       <p class="category">選んだ理由</p>
       <P class="content"><%= safe_join(@gadget.reason.split("\n"),tag(:br)) %></P>
     </div>
+    <div class="detail-link-container">
+      <%= link_to "＞ ガジェット詳細へ", gadget_path(@gadget), class: "btn detail-link" %>
+    </div>
   </div>
 
   <div class="comments-container mt-5">
