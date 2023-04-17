@@ -15,16 +15,10 @@
     <% end %>
   </div>
 
-  <div class="gadget-image-lg">
-    <%= image_tag @gadget.image %>
-  </div>
-
-  <%# いいね %>
-  <div class="likes-and-comments" id="likes-and-comments-<%= @gadget.id %>">
-    <%= render partial: 'shared/likes_and_liked_users', locals: {gadget: @gadget} %>
-  </div>
-
-  <div class="gadget-details-container">
+  <button class="btn mt-4 ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#gadgetDetails" aria-expanded="false" aria-controls="gadgetDetails">
+    <span class="collapse-text fs-5 ">▲ ガジェット詳細を見る</span>
+  </button>
+  <div class="gadget-details-container collapse mt-0 mb-5" id="gadgetDetails">
     <div class="gadget-detail">
       <p class="category">ガジェット名</p>
       <p class="content"><%= @gadget.name %></p>
@@ -49,22 +43,16 @@
       <p class="category">選んだ理由</p>
       <P class="content"><%= safe_join(@gadget.reason.split("\n"),tag(:br)) %></P>
     </div>
+    <div class="detail-link-container">
+      <%= link_to "＞ ガジェット詳細へ", gadget_path(@gadget), class: "btn detail-link" %>
+    </div>
   </div>
 
-  <div class="edit-btn-container">
-    <%= link_to '編集する', edit_gadget_path(@gadget), class: "btn edit-btn" %>
-  </div>
-
-  <div class="comments-container">
+  <div class="comments-container mt-5">
     <div class="comments-title justify-content-between d-flex align-items-center border-start border-dark border-5 ps-1 mb-4">
       <div class="d-flex align-items-center">
         <h4 class="mb-0 fs-2">コメント</h4>
         <P class="ms-3 fs-5">全<%= @gadget.comments.count %>件</P>
-      </div>
-      <div>
-        <% if @gadget.comments.count >= 6 %>
-          <%= link_to "コメントを全て見る", gadget_comments_path(@gadget.id), class: "fs-5 text-secondary" %>
-        <% end %>
       </div>
     </div>
     <div class="comments">
@@ -103,5 +91,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :gadgets, dependent: :destroy
   has_one_attached :avatar
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: MAX_USER_NAME_LENGTH }, uniqueness: { case_sensitive: false }
 

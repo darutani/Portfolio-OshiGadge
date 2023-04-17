@@ -12,6 +12,7 @@ class GadgetsController < ApplicationController
 
   def show
     @gadget = Gadget.find(params[:id])
+    @comments = @gadget.comments.order('created_at ASC').limit(5)
   end
 
   def new
