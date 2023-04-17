@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     resource :likes, only: [:create, :destroy]
     get 'liked_users', on: :member
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :index]
   end
 
   devise_for :users,
