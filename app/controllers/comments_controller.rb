@@ -26,6 +26,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def index
+    @gadget = Gadget.find(params[:gadget_id])
+  end
+
   private
 
   def comment_params

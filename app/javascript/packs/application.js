@@ -9,10 +9,28 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import 'jquery/dist/jquery.js'
+import "bootstrap";
+import "../stylesheets/application.scss";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "bootstrap";
-import "../stylesheets/application.scss";
+
+// コメント一覧ページにてガジェット詳細を開く・閉じる
+document.addEventListener('DOMContentLoaded', () => {
+  const collapseButton = document.querySelector('[data-bs-toggle="collapse"]');
+  const collapseText = collapseButton.querySelector('.collapse-text');
+
+  collapseButton.addEventListener('click', () => {
+    if (collapseButton.getAttribute('aria-expanded') === 'true') {
+      console.log('開く');
+      collapseText.textContent = '▼ ガジェット詳細を閉じる';
+    } else {
+      console.log('閉じる');
+      collapseText.textContent = '▲ ガジェット詳細を見る';
+    }
+  });
+});
+
+
