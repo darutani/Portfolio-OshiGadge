@@ -37,7 +37,7 @@
       <div class="list-item">
         <div class="post-container">
           <div class="content">
-            <%= link_to user_mygadgets_path(gadget.user.id) do %>
+            <%= link_to mygadgets_user_path(gadget.user.id) do %>
               <div class="info-container">
                 <div class="icon-image-sm">
                   <%= image_tag gadget.user.avatar %>
@@ -82,7 +82,7 @@
   <div class="lists">
     <% @users.each do |user| %>
       <div class="list-item">
-        <%= link_to user_mygadgets_path(user.id) do %>
+        <%= link_to mygadgets_user_path(user.id) do %>
           <div class="info-container">
             <div class="icon-image-sm">
               <%= image_tag user.avatar %>
@@ -98,6 +98,9 @@
               <%= image_tag gadget.image, size: "65x65" %>
             <% end %>
           <% end %>
+        </div>
+        <div>
+          <span class="fs-5"><strong><%= user.followings.count %></strong> フォロー</span> <span class="fs-5 ms-4"><strong><%= user.followers.count %></strong> フォロワー</span>
         </div>
         <div class="detail-link-container">
           <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
