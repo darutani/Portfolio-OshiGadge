@@ -9,11 +9,11 @@
           <%= image_tag current_user.avatar, class: "rounded-circle", size: "40x40" %>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><%= link_to "マイページ", user_mygadgets_path(current_user.id), class: "dropdown-item" %></li>
+          <li><%= link_to "マイページ", mygadgets_user_path(current_user.id), class: "dropdown-item" %></li>
           <li><%= link_to "ガジェット登録", new_gadget_path, class: "dropdown-item" %></li>
           <li><%= link_to "ユーザー一覧", users_path, class: "dropdown-item" %></li>
           <li><%= link_to "新着投稿一覧", gadgets_path, class: "dropdown-item" %></li>
-          <li><%= link_to "アカウント情報", user_account_path(current_user.id), class: "dropdown-item" %></li>
+          <li><%= link_to "アカウント情報", account_user_path(current_user.id), class: "dropdown-item" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
           <li><%= link_to "お問い合わせ", root_path, class: "dropdown-item" %></li>
         </ul>
