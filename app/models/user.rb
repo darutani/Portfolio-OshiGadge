@@ -18,6 +18,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, :lockable, :timeoutable
 
+  # ゲストユーザーの作成
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -26,7 +27,7 @@ class User < ApplicationRecord
     end
   end
 
-  # allow users to update their accounts without passwords
+  # パスワードなしでユーザーが自分のアカウントを更新できるようにする
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -38,5 +39,20 @@ class User < ApplicationRecord
     result = update(params, *options)
     clean_up_passwords
     result
+  end
+
+  # 他のユーザーをフォローするメソッド
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # フォローを外すメソッド
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # フォローしているか判定するメソッド
+  def following?(other_user)
+    followings.include?(other_user)
   end
 end
