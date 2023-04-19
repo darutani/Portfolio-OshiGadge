@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       get 'profile/edit', to: 'users#edit_profile', as: 'edit_profile'
       get 'account', to: 'users#account', as: 'account'
     end
-    resources :relationships, only: [:create, :destroy]
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
 end
