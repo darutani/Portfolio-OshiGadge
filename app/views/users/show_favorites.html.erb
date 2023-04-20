@@ -4,17 +4,36 @@
       <%= image_tag @user.avatar %>
       <p><%= @user.name %>さん</p>
     </div>
-    <div class="edit-profile-btn-container">
-      <%= link_to "プロフィールを編集", edit_user_profile_path(@user.id), class: "btn edit-profile-btn" %>
-    </div>
+    <% if @user == current_user %>
+      <div class="edit-profile-btn-container">
+        <%= link_to "プロフィールを編集", edit_profile_user_path(@user.id), class: "btn edit-profile-btn" %>
+      </div>
+    <% else %>
+      <div id="follow-form-<%= @user.id %>">
+        <%= render 'shared/follow-and-unfollow', user: @user %>
+      </div>
+    <% end %>
   </div>
-
   <div class="inroduction">
     <p><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></p>
   </div>
+  <div class="row mb-5">
+    <div class="col text-center border-start border-end border-secondary border-2">
+      <P class="fs-6">登録数</P>
+      <P class="fw-bold fs-5"><%= @user.gadgets.count %></P>
+    </div>
+    <div class="col text-center">
+      <P class="fs-6">フォロー</P>
+      <P class="fw-bold fs-5"><%= @user.followers.count %></P>
+    </div>
+    <div class="col text-center border-start border-end border-secondary border-2">
+      <P class="fs-6">フォロワー</P>
+      <P class="fw-bold fs-5"><%= @user.followings.count %></P>
+    </div>
+  </div>
 
   <div class="mypage-link-lists">
-    <p class="link-page"><%= link_to "My ガジェット", user_mygadgets_path(@user.id) %></p>
+    <p class="link-page"><%= link_to "My ガジェット", mygadgets_user_path(@user.id) %></p>
     <p class="current-page">お気に入り</p>
   </div>
 
@@ -23,7 +42,7 @@
       <div class="list-item">
         <div class="post-container">
           <div class="content">
-            <%= link_to user_mygadgets_path(gadget.user.id) do %>
+            <%= link_to mygadgets_user_path(gadget.user.id) do %>
               <div class="info-container">
                 <div class="icon-image-sm">
                   <%= image_tag gadget.user.avatar %>
