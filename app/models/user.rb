@@ -5,6 +5,10 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   validates :name, presence: true, length: { maximum: MAX_USER_NAME_LENGTH }, uniqueness: { case_sensitive: false }
 
@@ -14,6 +18,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, :lockable, :timeoutable
 
+  # ゲストユーザーの作成
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -22,7 +27,7 @@ class User < ApplicationRecord
     end
   end
 
-  # allow users to update their accounts without passwords
+  # パスワードなしでユーザーが自分のアカウントを更新できるようにする
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -34,5 +39,20 @@ class User < ApplicationRecord
     result = update(params, *options)
     clean_up_passwords
     result
+  end
+
+  # 他のユーザーをフォローするメソッド
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # フォローを外すメソッド
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # フォローしているか判定するメソッド
+  def following?(other_user)
+    followings.include?(other_user)
   end
 end

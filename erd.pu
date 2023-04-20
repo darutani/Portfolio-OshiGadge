@@ -42,17 +42,17 @@ entity inquiries as "inquiries\n問い合わせ" {
   --
 }
 
-entity gadget_images {
+entity relationships {
   *id [PK]
   --
-  gadget_id [FK]
+  follower_id
+  followed_id
 }
 
 users ||--o{ gadgets
 users ||--o{ comments
 users ||--o{ likes
 gadgets ||-r-o{ comments
-gadgets ||-d-o{ gadget_images
 gadgets ||-l-o{ likes
 
 @enduml

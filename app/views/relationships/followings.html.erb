@@ -1,7 +1,16 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col px-4">
+      <h2 class="form-title border-bottom border-dark border-4">フォロー</h2>
+    </div>
+    <div class="col px-4">
+      <h2 class="form-title fw-normal">フォロワー</h2>
+    </div>
+  </div>
 
-  <h2 class="form-title">ユーザー一覧</h2>
+  <div>
+    <h4 class="text-center fs-1 mb-5"><%= @user.name %>のフォロー一覧</h4>
+  </div>
 
   <div class="lists">
     <% @users.each do |user| %>
@@ -24,15 +33,8 @@
         <div class="user-introduction">
           <p><%= user.introduction %></p>
         </div>
-        <div class="gadget-image-sm">
-          <% user.gadgets.each do |gadget| %>
-            <%= link_to gadget_path(gadget.id) do %>
-              <%= image_tag gadget.image, size: "65x65" %>
-            <% end %>
-          <% end %>
-        </div>
         <div class="detail-link-container">
-          <P><%= link_to "＞ ユーザー詳細へ", mygadgets_user_path(user.id), class: "btn detail-link" %></P>
+          <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
         </div>
       </div>
     <% end %>
