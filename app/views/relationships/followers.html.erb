@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col px-4">
-      <h2 class="form-title fw-normal">フォロー</h2>
+      <%= link_to user_followings_path(@user) do %>
+        <h2 class="form-title fw-normal">フォロー</h2>
+      <% end %>
     </div>
     <div class="col px-4">
       <h2 class="form-title border-bottom border-dark border-4">フォロワー</h2>
@@ -26,9 +28,11 @@
               </div>
             </div>
           <% end %>
-          <div id="follow-form-<%= user.id %>">
-            <%= render 'shared/follow-and-unfollow', user: user %>
-          </div>
+          <% if user_signed_in? %>
+            <div id="follow-form-<%= user.id %>">
+              <%= render 'shared/follow-and-unfollow', user: user %>
+            </div>
+          <% end %>
         </div>
         <div class="user-introduction">
           <p><%= user.introduction %></p>

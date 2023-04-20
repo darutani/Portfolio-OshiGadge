@@ -93,9 +93,11 @@
               </div>
             </div>
           <% end %>
-          <div id="follow-form-<%= user.id %>">
-            <%= render 'shared/follow-and-unfollow', user: user %>
-          </div>
+          <% if user_signed_in? %>
+            <div id="follow-form-<%= user.id %>">
+              <%= render 'shared/follow-and-unfollow', user: user %>
+            </div>
+          <% end %>
         </div>
         <div class="gadget-image-sm">
           <% user.gadgets.each do |gadget| %>
@@ -105,7 +107,12 @@
           <% end %>
         </div>
         <div>
-          <span class="fs-5"><strong><%= user.followings.count %></strong> フォロー</span> <span class="fs-5 ms-4"><strong><%= user.followers.count %></strong> フォロワー</span>
+          <%= link_to user_followings_path(user) do %>
+            <span class="fs-5"><strong><%= user.followings.count %></strong> フォロー</span>
+          <% end %>
+          <%= link_to user_followers_path(user) do %>
+            <span class="fs-5 ms-4"><strong><%= user.followers.count %></strong> フォロワー</span>
+          <% end %>
         </div>
         <div class="detail-link-container">
           <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>

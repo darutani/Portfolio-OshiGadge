@@ -1,4 +1,4 @@
-<% if gadget.liked_by?(current_user) %>
+<% if user_signed_in? && gadget.liked_by?(current_user) %>
   <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :delete, remote: true, class: 'like-button' do %>
     <i class="fas fa-thumbs-up me-2" style="color: #393E46;"></i> <%= gadget.likes.count %>
   <% end %>
