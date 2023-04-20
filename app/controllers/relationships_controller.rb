@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :authenticate_user! # ユーザーがログインしていることを確認
+  before_action :authenticate_user!, only: %i[ create destroy ]
 
   def create
     @user_to_follow = User.find(params[:user_id])
