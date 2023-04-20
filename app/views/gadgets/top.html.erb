@@ -82,16 +82,21 @@
   <div class="lists">
     <% @users.each do |user| %>
       <div class="list-item">
-        <%= link_to mygadgets_user_path(user.id) do %>
-          <div class="info-container">
-            <div class="icon-image-sm">
-              <%= image_tag user.avatar %>
+        <div class="d-flex justify-content-between align-items-center">
+          <%= link_to mygadgets_user_path(user.id) do %>
+            <div class="info-container">
+              <div class="icon-image-sm">
+                <%= image_tag user.avatar %>
+              </div>
+              <div class="user-name-only">
+                <p class="user-name"><%= user.name %></p>
+              </div>
             </div>
-            <div class="user-name-only">
-              <p class="user-name"><%= user.name %></p>
-            </div>
+          <% end %>
+          <div id="follow-form-<%= user.id %>">
+            <%= render 'shared/follow-and-unfollow', user: user %>
           </div>
-        <% end %>
+        </div>
         <div class="gadget-image-sm">
           <% user.gadgets.each do |gadget| %>
             <%= link_to gadget_path(gadget.id) do %>

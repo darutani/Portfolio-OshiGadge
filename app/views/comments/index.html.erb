@@ -2,17 +2,22 @@
   <p id="notice"><%= notice %></p>
 
   <div>
-    <%= link_to user_mygadgets_path(@gadget.user.id) do %>
-      <div class="info-container">
-        <div class="icon-image-md">
-          <%= image_tag @gadget.user.avatar %>
+    <div class="d-flex justify-content-between align-items-center">
+      <%= link_to mygadgets_user_path(@gadget.user.id) do %>
+        <div class="info-container">
+          <div class="icon-image-md">
+            <%= image_tag @gadget.user.avatar %>
+          </div>
+          <div class="user-name-and-creationdate-md">
+            <p class="user-name-md"><%= @gadget.user.name %></p>
+            <p class="creationdate-md"><%= @gadget.created_at %></p>
+          </div>
         </div>
-        <div class="user-name-and-creationdate-md">
-          <p class="user-name-md"><%= @gadget.user.name %></p>
-          <p class="creationdate-md"><%= @gadget.created_at %></p>
-        </div>
+      <% end %>
+      <div id="follow-form-<%= @gadget.user.id %>">
+        <%= render 'shared/follow-and-unfollow', user: @gadget.user %>
       </div>
-    <% end %>
+    </div>
   </div>
 
   <button class="btn mt-4 ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#gadgetDetails" aria-expanded="false" aria-controls="gadgetDetails">
