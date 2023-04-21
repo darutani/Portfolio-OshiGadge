@@ -36,42 +36,6 @@
   }
 }
 
-// registration-and-login
-.registration-and-login {
-  padding-top: 15px;
-  padding-bottom: 40px;
-
-  .registration-button {
-    text-align: center;
-    padding-bottom: 20px;
-
-    .registration {
-      font-size: 19px;
-    }
-  }
-
-  .login-button {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 50px;
-
-    .login {
-      font-size: 19px;
-    }
-
-    .guest-login {
-      font-size: 16px;
-    }
-  }
-
-  .btn {
-    background: $color-fourth;
-    color: $color-first;
-    width:  130px;
-    height: 40px;
-  }
-}
-
 // 一覧部分タイトル
 .lists-title {
   display: flex;

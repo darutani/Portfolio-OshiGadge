@@ -11,19 +11,25 @@
   </div>
 </div>
 <% unless user_signed_in? %>
-  <div class="registration-and-login">
-    <div class="registration-button">
-      <%= link_to new_user_registration_path do %>
-        <button type="button" class="btn registration">新規登録</button>
-      <% end %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-6 text-center">
+        <%= link_to new_user_registration_path, class: "d-block d-grid" do %>
+          <button type="button" class="btn bg-dark text-light fs-2 fw-bold py-3">新規登録</button>
+        <% end %>
+      </div>
     </div>
-    <div class="login-button">
-      <%= link_to new_user_session_path do %>
-        <button type="button" class="btn login">ログイン</button>
-      <% end %>
-      <%= link_to users_guest_sign_in_path do %>
-        <button type="button" class="btn guest-login">ゲストログイン</button>
-      <% end %>
+    <div class="row justify-content-center gx-5 mt-4">
+      <div class="col-lg-3 col-6 text-center">
+        <%= link_to new_user_session_path, class: "d-block d-grid" do %>
+          <button type="button" class="btn bg-dark text-light fs-2 fw-bold py-3">ログイン</button>
+        <% end %>
+      </div>
+      <div class="col-lg-3 col-6 text-center">
+        <%= link_to users_guest_sign_in_path, class: "d-block d-grid" do %>
+          <button type="button" class="btn bg-dark text-light fs-2 fw-bold py-3">ゲストログイン</button>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
