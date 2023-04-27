@@ -42,25 +42,34 @@
 // ガジェット画像（小）
 .gadget-image-sm {
   margin: 12px 0;
-  padding: 0 8px;
+  padding: 0 4px;
 
-  a + a {
-    margin-left: 7px;
+  a {
+    width: 100%;
+  }
+
+  // a + a {
+  //   margin-left: 7px;
+  // }
+
+  img {
+    width: 100%;
+    height: 95px;
   }
 }
 
 // アイコン画像（小）
 .icon-image-sm {
-  display: inline-block;
+  display: block;
   width: 37px;
   height: 37px;
   border-radius: 50%;
-  overflow: hidden;
+  // overflow: hidden;
 
   img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 37px;
+    height: 37px;
     object-fit: cover;
   }
 }
@@ -185,5 +194,39 @@
 
   strong {
     font-size: 1.7rem;
+  }
+}
+
+
+// 画面幅500px以上の場合
+@media screen and (min-width:500px) {
+
+  .gadget-image-sm {
+
+    img {
+      height: 115px;
+    }
+  }
+}
+
+// 画面幅768px~991pxの場合
+@media screen and (min-width:768px) and ( max-width:991px) {
+
+  .gadget-image-sm {
+
+    img {
+      height: 85px;
+    }
+  }
+}
+
+// 画面幅1400px以上の場合
+@media screen and (min-width:1400px) {
+
+  .gadget-image-sm {
+
+    img {
+      height: 85px;
+    }
   }
 }
