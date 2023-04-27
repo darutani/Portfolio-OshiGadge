@@ -2,8 +2,8 @@ class GadgetsController < ApplicationController
   before_action :set_gadget, only: %i[ show edit update destroy ]
 
   def top
-    @gadgets = Gadget.all.order('created_at DESC').limit(5)
-    @users = User.all.order('created_at DESC').limit(5)
+    @gadgets = Gadget.all.order('created_at DESC').limit(10)
+    @users = User.all.order('created_at DESC').limit(10)
   end
 
   def index

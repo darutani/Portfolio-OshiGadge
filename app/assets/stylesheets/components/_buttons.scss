@@ -15,16 +15,18 @@
 
 // 一覧ページへのリンクボタン
 .list-link-container {
-  padding: 0 15px;
+  // padding: 0 15px;
 
   .list-link {
     display: block;
     background-color: $color-second;
     text-align: center;
-    padding: 8px 0;
+    padding: 12px 0;
     color: $color-fourth;
     font-size: 1.5rem;
     font-weight: bold;
+    width: 80%;
+    margin: 0 auto;
   }
 }
 

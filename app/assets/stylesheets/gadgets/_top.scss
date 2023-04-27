@@ -36,42 +36,6 @@
   }
 }
 
-// registration-and-login
-.registration-and-login {
-  padding-top: 15px;
-  padding-bottom: 40px;
-
-  .registration-button {
-    text-align: center;
-    padding-bottom: 20px;
-
-    .registration {
-      font-size: 19px;
-    }
-  }
-
-  .login-button {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 50px;
-
-    .login {
-      font-size: 19px;
-    }
-
-    .guest-login {
-      font-size: 16px;
-    }
-  }
-
-  .btn {
-    background: $color-fourth;
-    color: $color-first;
-    width:  130px;
-    height: 40px;
-  }
-}
-
 // 一覧部分タイトル
 .lists-title {
   display: flex;
@@ -86,5 +50,43 @@
   a {
     color: $color-fifth;
     font-size: 1.2rem;
+  }
+}
+
+
+.gadget-image-md {
+  width: 38%;
+  height: 132px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+
+// 画面幅500px以上の場合
+@media screen and (min-width:500px) {
+
+  .gadget-image-md {
+    width: 45%;
+    height: 132px;
+  }
+}
+
+// 画面幅768px以上の場合
+@media screen and (min-width:768px) {
+
+  .lists-title {
+
+    h2 {
+      font-size: 2.3rem;
+    }
+
+    a {
+      font-size: 1.5rem;
+    }
   }
 }

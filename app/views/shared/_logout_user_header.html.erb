@@ -1,21 +1,34 @@
 <header class="fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-light px-4">
     <div class="container-fluid">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo.jpg", size: "130x40" %>
-      <% end %>
-      <div class="humberger-wrapper">
-        <a class="avatar-link" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="navbar-toggler-icon"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link active", 'aria-current': "page" %></li>
-          <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
-          <li><%= link_to "ユーザー一覧", users_path, class: "nav-link" %></li>
-          <li><%= link_to "新着投稿一覧", gadgets_path, class: "nav-link" %></li>
-          <li><%= link_to "お問い合わせ", root_path, class: "nav-link" %></li>
+      <div class="d-flex align-items-center">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "logo.jpg", size: "130x40" %>
+        <% end %>
+        <ul class="navbar-nav d-none d-lg-flex flex-row ms-4">
+          <li class="nav-item"><%= link_to "新着投稿一覧", gadgets_path, class: "nav-link" %></li>
+          <li class="nav-item ms-4"><%= link_to "ユーザー一覧", users_path, class: "nav-link" %></li>
         </ul>
       </div>
+      <div class="d-lg-none">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end bg-secondary px-4 pt-3" aria-labelledby="dropdownMenuButton">
+            <li><%= link_to "新規登録", new_user_registration_path, class: "dropdown-item" %></li>
+            <li><%= link_to "ログイン", new_user_session_path, class: "dropdown-item" %></li>
+            <li><%= link_to "ユーザー一覧", users_path, class: "dropdown-item" %></li>
+            <li><%= link_to "新着投稿一覧", gadgets_path, class: "dropdown-item" %></li>
+            <li><%= link_to "お問い合わせ", root_path, class: "dropdown-item" %></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="navbar-nav d-none d-lg-flex flex-row">
+        <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
+        <li class="nav-item mx-4"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
+        <li class="nav-item me-3"><%= link_to "お問い合わせ", root_path, class: "nav-link" %></li>
+      </ul>
     </div>
   </nav>
   <hr>
