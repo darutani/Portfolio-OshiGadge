@@ -6,7 +6,7 @@
       <% end %>
       <div class="avatar-wrapper">
         <a class="avatar-link" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          <%= image_tag current_user.avatar, class: "rounded-circle", size: "40x40" %>
+          <%= image_tag current_user.avatar_image, class: "rounded-circle", size: "40x40" %>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <li><%= link_to "マイページ", mygadgets_user_path(current_user.id), class: "dropdown-item" %></li>
