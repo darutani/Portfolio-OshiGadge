@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 2023_05_01_004156) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "gadget_id", null: false
     t.text "content", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2023_05_01_004156) do
     t.index ["user_id"], name: "index_gadgets_on_user_id"
   end
 
-  create_table "likes", force: :cascade do |t|
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "gadget_id", null: false
     t.datetime "created_at", precision: 6, null: false
