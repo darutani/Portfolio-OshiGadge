@@ -6,7 +6,7 @@
       <%= link_to mygadgets_user_path(@gadget.user.id) do %>
         <div class="info-container">
           <div class="icon-image-md">
-            <%= image_tag @gadget.user.avatar %>
+            <%= user_avatar_image_tag(@gadget.user) %>
           </div>
           <div class="user-name-and-creationdate-md">
             <p class="user-name-md"><%= @gadget.user.name %></p>
@@ -78,7 +78,7 @@
           <div class="d-flex justify-content-between mb-2">
             <div class="d-flex align-items-center">
               <div class="icon-image-sm">
-                <%= image_tag comment.user.avatar %>
+                <%= user_avatar_image_tag(comment.user) %>
               </div>
               <div class="user-name-and-creationdate-sm">
                 <p class="user-name-sm"><%= comment.user.name %></p>
