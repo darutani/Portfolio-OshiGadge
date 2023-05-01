@@ -11,7 +11,7 @@
               <%= link_to mygadgets_user_path(gadget.user.id) do %>
                 <div class="info-container">
                   <div class="icon-image-sm">
-                    <%= image_tag gadget.user.avatar %>
+                    <%= user_avatar_image_tag(gadget.user) %>
                   </div>
                   <div class="user-name-and-creationdate-sm">
                     <p class="user-name-sm"><%= gadget.user.name %></p>

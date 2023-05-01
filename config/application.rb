@@ -8,6 +8,12 @@ Bundler.require(*Rails.groups)
 
 module OshigadgeApp
   class Application < Rails::Application
+    # AWSのリージョンの設定。Herokuのデプロイエラーの解消のため
+    require 'aws-sdk-core'
+    Aws.config.update({
+      region: ENV['AWS_REGION']
+    })
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
