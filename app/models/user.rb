@@ -56,8 +56,9 @@ class User < ApplicationRecord
     followings.include?(other_user)
   end
 
+  # application_helper.rbに移動
   # アイコン画像が未設定の場合にデフォルト画像を設定するメソッド
-  def avatar_image
-    avatar.attached? ? avatar : "default_icon_image.png"
-  end
+  # def avatar_image
+  #   avatar.attached? ? avatar : "default_icon_image.png"
+  # end
 end
