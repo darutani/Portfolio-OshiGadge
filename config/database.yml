@@ -10,12 +10,11 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV['DATABASE_DEFAULT_USER'] %>
   password: <%= ENV['DATABASE_DEFAULT_PASSWORD'] %>
-  host: localhost
 
 development:
   <<: *default
@@ -51,5 +50,3 @@ test:
 production:
   <<: *default
   database: <%= ENV['PRO_DATABASE'] %>
-  username: Oshigadge_App
-  password: <%= ENV['OSHIGADGE_APP_DATABASE_PASSWORD'] %>
