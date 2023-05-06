@@ -1,3 +1,11 @@
 ol li + li {
   margin-top: 0.5em;
 }
+
+.pp-list li + li {
+  margin-top: 0.5em;
+}
+
+.analytics:hover {
+  color: $color-fifth;
+}
