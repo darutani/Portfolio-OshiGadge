@@ -5,8 +5,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super do |resource|
       if resource.errors.empty?
         case params[:form_type]
-        when 'profile_edit' then redirect_to user_mygadgets_path(current_user.id) and return
-        when 'account_edit' then redirect_to user_account_path(current_user.id) and return
+        when 'profile_edit' then redirect_to mygadgets_user_path(current_user.id) and return
+        when 'account_edit' then redirect_to account_user_path(current_user.id) and return
         end
       end
     end
