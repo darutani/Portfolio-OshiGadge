@@ -27,5 +27,12 @@ module OshigadgeApp
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.active_storage.variant_processor = :vips
+
+    # 日本時間に設定
+    config.time_zone = 'Tokyo'
+    config.to_prepare do
+      Time::DATE_FORMATS[:default] = "%Y年%m月%d日 %H:%M"
+      Date::DATE_FORMATS[:default] = "%Y年%m月%d日"
+    end
   end
 end
