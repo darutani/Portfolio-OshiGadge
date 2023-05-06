@@ -5,11 +5,13 @@
   </div>
   <div class="info">
     <p class="info-title">INFORMATION</p>
-    <P class="info-content">お問い合わせ</P>
-    <P class="info-content">利用規約</P>
-    <P class="info-content">プライバシーポリシー</P>
+    <div class="mt-3 d-flex flex-column fs-5">
+      <%= link_to "お問い合わせ", terms_of_service_path %>
+      <%= link_to "利用規約", terms_of_service_path, class: "mt-1" %>
+      <%= link_to "プライバシーポリシー", terms_of_service_path, class: "mt-1" %>
+    </div>
   </div>
   <div class="copyright">
-    <P>Copyright © 2023. OshiGadge</P>
+    <P>Copyright © 2023 OshiGadge. All Rights Reserved.</P>
   </div>
 </footer>
