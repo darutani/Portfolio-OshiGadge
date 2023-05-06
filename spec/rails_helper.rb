@@ -62,4 +62,13 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+
+  # システムスペックテストのためのrack_test
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  # deviseのテストヘルパー
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
