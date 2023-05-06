@@ -10,7 +10,7 @@
           </div>
           <div class="user-name-and-creationdate-md">
             <p class="user-name-md"><%= @gadget.user.name %></p>
-            <p class="creationdate-md"><%= @gadget.created_at %></p>
+            <p class="creationdate-md"><%= @gadget.created_at.to_s(:default) %></p>
           </div>
         </div>
       <% end %>
@@ -82,7 +82,7 @@
               </div>
               <div class="user-name-and-creationdate-sm">
                 <p class="user-name-sm"><%= comment.user.name %></p>
-                <p class="creationdate-sm"><%= comment.created_at %></p>
+                <p class="creationdate-sm"><%= comment.created_at.to_s(:default) %></p>
               </div>
             </div>
             <div class="d-flex align-items-end">
