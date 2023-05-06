@@ -1,11 +1,25 @@
+// 利用規約ページ
 ol li + li {
   margin-top: 0.5em;
 }
 
+// プライバシーポリシーページ
 .pp-list li + li {
   margin-top: 0.5em;
 }
 
 .analytics:hover {
   color: $color-fifth;
+}
+
+// お問い合わせページ
+.icon-twitter {
+  background-color: #1C9BEF;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+}
+
+.icon-twitter:hover {
+  background-color: #1C9BEF;
+  color: #FFFFFF;
 }
