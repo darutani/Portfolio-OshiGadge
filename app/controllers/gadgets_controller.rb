@@ -1,4 +1,5 @@
 class GadgetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destory]
   before_action :set_gadget, only: %i[ show edit update destroy ]
 
   def top
