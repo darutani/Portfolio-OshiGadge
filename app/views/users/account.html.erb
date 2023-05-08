@@ -1,21 +1,23 @@
-<div class="container">
-  <h2 class="form-title">アカウント情報</h2>
+<div class="container mt-80">
+  <div class="responsive-container">
+    <h2 class="form-title">アカウント情報</h2>
 
-  <div class="account-info">
-    <h4>メールアドレス</h4>
-    <p><%= @user.email %></p>
-    <h4>パスワード</h4>
-    <p>●●●●●●●●</p>
-  </div>
+    <div class="account-info">
+      <h4>メールアドレス</h4>
+      <p><%= @user.email %></p>
+      <h4>パスワード</h4>
+      <p>●●●●●●●●</p>
+    </div>
 
-  <div class="actions mb-3 pt-4 d-grid mx-auto">
-    <%= link_to "編集", edit_user_registration_path, class: "btn d-flex align-items-center justify-content-center" %>
-  </div>
+    <div class="actions mb-3 pt-4 d-grid mx-auto">
+      <%= link_to "編集", edit_user_registration_path, class: "btn d-flex align-items-center justify-content-center" %>
+    </div>
 
-  <div class="text-center mt-64">
-    <button type="button" class="text-info border-0 bg-light fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
-      アカウントを削除する
-    </button>
+    <div class="text-center mt-64">
+      <button type="button" class="text-info border-0 bg-light fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+        アカウントを削除する
+      </button>
+    </div>
   </div>
 </div>
 

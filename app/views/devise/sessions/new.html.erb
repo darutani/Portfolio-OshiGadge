@@ -1,46 +1,48 @@
-<div class="container">
-  <h2 class="form-title">ログイン</h2>
+<div class="container mt-80">
+  <div class="responsive-container">
+    <h2 class="form-title">ログイン</h2>
 
-  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-    <div class="field mb-5">
-      <div class="label-container">
-        <%= f.label :email, class: "form-label" %>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <div class="field mb-5">
+        <div class="label-container">
+          <%= f.label :email, class: "form-label" %>
+        </div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-    </div>
 
-    <div class="field mb-1">
-      <div class="label-container">
-        <%= f.label :password, class: "form-label" %>
+      <div class="field mb-1">
+        <div class="label-container">
+          <%= f.label :password, class: "form-label" %>
+        </div>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </div>
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-    </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field mb-5 d-flex align-items-center">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, class: "fs-5 ms-2" %>
+      <% if devise_mapping.rememberable? %>
+        <div class="field mb-5 d-flex align-items-center">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "fs-5 ms-2" %>
+        </div>
+      <% end %>
+
+      <div class="actions mb-3 pt-4 d-grid mx-auto">
+        <%= f.submit "ログイン", class: "btn" %>
       </div>
     <% end %>
 
-    <div class="actions mb-3 pt-4 d-grid mx-auto">
-      <%= f.submit "ログイン", class: "btn" %>
+    <div class="forget-password-link">
+      <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
     </div>
-  <% end %>
-
-  <div class="forget-password-link">
-    <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
-  </div>
-  <div class="no-account-container">
-    <hr>
-    <h3 class="no-account-title">アカウントをお持ちでない方</h3>
-    <div class="guest-user-btn d-grid mx-auto mb-5">
-      <h4>ゲストユーザーとしてログインする</h4>
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn" %>
-    </div>
-    <div class="registration-btn d-grid mx-auto pt-4">
-      <h4>新しくアカウントを作成する</h4>
-      <%= link_to "新規登録ページへ", new_user_registration_path, class: "btn" %>
+    <div class="no-account-container">
+      <hr>
+      <h3 class="no-account-title">アカウントをお持ちでない方</h3>
+      <div class="guest-user-btn d-grid mx-auto mb-5">
+        <h4>ゲストユーザーとしてログインする</h4>
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn" %>
+      </div>
+      <div class="registration-btn d-grid mx-auto pt-4">
+        <h4>新しくアカウントを作成する</h4>
+        <%= link_to "新規登録ページへ", new_user_registration_path, class: "btn" %>
+      </div>
     </div>
   </div>
 </div>

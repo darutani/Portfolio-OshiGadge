@@ -1,45 +1,47 @@
-<div class="container">
-  <h2 class="form-title">アカウント情報を編集</h2>
+<div class="container mt-80">
+  <div class="responsive-container">
+    <h2 class="form-title">アカウント情報を編集</h2>
 
-  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field mb-5">
-      <div class="label-container">
-        <%= f.label :email, class: "form-label" %>
+      <div class="field mb-5">
+        <div class="label-container">
+          <%= f.label :email, class: "form-label" %>
+        </div>
+        <%= f.email_field :email, value: @user.email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
-      <%= f.email_field :email, value: @user.email, autofocus: true, autocomplete: "email", class: "form-control" %>
-    </div>
 
-    <div class="field mb-5">
-      <div class="label-container">
-        <%= f.label :new_password, class: "form-label" %>
-        <span class="minimum-length"><%= "（#{@minimum_password_length}文字以上）" if @minimum_password_length %></span>
+      <div class="field mb-5">
+        <div class="label-container">
+          <%= f.label :new_password, class: "form-label" %>
+          <span class="minimum-length"><%= "（#{@minimum_password_length}文字以上）" if @minimum_password_length %></span>
+        </div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-    </div>
 
-    <div class="field mb-5">
-      <div class="label-container">
-        <%= f.label :new_password_confirmation, class: "form-label" %>
+      <div class="field mb-5">
+        <div class="label-container">
+          <%= f.label :new_password_confirmation, class: "form-label" %>
+        </div>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-    </div>
 
-    <hr class="edit-account-border">
+      <hr class="edit-account-border">
 
-    <div class="field mb-5">
-      <div class="label-container">
-        <%= f.label :current_password, class: "form-label" %>
-        <span class="required-mark">必須</span>
+      <div class="field mb-5">
+        <div class="label-container">
+          <%= f.label :current_password, class: "form-label" %>
+          <span class="required-mark">必須</span>
+        </div>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
       </div>
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-    </div>
 
-    <%= hidden_field_tag :form_type, 'account_edit' %>
+      <%= hidden_field_tag :form_type, 'account_edit' %>
 
-    <div class="actions mb-3 pt-4 d-grid mx-auto">
-      <%= f.submit "更新", class: "btn" %>
-    </div>
-  <% end %>
+      <div class="actions mb-3 pt-4 d-grid mx-auto">
+        <%= f.submit "更新", class: "btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>
