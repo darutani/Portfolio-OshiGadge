@@ -12,6 +12,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def destroy
+    resource.destroy
+    if resource.destroyed?
+      flash[:notice] = "お客様のアカウントは正常に削除されました。"
+      redirect_to root_path
+    else
+      flash[:alert] = "アカウントの削除にエラーが発生しました。"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
   def ensure_normal_user

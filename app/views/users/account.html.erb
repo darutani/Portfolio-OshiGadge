@@ -11,4 +11,30 @@
   <div class="actions mb-3 pt-4 d-grid mx-auto">
     <%= link_to "編集", edit_user_registration_path, class: "btn d-flex align-items-center justify-content-center" %>
   </div>
+
+  <div class="text-center mt-64">
+    <button type="button" class="text-info border-0 bg-light fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+      アカウントを削除する
+    </button>
+  </div>
+</div>
+
+<!-- Delete Account Modal -->
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body fs-4 fw-bold">
+        アカウントを削除してよろしいですか？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fs-5" data-bs-dismiss="modal">キャンセル</button>
+        <%= form_with model: @user, url: user_registration_path, method: :delete, local: true, class: "d-inline" do |f| %>
+          <%= f.submit "アカウントを削除する", class: "btn btn-danger text-light fs-5" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
