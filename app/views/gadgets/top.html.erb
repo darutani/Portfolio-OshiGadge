@@ -63,7 +63,7 @@
                   <div class="likes-and-comments" id="likes-and-comments-<%= gadget.id %>">
                     <%= render partial: 'shared/likes_and_comments', locals: {gadget: gadget} %>
                     <%= link_to gadget_comments_path(gadget.id), class: "ms-5" do %>
-                      <i class="fa-regular fa-message fs-2" style="color: #393e46;"></i> <span class="fs-2 ms-2"><%= gadget.comments.count %></span>
+                      <i class="fa-regular fa-message" style="color: #393e46;"></i> <span class="ms-2"><%= gadget.comments.count %></span>
                     <% end %>
                   </div>
                 </div>
