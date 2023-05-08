@@ -1,32 +1,34 @@
-<div class="container">
-  <h2 class="form-title mb-3">パスワード再設定</h2>
-  <p class="form-title-description">ご登録のメールアドレス宛に再設定用のURLをお送りいたします。</p>
+<div class="container mt-80">
+  <div class="responsive-container">
+    <h2 class="form-title mb-3">パスワード再設定</h2>
+    <p class="form-title-description">ご登録のメールアドレス宛に再設定用のURLをお送りいたします。</p>
 
-  <%= form_with model: @user, url: user_password_path, local: true do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_with model: @user, url: user_password_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field mb-5">
-      <div class="label-container">
-        <%= f.label :email, class: "form-label" %>
+      <div class="field mb-5">
+        <div class="label-container">
+          <%= f.label :email, class: "form-label" %>
+        </div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-    </div>
 
-    <div class="actions mb-5 pt-4 d-grid mx-auto">
-      <%= f.submit "送信", class: "btn" %>
-    </div>
-  <% end %>
+      <div class="actions mb-5 pt-4 d-grid mx-auto">
+        <%= f.submit "送信", class: "btn" %>
+      </div>
+    <% end %>
 
-  <div class="no-account-container pt-5">
-    <hr>
-    <h3 class="no-account-title">アカウントをお持ちでない方</h3>
-    <div class="guest-user-btn d-grid mx-auto mb-5">
-      <h4>ゲストユーザーとしてログインする</h4>
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn" %>
-    </div>
-    <div class="registration-btn d-grid mx-auto pt-4">
-      <h4>新しくアカウントを作成する</h4>
-      <%= link_to "新規登録ページへ", new_user_registration_path, class: "btn" %>
+    <div class="no-account-container pt-5">
+      <hr>
+      <h3 class="no-account-title">アカウントをお持ちでない方</h3>
+      <div class="guest-user-btn d-grid mx-auto mb-5">
+        <h4>ゲストユーザーとしてログインする</h4>
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn" %>
+      </div>
+      <div class="registration-btn d-grid mx-auto pt-4">
+        <h4>新しくアカウントを作成する</h4>
+        <%= link_to "新規登録ページへ", new_user_registration_path, class: "btn" %>
+      </div>
     </div>
   </div>
 </div>
