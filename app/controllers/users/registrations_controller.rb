@@ -21,6 +21,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    resource.update_without_current_password(params)
+    if params[:email].present? || params[:password].present?
+      # メールアドレス/パスワードの更新の場合には現在のパスワードが必要
+      resource.update_with_password(params)
+    else
+      # ユーザー名/自己紹介/アバター画像の更新の場合には現在のパスワードは不要
+      resource.update_without_current_password(params)
+    end
   end
 end
