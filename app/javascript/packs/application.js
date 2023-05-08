@@ -8,13 +8,14 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import 'jquery/dist/jquery.js'
-import "bootstrap";
 import "../stylesheets/application.scss";
+import 'bootstrap/dist/js/bootstrap.bundle';
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
 
 
 // コメント一覧ページにてガジェット詳細を開く・閉じる
