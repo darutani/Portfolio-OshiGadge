@@ -209,6 +209,15 @@
   }
 }
 
+// 画面幅768px以上の場合
+@media screen and (min-width:768px) {
+
+  .responsive-container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
 // 画面幅768px~991pxの場合
 @media screen and (min-width:768px) and ( max-width:991px) {
 
@@ -219,6 +228,7 @@
     }
   }
 }
+
 
 // 画面幅1400px以上の場合
 @media screen and (min-width:1400px) {
