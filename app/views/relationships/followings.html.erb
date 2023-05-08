@@ -21,7 +21,7 @@
           <%= link_to mygadgets_user_path(user.id) do %>
             <div class="info-container">
               <div class="icon-image-sm">
-                <%= image_tag user.avatar %>
+                <%= user_avatar_image_tag(user) %>
               </div>
               <div class="user-name-only">
                 <p class="user-name"><%= user.name %></p>
@@ -37,7 +37,15 @@
         <div class="user-introduction">
           <p><%= user.introduction %></p>
         </div>
-        <div class="detail-link-container">
+        <div class="ps-3 mt-4">
+          <%= link_to user_followings_path(user) do %>
+            <span class="fs-5"><strong><%= user.followings.count %></strong> フォロー</span>
+          <% end %>
+          <%= link_to user_followers_path(user) do %>
+            <span class="fs-5 ms-4"><strong><%= user.followers.count %></strong> フォロワー</span>
+          <% end %>
+        </div>
+        <div class="detail-link-container mt-4">
           <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
         </div>
       </div>
