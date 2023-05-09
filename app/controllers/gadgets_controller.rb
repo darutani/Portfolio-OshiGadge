@@ -1,6 +1,7 @@
 class GadgetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destory]
   before_action :set_gadget, only: %i[ show edit update destroy ]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def top
     @gadgets = Gadget.all.order('created_at DESC').limit(10)
@@ -74,5 +75,12 @@ class GadgetsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def gadget_params
       params.require(:gadget).permit(:user_id, :name, :start_date, :category, :reason, :point, :usage, :image).merge(user_id:current_user.id)
+    end
+
+    def ensure_correct_user
+      if @gadget.user_id != current_user.id
+        flash[:alert] = "権限がありません。"
+        redirect_to gadget_path
+      end
     end
 end
