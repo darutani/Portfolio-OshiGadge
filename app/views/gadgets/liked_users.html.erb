@@ -1,43 +1,43 @@
-<div class="container">
-
-  <h2 class="form-title">いいねしたユーザー</h2>
-
-  <div class="lists">
-    <% @users.each do |user| %>
-      <div class="list-item">
-        <div class="d-flex justify-content-between align-items-center">
-          <%= link_to mygadgets_user_path(user.id) do %>
-            <div class="info-container">
-              <div class="icon-image-sm">
-                <%= user_avatar_image_tag(user) %>
+<div class="container mt-5">
+  <div class="responsive-container-540">
+    <h2 class="form-title">いいねしたユーザー</h2>
+    <div class="lists">
+      <% @users.each do |user| %>
+        <div class="list-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <%= link_to mygadgets_user_path(user.id) do %>
+              <div class="info-container">
+                <div class="icon-image-sm">
+                  <%= user_avatar_image_tag(user) %>
+                </div>
+                <div class="user-name-only">
+                  <p class="user-name"><%= user.name %></p>
+                </div>
               </div>
-              <div class="user-name-only">
-                <p class="user-name"><%= user.name %></p>
+            <% end %>
+            <% if user_signed_in? %>
+              <div id="follow-form-<%= user.id %>">
+                <%= render 'shared/follow-and-unfollow', user: user %>
               </div>
-            </div>
-          <% end %>
-          <% if user_signed_in? %>
-            <div id="follow-form-<%= user.id %>">
-              <%= render 'shared/follow-and-unfollow', user: user %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+          <div class="user-introduction">
+            <p><%= user.introduction %></p>
+          </div>
+          <div class="ps-3 mt-4">
+            <%= link_to user_followings_path(user) do %>
+              <span class="fs-5"><strong><%= user.followings.count %></strong> フォロー</span>
+            <% end %>
+            <%= link_to user_followers_path(user) do %>
+              <span class="fs-5 ms-4"><strong><%= user.followers.count %></strong> フォロワー</span>
+            <% end %>
+          </div>
+          <div class="detail-link-container mt-4">
+            <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
+          </div>
         </div>
-        <div class="user-introduction">
-          <p><%= user.introduction %></p>
-        </div>
-        <div class="ps-3 mt-4">
-          <%= link_to user_followings_path(user) do %>
-            <span class="fs-5"><strong><%= user.followings.count %></strong> フォロー</span>
-          <% end %>
-          <%= link_to user_followers_path(user) do %>
-            <span class="fs-5 ms-4"><strong><%= user.followers.count %></strong> フォロワー</span>
-          <% end %>
-        </div>
-        <div class="detail-link-container mt-4">
-          <P><%= link_to "＞ ユーザー詳細へ", users_path(user.id), class: "btn detail-link" %></P>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <%= paginate @users %>
   </div>
-  <%= paginate @users %>
 </div>
