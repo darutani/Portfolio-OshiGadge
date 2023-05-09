@@ -14,9 +14,11 @@
           </div>
         </div>
       <% end %>
-      <div id="follow-form-<%= @gadget.user.id %>">
-        <%= render 'shared/follow-and-unfollow', user: @gadget.user %>
-      </div>
+      <% if user_signed_in? %>
+        <div id="follow-form-<%= @gadget.user.id %>">
+          <%= render 'shared/follow-and-unfollow', user: @gadget.user %>
+        </div>
+      <% end %>
     </div>
   </div>
 
