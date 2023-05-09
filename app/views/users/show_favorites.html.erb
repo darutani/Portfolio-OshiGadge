@@ -3,7 +3,7 @@
     <div class="user-info-and-link-profile">
       <div class="icon-image-lg">
         <%= user_avatar_image_tag(@user) %>
-        <p><%= @user.name %>さん</p>
+        <p><%= @user.name %></p>
       </div>
       <% if @user == current_user %>
         <div class="edit-profile-btn-container">
