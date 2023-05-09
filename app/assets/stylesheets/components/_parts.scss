@@ -214,8 +214,13 @@
 // 画面幅768px以上の場合
 @media screen and (min-width:768px) {
 
-  .responsive-container {
+  .responsive-container-540 {
     max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .responsive-container-720 {
+    max-width: 720px;
     margin: 0 auto;
   }
 }
