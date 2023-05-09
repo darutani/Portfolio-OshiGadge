@@ -39,9 +39,13 @@
       </div>
     </div>
 
-    <div class="mypage-link-lists">
-      <p class="current-page">My ガジェット</p>
-      <p class="link-page"><%= link_to "お気に入り", favorites_user_path(@user.id) %></p>
+    <div class="mypage-link-lists row justify-content-center">
+      <div class="col">
+        <p class="current-page text-center"><span>My ガジェット</span></p>
+      </div>
+      <div class="col">
+        <p class="link-page text-center"><%= link_to "お気に入り", favorites_user_path(@user.id) %></p>
+      </div>
     </div>
 
     <div class="mygadget-lists">

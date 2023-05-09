@@ -45,10 +45,35 @@
         </div>
         <%= f.text_area :usage, class: "form-control", rows: 8 %>
       </div>
-
       <div class="actions mb-3 pt-4 d-grid mx-auto">
         <%= f.submit "更新", class: "btn" %>
       </div>
     <% end %>
+
+    <div class="text-center mt-56">
+      <button type="button" class="text-info border-0 bg-light fs-4" data-bs-toggle="modal" data-bs-target="#deleteGadgetModal">
+        ガジェットを削除する
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Gadget Modal -->
+<div class="modal fade" id="deleteGadgetModal" tabindex="-1" aria-labelledby="deleteGadgetModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body fs-4 fw-bold">
+        ガジェットを削除してよろしいですか？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fs-5" data-bs-dismiss="modal">キャンセル</button>
+        <%= form_with model: @gadget, url: gadget_path, method: :delete, local: true, class: "d-inline" do |f| %>
+          <%= f.submit "ガジェットを削除する", class: "btn btn-danger text-light fs-5" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
