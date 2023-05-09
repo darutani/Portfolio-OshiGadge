@@ -58,6 +58,18 @@
   }
 }
 
+// ガジェット画像（中）
+.gadget-image-md {
+  width: 38%;
+  height: 132px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 // アイコン画像（小）
 .icon-image-sm {
   display: block;

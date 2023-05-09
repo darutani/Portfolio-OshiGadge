@@ -54,19 +54,6 @@
 }
 
 
-.gadget-image-md {
-  width: 38%;
-  height: 132px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-}
-
-
 // 画面幅500px以上の場合
 @media screen and (min-width:500px) {
 

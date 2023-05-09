@@ -1,90 +1,96 @@
-<div class="container">
-  <div class="user-info-and-link-profile">
-    <div class="icon-image-lg">
-      <%= user_avatar_image_tag(@user) %>
-      <p><%= @user.name %>さん</p>
-    </div>
-    <% if @user == current_user %>
-      <div class="edit-profile-btn-container">
-        <%= link_to "プロフィールを編集", edit_profile_user_path(@user.id), class: "btn edit-profile-btn" %>
+<div class="container mt-5">
+  <div class="responsive-container-720">
+    <div class="user-info-and-link-profile">
+      <div class="icon-image-lg">
+        <%= user_avatar_image_tag(@user) %>
+        <p><%= @user.name %>さん</p>
       </div>
-    <% else %>
-      <% if user_signed_in? %>
-        <div id="follow-form-<%= @user.id %>">
-          <%= render 'shared/follow-and-unfollow', user: @user %>
+      <% if @user == current_user %>
+        <div class="edit-profile-btn-container">
+          <%= link_to "プロフィールを編集", edit_profile_user_path(@user.id), class: "btn edit-profile-btn" %>
         </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="inroduction">
-    <p><%= @user.introduction ? safe_join(@user.introduction.split("\n"), tag(:br)) : '' %></p>
-  </div>
-  <div class="row mb-5">
-    <div class="col text-center border-start border-end border-secondary border-2">
-      <P class="fs-6">登録数</P>
-      <P class="fw-bold fs-5"><%= @user.gadgets.count %></P>
-    </div>
-    <div class="col text-center">
-      <%= link_to user_followings_path(@user) do %>
-        <P class="fs-6">フォロー</P>
-        <P class="fw-bold fs-5"><%= @user.followers.count %></P>
+      <% else %>
+        <% if user_signed_in? %>
+          <div id="follow-form-<%= @user.id %>">
+            <%= render 'shared/follow-and-unfollow', user: @user %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="col text-center border-start border-end border-secondary border-2">
-      <%= link_to user_followers_path(@user) do %>
-        <P class="fs-6">フォロワー</P>
-        <P class="fw-bold fs-5"><%= @user.followings.count %></P>
-      <% end %>
+    <div class="inroduction">
+      <p><%= @user.introduction ? safe_join(@user.introduction.split("\n"), tag(:br)) : '' %></p>
     </div>
-  </div>
+    <div class="row">
+      <div class="col text-center border-start border-end border-secondary border-2">
+        <P class="fs-6">登録数</P>
+        <P class="fw-bold fs-5"><%= @user.gadgets.count %></P>
+      </div>
+      <div class="col text-center">
+        <%= link_to user_followings_path(@user) do %>
+          <P class="fs-6">フォロー</P>
+          <P class="fw-bold fs-5"><%= @user.followers.count %></P>
+        <% end %>
+      </div>
+      <div class="col text-center border-start border-end border-secondary border-2">
+        <%= link_to user_followers_path(@user) do %>
+          <P class="fs-6">フォロワー</P>
+          <P class="fw-bold fs-5"><%= @user.followings.count %></P>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="mypage-link-lists">
-    <p class="link-page"><%= link_to "My ガジェット", mygadgets_user_path(@user.id) %></p>
-    <p class="current-page">お気に入り</p>
-  </div>
+    <div class="mypage-link-lists row justify-content-center">
+      <div class="col">
+        <p class="link-page text-center"><%= link_to "My ガジェット", mygadgets_user_path(@user.id) %></p>
+      </div>
+      <div class="col">
+        <p class="current-page text-center"><span>お気に入り</span></p>
+      </div>
+    </div>
 
-  <div class="lists">
-    <% @gadgets.each do |gadget| %>
-      <div class="list-item">
-        <div class="post-container">
-          <div class="content">
-            <%= link_to mygadgets_user_path(gadget.user.id) do %>
-              <div class="info-container">
-                <div class="icon-image-sm">
-                  <%= user_avatar_image_tag(gadget.user) %>
+    <div class="lists">
+      <% @gadgets.each do |gadget| %>
+        <div class="list-item">
+          <div class="post-container">
+            <div class="content">
+              <%= link_to mygadgets_user_path(gadget.user.id) do %>
+                <div class="info-container">
+                  <div class="icon-image-sm">
+                    <%= user_avatar_image_tag(gadget.user) %>
+                  </div>
+                  <div class="user-name-and-creationdate-sm">
+                    <p class="user-name-sm"><%= gadget.user.name %></p>
+                    <p class="creationdate-sm"><%= gadget.created_at.to_s(:default) %></p>
+                  </div>
                 </div>
-                <div class="user-name-and-creationdate-sm">
-                  <p class="user-name-sm"><%= gadget.user.name %></p>
-                  <p class="creationdate-sm"><%= gadget.created_at.to_s(:default) %></p>
+              <% end %>
+              <p class="gadget-name"><%= gadget.name %></p>
+              <p class="gadget-category"><%= gadget.category %></p>
+              <%# いいねとコメント %>
+              <div class="likes-and-comments-container">
+                <div class="likes-and-comments" id="likes-and-comments-<%= gadget.id %>">
+                  <%= render partial: 'shared/likes_and_comments', locals: {gadget: gadget} %>
+                  <%= link_to gadget_comments_path(gadget.id), class: "ms-5" do %>
+                    <i class="fa-regular fa-message fs-2" style="color: #393e46;"></i> <span class="fs-2 ms-2"><%= gadget.comments.count %></span>
+                  <% end %>
                 </div>
-              </div>
-            <% end %>
-            <p class="gadget-name"><%= gadget.name %></p>
-            <p class="gadget-category"><%= gadget.category %></p>
-            <%# いいねとコメント %>
-            <div class="likes-and-comments-container">
-              <div class="likes-and-comments" id="likes-and-comments-<%= gadget.id %>">
-                <%= render partial: 'shared/likes_and_comments', locals: {gadget: gadget} %>
-                <%= link_to gadget_comments_path(gadget.id), class: "ms-5" do %>
-                  <i class="fa-regular fa-message fs-2" style="color: #393e46;"></i> <span class="fs-2 ms-2"><%= gadget.comments.count %></span>
-                <% end %>
               </div>
             </div>
+            <div class="gadget-image-md">
+              <%= image_tag gadget.image %>
+            </div>
           </div>
-          <div class="gadget-image-md">
-            <%= image_tag gadget.image, size: "125x110" %>
+          <div class="detail-link-container">
+            <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
           </div>
         </div>
-        <div class="detail-link-container">
-          <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
-        </div>
+      <% end %>
+    </div>
+
+    <% if current_user == @user %>
+      <div class="gadget-new-registration-btn-container">
+        <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>
       </div>
     <% end %>
   </div>
-
-  <% if current_user == @user %>
-    <div class="gadget-new-registration-btn-container">
-      <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>
-    </div>
-  <% end %>
 </div>
