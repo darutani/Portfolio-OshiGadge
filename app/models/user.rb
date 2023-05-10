@@ -27,6 +27,11 @@ class User < ApplicationRecord
     end
   end
 
+  # ゲストユーザーかどうか判断するメソッド
+  def guest?
+    email == 'guest@example.com'
+  end
+
   # パスワードなしでユーザーが自分のアカウントを更新できるようにする
   def update_without_current_password(params, *options)
     params.delete(:current_password)

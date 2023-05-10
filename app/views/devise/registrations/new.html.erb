@@ -8,7 +8,7 @@
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :name, class: "form-label" %>
-          <span class="minimum-length"><%= "(#{User::MAX_USER_NAME_LENGTH}文字以上)" %></span>
+          <span class="minimum-length"><%= "(#{User::MAX_USER_NAME_LENGTH}文字以下)" %></span>
           <span class="required-mark">必須</span>
         </div>
         <%= f.text_field :name, autofocus: true, autocomplete: "username", class: "form-control" %>
