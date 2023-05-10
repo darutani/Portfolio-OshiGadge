@@ -1,5 +1,11 @@
 <div class="container mt-80">
   <div class="responsive-container-540">
+    <% if current_user.guest? %>
+      <div class="alert bg-danger text-light fs-4 text-center my-5 p-2" role="alert">
+        <i class="fas fa-exclamation-triangle"></i>
+        ゲストユーザーのためアカウント情報の編集はできません
+      </div>
+    <% end %>
     <h2 class="form-title">アカウント情報を編集</h2>
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
@@ -9,7 +15,7 @@
         <div class="label-container">
           <%= f.label :email, class: "form-label" %>
         </div>
-        <%= f.email_field :email, value: @user.email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, value: @user.email, autofocus: true, autocomplete: "email", class: "form-control", disabled: current_user.guest? %>
       </div>
 
       <div class="field mb-5">
@@ -17,14 +23,14 @@
           <%= f.label :new_password, class: "form-label" %>
           <span class="minimum-length"><%= "（#{@minimum_password_length}文字以上）" if @minimum_password_length %></span>
         </div>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", disabled: current_user.guest? %>
       </div>
 
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :new_password_confirmation, class: "form-label" %>
         </div>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", disabled: current_user.guest? %>
       </div>
 
       <hr class="edit-account-border">
@@ -34,13 +40,13 @@
           <%= f.label :current_password, class: "form-label" %>
           <span class="required-mark">必須</span>
         </div>
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", disabled: current_user.guest? %>
       </div>
 
       <%= hidden_field_tag :form_type, 'account_edit' %>
 
       <div class="actions mb-3 pt-4 d-grid mx-auto">
-        <%= f.submit "更新", class: "btn" %>
+        <%= f.submit "更新", class: "btn", disabled: current_user.guest? %>
       </div>
     <% end %>
   </div>

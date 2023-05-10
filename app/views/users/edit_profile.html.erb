@@ -1,5 +1,11 @@
 <div class="container mt-80">
   <div class="responsive-container-540">
+    <% if current_user.guest? %>
+      <div class="alert bg-danger text-light fs-4 text-center my-5 p-2" role="alert">
+        <i class="fas fa-exclamation-triangle"></i>
+        ゲストユーザーのためプロフィール編集はできません
+      </div>
+    <% end %>
     <h2 class="form-title">プロフィール編集</h2>
 
     <%= form_with model: @user, url: user_registration_path, method: :patch, local: true do |f| %>
@@ -7,27 +13,27 @@
         <div class="label-container">
           <%= f.label :name, "ユーザー名", class: "form-label" %>
         </div>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", disabled: current_user.guest? %>
       </div>
 
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :avatar, "プロフィール画像", class: "form-label" %>
         </div>
-        <%= f.file_field :avatar, accept: 'image/jpeg, image/jpg, image/png, image/bmp', class: "form-control" %>
+        <%= f.file_field :avatar, accept: 'image/jpeg, image/jpg, image/png, image/bmp', class: "form-control", disabled: current_user.guest? %>
       </div>
 
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :introduction, "自己紹介", class: "form-label" %>
         </div>
-        <%= f.text_area :introduction, autocomplete: "introduction", class: "form-control", rows: 5 %>
+        <%= f.text_area :introduction, autocomplete: "introduction", class: "form-control", rows: 5, disabled: current_user.guest? %>
       </div>
 
       <%= hidden_field_tag :form_type, 'profile_edit' %>
 
       <div class="actions mb-3 pt-4 d-grid mx-auto">
-        <%= f.submit "更新", class: "btn" %>
+        <%= f.submit "更新", class: "btn", disabled: current_user.guest? %>
       </div>
     <% end %>
   </div>
