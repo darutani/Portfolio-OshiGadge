@@ -40,6 +40,10 @@
     font-size: 2rem;
     font-weight: 550;
   }
+
+  .btn:hover {
+    opacity: 0.8;
+  }
 }
 
 // ガジェット詳細画面の編集ボタン
@@ -87,4 +91,9 @@
     right: 20px;
     z-index: 990;
   }
+}
+
+// ガジェット削除／アカウント削除のリンク（ボタン）
+.delete-button:hover {
+  opacity: 0.7;
 }
