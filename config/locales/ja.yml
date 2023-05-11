@@ -20,6 +20,7 @@ ja:
         point: '推しポイント'
         reason: '選んだ理由'
         usage: '使用用途'
+        name: 'ガジェット名'
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>
