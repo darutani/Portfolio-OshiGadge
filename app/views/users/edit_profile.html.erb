@@ -9,9 +9,11 @@
     <h2 class="form-title">プロフィール編集</h2>
 
     <%= form_with model: @user, url: user_registration_path, method: :patch, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: @user %>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :name, "ユーザー名", class: "form-label" %>
+          <span class="required-mark">必須</span>
         </div>
         <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", disabled: current_user.guest? %>
       </div>
