@@ -99,6 +99,7 @@
 
       <% if user_signed_in? %>
         <%= form_with(model: [ @gadget, @comment ], local: true) do |form| %>
+          <%= render "shared/flash_error_messages" %>
           <div class="row mt-5">
             <div class="col-10 col-md-11">
               <%= form.text_area :content, rows: 1, class: "form-control h-100", id: "comment-input" %>

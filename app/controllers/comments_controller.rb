@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = "コメントの投稿に失敗しました。"
       @gadget.comments.delete(@comment)
-      render 'gadgets/show'
+      redirect_to gadget_path, flash: { error: @gadget.errors.full_messages }
     end
   end
 
@@ -22,9 +22,6 @@ class CommentsController < ApplicationController
 
     if @comment.user == current_user
       @comment.destroy
-      # 成功時の処理
-    else
-      # 失敗時の処理
     end
   end
 
