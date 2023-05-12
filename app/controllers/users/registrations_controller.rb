@@ -8,6 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         when 'profile_edit' then redirect_to mygadgets_user_path(current_user.id) and return
         when 'account_edit' then redirect_to account_user_path(current_user.id) and return
         end
+      else
+        case params[:form_type]
+        when 'profile_edit' then render 'users/edit_profile' and return
+        when 'account_edit' then render :edit and return
+        end
       end
     end
   end
