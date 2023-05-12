@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
       redirect_to gadget_path(@gadget)
     else
       flash[:alert] = "コメントの投稿に失敗しました。"
+      @gadget.comments.delete(@comment)
       render 'gadgets/show'
     end
   end

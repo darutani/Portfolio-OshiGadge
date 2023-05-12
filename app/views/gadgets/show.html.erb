@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <% if @gadget.user_id == current_user.id %>
+    <% if current_user && @gadget.user_id == current_user.id %>
       <div class="edit-btn-container">
         <%= link_to '編集する', edit_gadget_path(@gadget), class: "btn edit-btn" %>
       </div>
@@ -98,14 +98,15 @@
           </div>
         <% end %>
       </div>
+
       <% if user_signed_in? %>
-        <%= form_with(model: [ @gadget, @gadget.comments.build ], local: true) do |form| %>
+        <%= form_with(model: [ @gadget, @comment ], local: true) do |form| %>
           <div class="row mt-5">
             <div class="col-10 col-md-11">
-              <%= form.text_area :content, rows: 1, class: "form-control h-100" %>
+              <%= form.text_area :content, rows: 1, class: "form-control h-100", id: "comment-input" %>
             </div>
             <div class="col-2 col-md-1 d-flex align-items-center">
-              <%= form.submit "送信", class: "btn btn-secondary text-light fw-bold fs-5 h-100" %>
+              <%= form.submit "送信", class: "btn btn-secondary text-light fw-bold fs-5 h-100", id: "submit-button" %>
             </div>
           </div>
         <% end %>

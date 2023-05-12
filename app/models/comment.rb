@@ -5,5 +5,4 @@ class Comment < ApplicationRecord
   validates :content, presence: true, length: { minimum: 1, maximum: 400 }
   validates :user_id, presence: true
   validates :gadget_id, presence: true
-
 end
