@@ -3,15 +3,18 @@
     <h2 class="form-title">ガジェットを編集</h2>
 
     <%= form_with model: @gadget, url: gadget_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: @gadget %>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :name, "ガジェット名", class: "form-label" %>
+          <span class="required-mark">必須</span>
         </div>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :category, class: "form-label" %>
+          <span class="required-mark">必須</span>
         </div>
         <%= f.text_field :category, class: "form-control" %>
       </div>
@@ -30,6 +33,7 @@
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :point, class: "form-label" %>
+          <span class="required-mark">必須</span>
         </div>
         <%= f.text_area :point, class: "form-control", rows: 8 %>
       </div>
@@ -49,9 +53,12 @@
         <%= f.submit "更新", class: "btn" %>
       </div>
     <% end %>
+    <div class="d-grid">
+      <%= link_to "キャンセル", :back, class: "btn btn-outline-dark mt-5 fs-3 py-2" %>
+    </div>
 
     <div class="text-center mt-56">
-      <button type="button" class="text-info border-0 bg-light fs-4" data-bs-toggle="modal" data-bs-target="#deleteGadgetModal">
+      <button type="button" class="delete-button text-info border-0 bg-light fs-4" data-bs-toggle="modal" data-bs-target="#deleteGadgetModal">
         ガジェットを削除する
       </button>
     </div>
