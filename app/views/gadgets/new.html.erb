@@ -2,8 +2,8 @@
   <div class="responsive-container-540">
     <h2 class="form-title">ガジェットを登録</h2>
 
-    <%= form_with model: @gadget, url: gadgets_path, local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: @gadget %>
+    <%= form_with model: @gadget,url: gadgets_path, local: true do |f| %>
+      <%= render "shared/flash_error_messages" %>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :name, "ガジェット名", class: "form-label" %>

@@ -3,7 +3,7 @@
     <h2 class="form-title">ガジェットを編集</h2>
 
     <%= form_with model: @gadget, url: gadget_path, local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: @gadget %>
+      <%= render "shared/flash_error_messages" %>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :name, "ガジェット名", class: "form-label" %>
