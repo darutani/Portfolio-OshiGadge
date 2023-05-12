@@ -27,28 +27,19 @@ class GadgetsController < ApplicationController
 
   def create
     @gadget = Gadget.new(gadget_params)
-
-    respond_to do |format|
-      if @gadget.save
-        format.html { redirect_to gadget_url(@gadget), notice: "新規ガジェットを登録しました" }
-        format.json { render :show, status: :created, location: @gadget }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @gadget.errors, status: :unprocessable_entity }
-      end
+    if @gadget.save
+      redirect_to gadget_url(@gadget), notice: "新規ガジェットを登録しました"
+    else
+      redirect_to new_gadget_path, flash: { error: @gadget.errors.full_messages }
     end
   end
 
   # PATCH/PUT /gadgets/1 or /gadgets/1.json
   def update
-    respond_to do |format|
-      if @gadget.update(gadget_params)
-        format.html { redirect_to gadget_url(@gadget), notice: "ガジェット情報を更新しました" }
-        format.json { render :show, status: :ok, location: @gadget }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @gadget.errors, status: :unprocessable_entity }
-      end
+    if @gadget.update(gadget_params)
+      redirect_to gadget_url(@gadget), notice: "ガジェット情報を更新しました"
+    else
+      redirect_to edit_gadget_path, flash: { error: @gadget.errors.full_messages }
     end
   end
 
