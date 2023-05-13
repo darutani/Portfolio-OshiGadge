@@ -15,7 +15,7 @@
           <%= f.label :name, "ユーザー名", class: "form-label" %>
           <span class="required-mark">必須</span>
         </div>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", disabled: current_user.guest? %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", disabled: current_user.guest?, required: true %>
       </div>
 
       <div class="field mb-5">

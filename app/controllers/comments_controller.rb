@@ -22,9 +22,6 @@ class CommentsController < ApplicationController
 
     if @comment.user == current_user
       @comment.destroy
-      # 成功時の処理
-    else
-      # 失敗時の処理
     end
   end
 
