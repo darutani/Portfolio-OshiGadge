@@ -40,7 +40,7 @@
           <%= f.label :current_password, class: "form-label" %>
           <span class="required-mark">必須</span>
         </div>
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", disabled: current_user.guest? %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", disabled: current_user.guest?, required: true %>
       </div>
 
       <%= hidden_field_tag :form_type, 'account_edit' %>

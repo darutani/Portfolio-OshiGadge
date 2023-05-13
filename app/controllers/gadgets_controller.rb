@@ -40,6 +40,7 @@ class GadgetsController < ApplicationController
       redirect_to gadget_url(@gadget), notice: "ガジェット情報を更新しました"
     else
       render :new
+    end
   end
 
   # DELETE /gadgets/1 or /gadgets/1.json
