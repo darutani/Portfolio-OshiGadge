@@ -92,14 +92,14 @@
                 <% end %>
               </div>
             </div>
-            <P class="ps-2 fs-5"><%= comment.content %></P>
+            <P class="ps-2 fs-5"><%= safe_join(comment.content.split("\n"),tag(:br)) %></P>
           </div>
         <% end %>
       </div>
 
       <% if user_signed_in? %>
         <%= form_with(model: [ @gadget, @comment ], local: true) do |form| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "devise/shared/error_messages", resource: @comment %>
           <div class="row mt-5">
             <div class="col-10 col-md-11">
               <%= form.text_area :content, rows: 1, class: "form-control h-100", id: "comment-input" %>
