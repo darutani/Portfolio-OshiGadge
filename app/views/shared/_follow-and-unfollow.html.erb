@@ -1,9 +1,11 @@
-<% if current_user && current_user.following?(user) %>
-  <%= form_with url: user_relationships_path(user_id: user), method: :delete, local: false do |f| %>
-    <%= f.submit "フォロー中", class: "follow-btn btn btn-secondary rounded-pill btn-sm text-light" %>
-  <% end %>
-<% else %>
-  <%= form_with url: user_relationships_path(user_id: user), method: :post, local: false do |f| %>
-    <%= f.submit "フォロー", class: "follow-btn btn btn-light btn-outline-dark rounded-pill btn-sm" %>
+<% unless current_user == user %>
+  <% if current_user && current_user.following?(user) %>
+    <%= form_with url: user_relationships_path(user_id: user), method: :delete, local: false do |f| %>
+      <%= f.submit "フォロー中", class: "follow-btn btn btn-secondary rounded-pill btn-sm text-light" %>
+    <% end %>
+  <% else %>
+    <%= form_with url: user_relationships_path(user_id: user), method: :post, local: false do |f| %>
+      <%= f.submit "フォロー", class: "follow-btn btn btn-light btn-outline-dark rounded-pill btn-sm" %>
+    <% end %>
   <% end %>
 <% end %>

@@ -48,6 +48,7 @@ class User < ApplicationRecord
 
   # 他のユーザーをフォローするメソッド
   def follow(other_user)
+    return if self == other_user  # 自分自身をフォローしようとした場合、処理をスキップする
     active_relationships.create(followed_id: other_user.id)
   end
 
