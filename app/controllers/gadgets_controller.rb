@@ -45,8 +45,8 @@ class GadgetsController < ApplicationController
 
   # DELETE /gadgets/1 or /gadgets/1.json
   def destroy
+    flash[:notice] = "ガジェットを削除しました"
     @gadget.destroy
-
     respond_to do |format|
       format.html { redirect_to gadgets_url, notice: "Gadget was successfully destroyed." }
       format.json { head :no_content }
@@ -71,7 +71,7 @@ class GadgetsController < ApplicationController
 
     def ensure_correct_user
       if @gadget.user_id != current_user.id
-        flash[:alert] = "権限がありません。"
+        flash[:alert] = "権限がありません"
         redirect_to gadget_path
       end
     end

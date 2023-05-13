@@ -7,9 +7,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if success
       case params[:form_type]
       when 'profile_edit'
+        flash[:notice] = "プロフィール情報を更新しました"
         redirect_to mygadgets_user_path(current_user.id) and return
       when 'account_edit'
         bypass_sign_in(resource) if sign_in_after_change_password?
+        flash[:notice] = "アカウント情報を更新しました"
         redirect_to account_user_path(current_user.id) and return
       end
     else
@@ -25,10 +27,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def destroy
     resource.destroy
     if resource.destroyed?
-      flash[:notice] = "お客様のアカウントは正常に削除されました。"
+      flash[:notice] = "お客様のアカウントは正常に削除されました"
       redirect_to root_path
     else
-      flash[:alert] = "アカウントの削除にエラーが発生しました。"
+      flash[:alert] = "アカウントの削除にエラーが発生しました"
       redirect_back(fallback_location: root_path)
     end
   end
@@ -38,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ゲストユーザーの場合は編集・削除できないようにする
   def ensure_normal_user
     if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。'
+      redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません'
     end
   end
 
