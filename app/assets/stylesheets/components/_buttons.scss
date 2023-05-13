@@ -97,3 +97,10 @@
 .delete-button:hover {
   opacity: 0.7;
 }
+
+// フォローボタン
+.follow-btn:hover {
+  background-color: $color-first;
+  color: $color-fourth;
+  opacity: 0.7;
+}
