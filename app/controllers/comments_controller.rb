@@ -8,11 +8,19 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to gadget_path(@gadget)
+      if request.referer.include?("comments")
+        redirect_to gadget_comments_path(@gadget)
+      else
+        redirect_to gadget_path(@gadget)
+      end
     else
       flash[:alert] = "コメントの投稿に失敗しました。"
       @gadget.comments.delete(@comment)
-      render 'gadgets/show'
+      if request.referer.include?("comments")
+        render 'comments/index'
+      else
+        render 'gadgets/show'
+      end
     end
   end
 
@@ -22,11 +30,17 @@ class CommentsController < ApplicationController
 
     if @comment.user == current_user
       @comment.destroy
+      if request.referer.include?("comments")
+        redirect_to gadget_comments_path(@gadget)
+      else
+        redirect_to gadget_path(@gadget)
+      end
     end
   end
 
   def index
     @gadget = Gadget.find(params[:gadget_id])
+    @comment = Comment.new
   end
 
   private
