@@ -3,20 +3,20 @@
     <h2 class="form-title">ガジェットを登録</h2>
 
     <%= form_with model: @gadget,url: gadgets_path, local: true do |f| %>
-      <%= render "shared/flash_error_messages" %>
+      <%= render "devise/shared/error_messages", resource: @gadget %>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :name, "ガジェット名", class: "form-label" %>
           <span class="required-mark">必須</span>
         </div>
-        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control", required: true %>
       </div>
       <div class="field mb-5">
         <div class="label-container">
           <%= f.label :category, class: "form-label" %>
           <span class="required-mark">必須</span>
         </div>
-        <%= f.text_field :category, class: "form-control" %>
+        <%= f.text_field :category, class: "form-control", required: true %>
       </div>
       <div class="field mb-5">
         <div class="label-container">
@@ -35,7 +35,7 @@
           <%= f.label :point, class: "form-label" %>
           <span class="required-mark">必須</span>
         </div>
-        <%= f.text_area :point, class: "form-control", rows: 8 %>
+        <%= f.text_area :point, class: "form-control", rows: 8, required: true %>
       </div>
       <div class="field mb-5">
         <div class="label-container">

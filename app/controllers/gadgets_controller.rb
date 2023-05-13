@@ -30,7 +30,7 @@ class GadgetsController < ApplicationController
     if @gadget.save
       redirect_to gadget_url(@gadget), notice: "新規ガジェットを登録しました"
     else
-      redirect_to new_gadget_path, flash: { error: @gadget.errors.full_messages }
+      render :new
     end
   end
 
@@ -39,8 +39,7 @@ class GadgetsController < ApplicationController
     if @gadget.update(gadget_params)
       redirect_to gadget_url(@gadget), notice: "ガジェット情報を更新しました"
     else
-      redirect_to edit_gadget_path, flash: { error: @gadget.errors.full_messages }
-    end
+      render :new
   end
 
   # DELETE /gadgets/1 or /gadgets/1.json
