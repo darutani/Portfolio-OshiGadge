@@ -88,18 +88,18 @@
               </div>
               <div class="d-flex align-items-end">
                 <% if comment.user == current_user %>
-                  <%= link_to "削除", [comment.gadget, comment], method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                  <%= link_to "削除", gadget_comment_path(comment.gadget, comment), method: :delete, data: { confirm: "本当に削除しますか？" } %>
                 <% end %>
               </div>
             </div>
-            <P class="ps-2 fs-5"><%= comment.content %></P>
+            <P class="ps-2 fs-5"><%= safe_join(comment.content.split("\n"),tag(:br)) %></P>
           </div>
         <% end %>
       </div>
 
       <% if user_signed_in? %>
         <%= form_with(model: [ @gadget, @comment ], local: true) do |form| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "devise/shared/error_messages", resource: @comment %>
           <div class="row mt-5">
             <div class="col-10 col-md-11">
               <%= form.text_area :content, rows: 1, class: "form-control h-100", id: "comment-input" %>

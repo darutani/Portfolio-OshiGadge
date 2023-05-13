@@ -82,7 +82,7 @@
                 <% end %>
               </div>
             </div>
-            <P class="ps-2 fs-5"><%= comment.content %></P>
+            <P class="ps-2 fs-5"><%= safe_join(comment.content.split("\n"),tag(:br)) %></P>
           </div>
         <% end %>
       </div>
