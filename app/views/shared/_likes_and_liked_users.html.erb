@@ -3,7 +3,7 @@
     <i class="fas fa-thumbs-up me-2" style="color: #393E46;"></i>
   <% end %>
   <%= link_to liked_users_gadget_path(gadget), class: 'like-button' do %>
-    <P><strong><%= gadget.likes.count %></strong> 件のいいね</P>
+    <P class="ms-3"><strong><%= gadget.likes.count %></strong> 件のいいね</P>
   <% end %>
 <% else %>
   <% if user_signed_in? %>
@@ -11,14 +11,14 @@
       <i class="far fa-thumbs-up me-2"></i>
     <% end %>
     <%= link_to liked_users_gadget_path(gadget), class: 'like-button' do %>
-      <P><strong><%= gadget.likes.count %></strong> 件のいいね</P>
+      <P class="ms-3"><strong><%= gadget.likes.count %></strong> 件のいいね</P>
     <% end %>
   <% else %>
     <%= link_to new_user_session_path, class: 'like-button' do %>
       <i class="far fa-thumbs-up me-2"></i>
     <% end %>
     <%= link_to liked_users_gadget_path(gadget), class: 'like-button' do %>
-      <P><strong><%= gadget.likes.count %></strong> 件のいいね</P>
+      <P class="ms-3"><strong><%= gadget.likes.count %></strong> 件のいいね</P>
     <% end %>
   <% end %>
 <% end %>

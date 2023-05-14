@@ -24,7 +24,7 @@
     </div>
 
     <%# いいね %>
-    <div class="likes-and-comments" id="likes-and-comments-<%= @gadget.id %>">
+    <div class="likes d-flex fs-3" id="likes-<%= @gadget.id %>">
       <%= render partial: 'shared/likes_and_liked_users', locals: {gadget: @gadget} %>
     </div>
 
