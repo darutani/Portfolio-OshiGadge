@@ -67,11 +67,13 @@
               <p class="gadget-name"><%= gadget.name %></p>
               <p class="gadget-category"><%= gadget.category %></p>
               <%# いいねとコメント %>
-              <div class="likes-and-comments-container">
-                <div class="likes-and-comments" id="likes-and-comments-<%= gadget.id %>">
-                  <%= render partial: 'shared/likes_and_comments', locals: {gadget: gadget} %>
+              <div class="likes-and-comments-container d-flex fs-4">
+                <div class="likes" id="likes-<%= gadget.id %>">
+                  <%= render partial: 'shared/likes', locals: {gadget: gadget} %>
+                </div>
+                <div class="comments">
                   <%= link_to gadget_comments_path(gadget.id), class: "ms-5" do %>
-                    <i class="fa-regular fa-message fs-2" style="color: #393e46;"></i> <span class="fs-2 ms-2"><%= gadget.comments.count %></span>
+                    <i class="fa-regular fa-message me-2" style="color: #393e46;"></i> <span><%= gadget.comments.count %></span>
                   <% end %>
                 </div>
               </div>
