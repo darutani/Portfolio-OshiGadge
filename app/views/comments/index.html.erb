@@ -42,11 +42,11 @@
       </div>
       <div class="gadget-detail">
         <p class="category">使用用途</p>
-        <P class="content"><%= safe_join(@gadget.usage.split("\n"),tag(:br)) %></P>
+        <P class="content"><%= safe_join(@gadget.usage&.split("\n") || [], tag(:br)) %></P>
       </div>
       <div class="gadget-detail">
         <p class="category">選んだ理由</p>
-        <P class="content"><%= safe_join(@gadget.reason.split("\n"),tag(:br)) %></P>
+        <P class="content"><%= safe_join(@gadget.reason&.split("\n") || [], tag(:br)) %></P>
       </div>
       <div class="detail-link-container">
         <%= link_to "＞ ガジェット詳細へ", gadget_path(@gadget), class: "btn detail-link" %>
