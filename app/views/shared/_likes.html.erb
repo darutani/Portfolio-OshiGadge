@@ -1,0 +1,15 @@
+<% if user_signed_in? && gadget.liked_by?(current_user) %>
+  <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :delete, remote: true, class: 'like-button' do %>
+    <i class="fas fa-thumbs-up me-2" style="color: #393E46;"></i> <%= gadget.likes.count %>
+  <% end %>
+<% else %>
+  <% if user_signed_in? %>
+    <%= link_to gadget_likes_path(gadget, custom_view: 'other'), method: :post, remote: true, class: 'like-button' do %>
+      <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: 'like-button' do %>
+      <i class="far fa-thumbs-up me-2"></i> <%= gadget.likes.count %>
+    <% end %>
+  <% end %>
+<% end %>
