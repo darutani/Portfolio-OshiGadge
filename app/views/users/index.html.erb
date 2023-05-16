@@ -28,7 +28,7 @@
             <div class="gadget-image-sm">
               <div class="row">
                 <% user.gadgets.each do |gadget| %>
-                  <div class="col-3">
+                  <div class="col-3 my-2">
                     <%= link_to gadget_path(gadget.id) do %>
                       <%= image_tag gadget.image %>
                     <% end %>
