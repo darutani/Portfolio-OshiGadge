@@ -89,6 +89,12 @@ RSpec.describe 'gadgets#top', type: :system do
       end
     end
 
+    it 'ログインユーザー自身のユーザー名の横にはフォローボタンが表示されない' do
+      within("#follow-form-#{user.id}") do
+        expect(page).not_to have_selector('.follow-btn')
+      end
+    end
+
     it 'フォローボタンをクリックすると、フォローボタンがフォロー中へ変わる。再度フォローボタンをクリックすると、フォローボタンがフォローへ変わる', js: true do
       within("#follow-form-#{user2.id}") do
         expect(page).to have_selector('.follow-btn')
