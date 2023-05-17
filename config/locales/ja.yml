@@ -21,6 +21,9 @@ ja:
         reason: '選んだ理由'
         usage: '使用用途'
         name: 'ガジェット名'
+    errors:
+      messages:
+        taken: "はすでに使用されています"
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

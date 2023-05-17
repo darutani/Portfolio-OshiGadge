@@ -13,7 +13,7 @@ class LikesController < ApplicationController
         format.js
       else
         format.html { redirect_to @gadget, alert: 'Failed to like the gadget.' }
-        format.js { render :error }
+        format.js
       end
     end
   end

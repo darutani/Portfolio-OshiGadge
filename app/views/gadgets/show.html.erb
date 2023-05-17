@@ -24,7 +24,7 @@
     </div>
 
     <%# いいね %>
-    <div class="likes-and-comments" id="likes-and-comments-<%= @gadget.id %>">
+    <div class="likes d-flex fs-3" id="likes-<%= @gadget.id %>">
       <%= render partial: 'shared/likes_and_liked_users', locals: {gadget: @gadget} %>
     </div>
 
@@ -47,11 +47,11 @@
       </div>
       <div class="gadget-detail">
         <p class="category">使用用途</p>
-        <P class="content"><%= safe_join(@gadget.usage.split("\n"),tag(:br)) %></P>
+        <P class="content"><%= safe_join(@gadget.usage&.split("\n") || [], tag(:br)) %></P>
       </div>
       <div class="gadget-detail">
         <p class="category">選んだ理由</p>
-        <P class="content"><%= safe_join(@gadget.reason.split("\n"),tag(:br)) %></P>
+        <P class="content"><%= safe_join(@gadget.reason&.split("\n") || [], tag(:br)) %></P>
       </div>
     </div>
 

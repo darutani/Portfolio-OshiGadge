@@ -59,11 +59,13 @@
                 <p class="gadget-name"><%= gadget.name %></p>
                 <p class="gadget-category"><%= gadget.category %></p>
                 <%# いいねとコメント %>
-                <div class="likes-and-comments-container">
-                  <div class="likes-and-comments" id="likes-and-comments-<%= gadget.id %>">
-                    <%= render partial: 'shared/likes_and_comments', locals: {gadget: gadget} %>
-                    <%= link_to gadget_comments_path(gadget.id), class: "ms-5" do %>
-                      <i class="fa-regular fa-message" style="color: #393e46;"></i> <span class="ms-2"><%= gadget.comments.count %></span>
+                <div class="likes-and-comments-container d-flex fs-4">
+                  <div class="likes" id="likes-<%= gadget.id %>">
+                    <%= render partial: 'shared/likes', locals: {gadget: gadget} %>
+                  </div>
+                  <div class="comments" id="comments-<%= gadget.id %>">
+                    <%= link_to gadget_comments_path(gadget.id), class: "comment-button ms-5" do %>
+                      <i class="fa-regular fa-message me-2" style="color: #393e46;"></i> <span><%= gadget.comments.count %></span>
                     <% end %>
                   </div>
                 </div>
@@ -114,7 +116,7 @@
             <div class="gadget-image-sm">
               <div class="row">
                 <% user.gadgets.each do |gadget| %>
-                  <div class="col-3">
+                  <div class="col-3 my-2">
                     <%= link_to gadget_path(gadget.id) do %>
                       <%= image_tag gadget.image %>
                     <% end %>

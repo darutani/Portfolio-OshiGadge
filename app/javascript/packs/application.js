@@ -11,6 +11,10 @@ import "channels"
 import "../stylesheets/application.scss";
 import 'bootstrap/dist/js/bootstrap.bundle';
 
+// Rspecテストのエラー回避として、jQueryを使うために追記
+import $ from 'jquery';
+global.$ = global.jQuery = $;
+
 
 Rails.start()
 Turbolinks.start()
@@ -36,30 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-// コメント入力欄が未入力の場合送信ボタンを無効化
-// document.addEventListener('DOMContentLoaded', () => {
-//   const commentInput = document.getElementById('comment-input');
-//   const submitButton = document.getElementById('submit-button');
-
-//   // コメント入力欄の内容が変更されたときに呼び出される関数
-//   function onCommentInputChange() {
-//     if (commentInput.value.trim() === '') {
-//       submitButton.disabled = true;
-//     } else {
-//       submitButton.disabled = false;
-//     }
-//   }
-
-//   // コメント入力欄の初期状態に基づいて、送信ボタンの無効化/有効化を設定
-//   onCommentInputChange();
-
-//   // コメント入力欄の内容が変更されたときに、送信ボタンの無効化/有効化を更新
-//   commentInput.addEventListener('input', onCommentInputChange);
-
-//   console.log("Hello")
-// });
-
 
 // コメント入力欄が未入力の場合送信ボタンを無効化
 function onCommentInputChange() {
@@ -90,4 +70,3 @@ function initializeCommentFormValidation() {
 
 document.addEventListener('DOMContentLoaded', initializeCommentFormValidation);
 document.addEventListener('turbolinks:load', initializeCommentFormValidation);
-
