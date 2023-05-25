@@ -41,6 +41,8 @@ gem 'aws-sdk-s3', require: false
 gem 'kaminari'
 # metaタグの設定
 gem 'meta-tags'
+# 検索機能
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
