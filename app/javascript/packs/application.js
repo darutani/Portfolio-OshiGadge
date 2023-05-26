@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
 // コメント入力欄が未入力の場合送信ボタンを無効化
 function onCommentInputChange() {
   const commentInput = document.getElementById('comment-input');
@@ -70,3 +71,12 @@ function initializeCommentFormValidation() {
 
 document.addEventListener('DOMContentLoaded', initializeCommentFormValidation);
 document.addEventListener('turbolinks:load', initializeCommentFormValidation);
+
+
+// 検索結果ページにて検索対象タブ（投稿orユーザー）を保存しておくために、検索モデルをhidden_fieldにセット
+$(document).on('turbolinks:load', function() {
+  $('#gadget-link, #user-link').on('click', function(e) {
+    var model = $(this).attr('id') === 'gadget-link' ? 'gadgets' : 'users';
+    $('#hidden-model').val(model);
+  });
+});
