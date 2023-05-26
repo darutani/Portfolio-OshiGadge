@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def index
     @q = params[:q]
-    @model = params[:model] || 'gadgets'
+    @model = params[:model].presence || 'gadgets'
     if @q.present?
       if @model == 'users'
         @users = User.ransack(name_or_introduction_cont: @q).result(distinct: true)
