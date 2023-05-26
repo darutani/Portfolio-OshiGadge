@@ -1,7 +1,20 @@
-<%# $('#search-result').empty(); %>
+$('#search-result').empty();
 
-<% if @users %>
+<% if @gadgets.present? %>
+  $('#search-result').html('<%= escape_javascript(render partial: 'shared/search_gadget_page', locals: { gadgets: @gadgets }) %>');
+<% elsif @users.present? %>
   $('#search-result').html('<%= escape_javascript(render partial: 'shared/search_user_page', locals: { users: @users }) %>');
 <% else %>
-  $('#search-result').html('<%= escape_javascript(render partial: 'shared/search_gadget_page', locals: { gadgets: @gadgets }) %>');
+  $('#search-result').html('<p class="text-center fs-4">条件に一致する検索結果はありません。</p>');
 <% end %>
+
+// 非同期通信成功後にクラスの変化を適用
+var model = "<%= @model %>";
+$('#gadget-link').removeClass('active-link').addClass('inactive-link');
+$('#user-link').removeClass('active-link').addClass('inactive-link');
+
+if (model === 'gadgets') {
+  $('#gadget-link').removeClass('inactive-link').addClass('active-link');
+} else if (model === 'users') {
+  $('#user-link').removeClass('inactive-link').addClass('active-link');
+}
