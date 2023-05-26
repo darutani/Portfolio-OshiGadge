@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="search-title fs-1 text-center mt-64">検索結果</h2>
 
-  <%= form_with url: searches_path, method: :get, id: 'search-form', class: "mt-56" do |f| %>
+  <%= form_with url: searches_path, method: :get, id: 'search-form', local: true, class: "mt-56" do |f| %>
     <div class="responsive-container-540">
       <div class="row">
         <div class="col-10 col-sm-11">
