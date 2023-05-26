@@ -62,9 +62,13 @@ class User < ApplicationRecord
     followings.include?(other_user)
   end
 
-  # application_helper.rbに移動
-  # アイコン画像が未設定の場合にデフォルト画像を設定するメソッド
-  # def avatar_image
-  #   avatar.attached? ? avatar : "default_icon_image.png"
-  # end
+  # 検索対象カラムの設定
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name introduction]
+  end
+
+  # 検索対象の関連テーブルの設定
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
