@@ -1,0 +1,31 @@
+<div class="container">
+  <h2 class="search-title fs-1 text-center mt-64">検索結果</h2>
+
+  <%= form_with url: searches_path, method: :get, id: 'search-form', class: "mt-56" do |f| %>
+    <div class="responsive-container-540">
+      <div class="row">
+        <div class="col-10 col-sm-11">
+          <%= f.text_field :q, value: @q, class: "form-control form-control-lg" %>
+          <%= f.hidden_field :model, value: @model, id: 'hidden-model' %>
+        </div>
+        <div class="d-grid col-2 col-sm-1 bg-secondary text-center rounded px-0">
+          <%= f.submit "検索", class: "btn px-0 text-light fw-bold form-control-lg fs-5" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col px-4 form-title">
+      <%= link_to '投稿', searches_path(model: 'gadgets', q: params[:q]), id: 'gadget-link', remote: true %>
+    </div>
+    <div class="col px-4 form-title">
+      <%= link_to 'ユーザー', searches_path(model: 'users', q: params[:q]), id: 'user-link', remote: true %>
+    </div>
+  </div>
+
+  <div id="search-result">
+    <%= render partial: 'shared/search_gadget_page', locals: { gadgets: @gadgets } if @gadgets %>
+    <%= render partial: 'shared/search_user_page', locals: { users: @users } if @users %>
+  </div>
+</div>

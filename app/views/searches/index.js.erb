@@ -1,0 +1,7 @@
+<%# $('#search-result').empty(); %>
+
+<% if @users %>
+  $('#search-result').html('<%= escape_javascript(render partial: 'shared/search_user_page', locals: { users: @users }) %>');
+<% else %>
+  $('#search-result').html('<%= escape_javascript(render partial: 'shared/search_gadget_page', locals: { gadgets: @gadgets }) %>');
+<% end %>
