@@ -33,7 +33,28 @@
     </div>
   </div>
 <% end %>
-<div class="container mt-64">
+
+<div class="container mt-48">
+  <hr class="search-border">
+  <P class="mt-5 text-center fs-2 fw-bold">キーワードで検索</P>
+  <%= form_with url: searches_path, method: :get, id: 'search-form', class: "mt-3" do |f| %>
+    <div class="responsive-container-540">
+      <div class="row">
+        <div class="col-10 col-sm-11">
+          <%= f.text_field :q, value: @q, class: "form-control form-control-lg" %>
+          <%= f.hidden_field :model, value: @model, id: 'hidden-model' %>
+        </div>
+        <div class="d-grid col-2 col-sm-1 bg-secondary text-center rounded px-0">
+          <%= f.submit "検索", class: "btn px-0 text-light fw-bold form-control-lg fs-5" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%# <hr class="search-border"> %>
+
+</div>
+
+<div class="container mt-120">
   <div class="lists-title">
     <h2>新着投稿一覧</h2>
     <%= link_to "新着投稿一覧はこちら", gadgets_path %>
