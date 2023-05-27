@@ -20,6 +20,9 @@
       <%= link_to '投稿', searches_path(model: 'gadgets', q: params[:q]), id: 'gadget-link', class: (@model == 'gadgets' ? 'active-link' : 'inactive-link'), remote: true %>
     </div>
     <div class="col px-4 search-title-item">
+      <%= link_to 'カテゴリー', searches_path(model: 'categories', q: params[:q]), id: 'category-link', class: (@model == 'categories' ? 'active-link' : 'inactive-link'), remote: true %>
+    </div>
+    <div class="col px-4 search-title-item">
       <%= link_to 'ユーザー', searches_path(model: 'users', q: params[:q]), id: 'user-link', class: (@model == 'users' ? 'active-link' : 'inactive-link'), remote: true %>
     </div>
   </div>
