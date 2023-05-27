@@ -66,7 +66,7 @@ class GadgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gadget_params
-      params.require(:gadget).permit(:user_id, :name, :start_date, :category, :reason, :point, :usage, :image).merge(user_id:current_user.id)
+      params.require(:gadget).permit(:user_id, :name, :start_date, :category_list, :reason, :point, :usage, :image).merge(user_id:current_user.id)
     end
 
     def ensure_correct_user
