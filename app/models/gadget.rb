@@ -6,7 +6,6 @@ class Gadget < ApplicationRecord
   acts_as_taggable_on :categories
 
   validates :name, presence: true
-  validates :category, presence: true
   validates :point, presence: true
 
   # いいね済かどうかの判定
