@@ -75,8 +75,20 @@ document.addEventListener('turbolinks:load', initializeCommentFormValidation);
 
 // 検索結果ページにて検索対象タブ（投稿orユーザー）を保存しておくために、検索モデルをhidden_fieldにセット
 $(document).on('turbolinks:load', function() {
-  $('#gadget-link, #user-link').on('click', function(e) {
-    var model = $(this).attr('id') === 'gadget-link' ? 'gadgets' : 'users';
+  $('#gadget-link, #user-link, #category-link').on('click', function(e) {
+    var model;
+    switch ($(this).attr('id')) {
+      case 'gadget-link':
+        model = 'gadgets';
+        break;
+      case 'user-link':
+        model = 'users';
+        break;
+      case 'category-link':
+        model = 'categories';
+        break;
+    }
     $('#hidden-model').val(model);
   });
 });
+
