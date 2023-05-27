@@ -3,10 +3,12 @@
 entity users {
   *id [PK]
   --
-  email
-  password
   name
   introduction
+  email
+  password
+  encrypted_password
+
 }
 
 entity gadgets {
@@ -19,7 +21,6 @@ entity gadgets {
   reason
   point
   usage
-  feature
 }
 
 entity likes {
@@ -37,21 +38,18 @@ entity comments {
   content
 }
 
-entity inquiries as "inquiries\n問い合わせ" {
-  *id [PK]
-  --
-}
-
 entity relationships {
   *id [PK]
   --
-  follower_id
-  followed_id
+  follower_id [FK]
+  followed_id [FK]
 }
 
 users ||--o{ gadgets
 users ||--o{ comments
 users ||--o{ likes
+users ||-r-o{ relationships
+users ||-r-o{ relationships
 gadgets ||-r-o{ comments
 gadgets ||-l-o{ likes
 
