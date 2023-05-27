@@ -19,11 +19,11 @@
         </div>
       <% end %>
     </div>
-
-    <div class="gadget-image-lg">
-      <%= image_tag @gadget.image %>
-    </div>
-
+    <% if @gadget.image.present? %>
+      <div class="gadget-image-lg">
+        <%= image_tag @gadget.image %>
+      </div>
+    <% end %>
     <%# いいね %>
     <div class="likes d-flex fs-3" id="likes-<%= @gadget.id %>">
       <%= render partial: 'shared/likes_and_liked_users', locals: {gadget: @gadget} %>
