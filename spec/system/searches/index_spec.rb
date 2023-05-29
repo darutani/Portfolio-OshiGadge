@@ -4,9 +4,9 @@ RSpec.describe "Searches", type: :system do
   let!(:user1) { create(:user, name: '山田太郎', introduction: 'おはようございます') }
   let!(:user2) { create(:user, name: '田中太郎', introduction: 'こんにちは') }
   let!(:user3) { create(:user, name: '山田花子', introduction: 'こんばんは') }
-  let!(:gadget1) { create(:gadget, name: 'iPhone14 Pro Max', reason: 'Appleが好きだからです', usage: 'メインスマホとして使用しています', point: '画面が大きくて使いやすいです') }
-  let!(:gadget2) { create(:gadget, name: 'iPhone13 mini', reason: 'Appleが好きだからです', usage: 'サブスマホとして使用しています', point: '画面が小さくてコンパクトです') }
-  let!(:gadget3) { create(:gadget, name: 'Pixel Fold', reason: 'Googleが好きだからです', usage: 'メインスマホとして使用しています', point: 'カメラが綺麗です') }
+  let!(:gadget1) { create(:gadget, name: 'iPhone14 Pro Max', reason: 'Appleが好きだからです', usage: 'メインスマホとして使用しています', point: '画面が大きくて使いやすいです', category_list: 'メインスマホ') }
+  let!(:gadget2) { create(:gadget, name: 'iPhone13 mini', reason: 'Appleが好きだからです', usage: 'サブスマホとして使用しています', point: '画面が小さくてコンパクトです', category_list: 'サブスマホ') }
+  let!(:gadget3) { create(:gadget, name: 'Pixel Fold', reason: 'Googleが好きだからです', usage: 'メインスマホとして使用しています', point: 'カメラが綺麗です', category_list: 'メインスマホ') }
 
   it '検索キーワードとガジェット名が部分一致するガジェットが”投稿”タブに表示される（一致しないガジェットが表示されていない）' do
     visit searches_path
@@ -49,6 +49,18 @@ RSpec.describe "Searches", type: :system do
       expect(page).to have_content(gadget1.name)
       expect(page).not_to have_content(gadget2.name)
       expect(page).not_to have_content(gadget3.name)
+    end
+  end
+
+  it '検索キーワードとカテゴリー名が完全一致するガジェットが”カテゴリー”タブに表示される（一致しないガジェットが表示されていない）', js: true do
+    visit searches_path
+    fill_in 'q', with: 'メインスマホ'
+    click_button '検索'
+    click_link 'カテゴリー'
+    within('#search-result') do
+      expect(page).to have_content(gadget1.name)
+      expect(page).not_to have_content(gadget2.name)
+      expect(page).to have_content(gadget3.name)
     end
   end
 
@@ -95,6 +107,7 @@ RSpec.describe "Searches", type: :system do
     end
     expect(page).to have_css('#gadget-link.inactive-link')
     expect(page).to have_css('#user-link.active-link')
+    expect(page).to have_css('#category-link.inactive-link')
   end
 
   it 'トップページの検索欄で未入力のまま検索ボタン押下後、検索結果ページにて投稿タブが太字、下線ありの装飾が適用されている' do
@@ -102,5 +115,20 @@ RSpec.describe "Searches", type: :system do
     click_button '検索'
     expect(page).to have_css('#gadget-link.active-link')
     expect(page).to have_css('#user-link.inactive-link')
+    expect(page).to have_css('#category-link.inactive-link')
+  end
+
+  it 'トップページの新着投稿欄のカテゴリータグをクリックすると検索結果ページのカテゴリータブに遷移し、選択したカテゴリーと同一カテゴリーの投稿一覧が表示される', js: true do
+    visit root_path
+    click_link 'メインスマホ', match: :first
+    expect(page).to have_title('検索結果')
+    expect(page).to have_css('#gadget-link.inactive-link')
+    expect(page).to have_css('#user-link.inactive-link')
+    expect(page).to have_css('#category-link.active-link')
+    within('#search-result') do
+      expect(page).to have_content(gadget1.name)
+      expect(page).not_to have_content(gadget2.name)
+      expect(page).to have_content(gadget3.name)
+    end
   end
 end
