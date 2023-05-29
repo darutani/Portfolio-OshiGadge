@@ -14,13 +14,13 @@ ja:
         current_password: '現在のパスワード'
         remember_me: 'ログイン状態を保持する'
       gadget:
-        category: 'カテゴリー'
         start_date: '使用開始日'
         feature: 'ガジェットの特徴'
         point: '推しポイント'
         reason: '選んだ理由'
         usage: '使用用途'
         name: 'ガジェット名'
+        category_list: "カテゴリー"
     errors:
       messages:
         taken: "はすでに使用されています"
