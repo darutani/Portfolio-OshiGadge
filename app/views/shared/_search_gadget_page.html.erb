@@ -34,9 +34,11 @@
                 </div>
               </div>
             </div>
-            <div class="gadget-image-md">
-              <%= image_tag gadget.image %>
-            </div>
+            <% if gadget.image.present? %>
+              <div class="gadget-image-md">
+                <%= image_tag gadget.image %>
+              </div>
+            <% end %>
           </div>
           <div class="detail-link-container">
             <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>

@@ -23,7 +23,11 @@
                   </div>
                 <% end %>
                 <p class="gadget-name"><%= gadget.name %></p>
-                <p class="gadget-category"><%= gadget.category %></p>
+                <p class="gadget-category">
+                  <% gadget.category_list.each do |category| %>
+                    <%= link_to category, searches_path(q: category, model: 'categories') %>
+                  <% end %>
+                </p>
                 <%# いいねとコメント %>
                 <div class="likes-and-comments-container d-flex fs-4">
                   <div class="likes" id="likes-<%= gadget.id %>">
@@ -36,9 +40,11 @@
                   </div>
                 </div>
               </div>
-              <div class="gadget-image-md">
-                <%= image_tag gadget.image %>
-              </div>
+              <% if gadget.image.present? %>
+                <div class="gadget-image-md">
+                  <%= image_tag gadget.image %>
+                </div>
+              <% end %>
             </div>
             <div class="detail-link-container">
               <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
