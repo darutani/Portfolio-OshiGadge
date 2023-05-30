@@ -3,18 +3,18 @@ class SearchesController < ApplicationController
     @q = params[:q]
     @model = params[:model].presence || 'gadgets'
     if @q.present?
-      if @model == 'users'
-        @users = User.ransack(name_or_introduction_cont: @q).result(distinct: true)
-      else
-        @gadgets = Gadget.ransack(name_or_reason_or_usage_or_point_cont: @q).result(distinct: true)
-      end
+        case @model
+        when 'users'
+            @users = User.ransack(name_or_introduction_cont: @q).result(distinct: true)
+        when 'gadgets'
+            @gadgets = Gadget.ransack(name_or_reason_or_usage_or_point_cont: @q).result(distinct: true)
+        when 'categories'
+            @gadgets = Gadget.tagged_with(@q)
+        end
     end
-
-    # binding.pry
-
     respond_to do |format|
-      format.html
-      format.js
+        format.html
+        format.js
     end
-  end
+end
 end

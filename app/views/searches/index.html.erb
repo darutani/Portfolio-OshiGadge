@@ -1,6 +1,6 @@
+<% content_for :title, "検索結果" %>
 <div class="container">
   <h2 class="search-title text-center mt-64">検索結果</h2>
-
   <%= form_with url: searches_path, method: :get, id: 'search-form', local: true, class: "mt-56" do |f| %>
     <div class="responsive-container-540">
       <div class="row">
@@ -14,16 +14,17 @@
       </div>
     </div>
   <% end %>
-
   <div class="row">
     <div class="col px-4 search-title-item">
       <%= link_to '投稿', searches_path(model: 'gadgets', q: params[:q]), id: 'gadget-link', class: (@model == 'gadgets' ? 'active-link' : 'inactive-link'), remote: true %>
     </div>
     <div class="col px-4 search-title-item">
+      <%= link_to 'カテゴリー', searches_path(model: 'categories', q: params[:q]), id: 'category-link', class: (@model == 'categories' ? 'active-link' : 'inactive-link'), remote: true %>
+    </div>
+    <div class="col px-4 search-title-item">
       <%= link_to 'ユーザー', searches_path(model: 'users', q: params[:q]), id: 'user-link', class: (@model == 'users' ? 'active-link' : 'inactive-link'), remote: true %>
     </div>
   </div>
-
   <div id="search-result">
     <% if @gadgets.present? %>
       <%= render partial: 'shared/search_gadget_page', locals: { gadgets: @gadgets } %>

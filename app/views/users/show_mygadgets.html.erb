@@ -39,7 +39,6 @@
         <% end %>
       </div>
     </div>
-
     <div class="mypage-link-lists row justify-content-center">
       <div class="col">
         <p class="current-page text-center"><span>My ガジェット</span></p>
@@ -48,16 +47,19 @@
         <p class="link-page text-center"><%= link_to "お気に入り", favorites_user_path(@user.id) %></p>
       </div>
     </div>
-
     <div class="mygadget-lists">
-      <% @gadgets.group_by(&:category).each do |category, gadgets| %>
+      <%# １ガジェットに複数カテゴリーの場合でも１カテゴリー毎に表示 %>
+      <% category_gadgets = @gadgets.flat_map { |gadget| gadget.category_list.map { |category| [category, gadget] } }.group_by(&:first) %>
+      <% category_gadgets.each do |category, gadgets_with_category| %>
         <div class="category-container">
           <h4><%= category %></h4>
-          <% gadgets.each do |gadget| %>
+          <% gadgets_with_category.each do |_, gadget| %>
             <div class="mygadget-detail mt-4">
-              <div class="gadget-image" >
-                <%= image_tag gadget.image %>
-              </div>
+              <% if gadget.image.present? %>
+                <div class="gadget-image" >
+                  <%= image_tag gadget.image %>
+                </div>
+              <% end %>
               <div class="gadget-name">
                 <h5><%= gadget.name %></h5>
               </div>
@@ -80,7 +82,6 @@
         </div>
       <% end %>
     </div>
-
     <% if current_user == @user %>
       <div class="gadget-new-registration-btn-container">
         <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>

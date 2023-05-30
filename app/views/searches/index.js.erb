@@ -12,9 +12,12 @@ $('#search-result').empty();
 var model = "<%= @model %>";
 $('#gadget-link').removeClass('active-link').addClass('inactive-link');
 $('#user-link').removeClass('active-link').addClass('inactive-link');
+$('#category-link').removeClass('active-link').addClass('inactive-link');
 
 if (model === 'gadgets') {
   $('#gadget-link').removeClass('inactive-link').addClass('active-link');
 } else if (model === 'users') {
   $('#user-link').removeClass('inactive-link').addClass('active-link');
+} else if (model === 'categories') {
+  $('#category-link').removeClass('inactive-link').addClass('active-link');
 }

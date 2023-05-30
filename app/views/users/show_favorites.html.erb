@@ -1,4 +1,4 @@
-<% content_for :title, "#{@user.name}さんのお気にいりガジェット" %>
+<% content_for :title, "#{@user.name}さんのお気に入りガジェット" %>
 <div class="container mt-5">
   <div class="responsive-container-720">
     <div class="user-info-and-link-profile">
@@ -39,7 +39,6 @@
         <% end %>
       </div>
     </div>
-
     <div class="mypage-link-lists row justify-content-center">
       <div class="col">
         <p class="link-page text-center"><%= link_to "My ガジェット", mygadgets_user_path(@user.id) %></p>
@@ -48,7 +47,6 @@
         <p class="current-page text-center"><span>お気に入り</span></p>
       </div>
     </div>
-
     <div class="lists">
       <% @gadgets.each do |gadget| %>
         <div class="list-item">
@@ -66,7 +64,11 @@
                 </div>
               <% end %>
               <p class="gadget-name"><%= gadget.name %></p>
-              <p class="gadget-category"><%= gadget.category %></p>
+              <p class="gadget-category">
+                <% gadget.category_list.each do |category| %>
+                  <%= link_to category, searches_path(q: category, model: 'categories') %>
+                <% end %>
+              </p>
               <%# いいねとコメント %>
               <div class="likes-and-comments-container d-flex fs-4">
                 <div class="likes" id="likes-<%= gadget.id %>">
@@ -79,9 +81,11 @@
                 </div>
               </div>
             </div>
-            <div class="gadget-image-md">
-              <%= image_tag gadget.image %>
-            </div>
+            <% if gadget.image.present? %>
+              <div class="gadget-image-md">
+                <%= image_tag gadget.image %>
+              </div>
+            <% end %>
           </div>
           <div class="detail-link-container">
             <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
@@ -89,7 +93,6 @@
         </div>
       <% end %>
     </div>
-
     <% if current_user == @user %>
       <div class="gadget-new-registration-btn-container">
         <%= link_to "＋新規登録", new_gadget_path, class: "btn gadget-new-registration-btn" %>
