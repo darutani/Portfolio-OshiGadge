@@ -86,7 +86,7 @@
         <h1 class="modal-title">楽天で商品を検索</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
       </div>
-      <div>
+      <div class="mt-5">
         <%= form_with url: search_rakuten_gadgets_path, method: :get, local: false, class: "row justify-content-center" do |f| %>
           <div class="col-8">
             <%= f.text_field :q, value: params[:q], class: "form-control form-control-lg" %>
@@ -101,7 +101,7 @@
         <%= render partial: 'shared/search_rakuten', locals: { rakuten_items: @rakuten_items } %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+        <button type="button" class="btn btn-light btn-outline-dark" data-bs-dismiss="modal">キャンセル</button>
       </div>
     </div>
   </div>
