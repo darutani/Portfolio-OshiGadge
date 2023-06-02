@@ -103,7 +103,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-  // モーダルウィンドウ内の"追加"ボタンがクリックされたときの処理
+// モーダルウィンドウ内の"追加"ボタンがクリックされたときの処理
 $(document).on('click', '.rakuten-add-button', function(e) {
   e.preventDefault();
 
@@ -126,7 +126,7 @@ $(document).on('click', '.rakuten-add-button', function(e) {
   $('#rakuten-modal').modal('hide');
 });
 
-  // 削除ボタンをクリックした時の処理
+// 削除ボタンをクリックした時の処理
 $(document).on('click', '#remove_rakuten_url_button', function(e) {
   e.preventDefault();
 
@@ -141,4 +141,13 @@ $(document).on('click', '#remove_rakuten_url_button', function(e) {
 
   // 削除ボタンを非表示にする
   $(this).hide();
+});
+
+// ガジェット編集ページ表示時に、楽天URLが設定されている場合に削除ボタンを表示する
+$(document).on('turbolinks:load', function() {
+  var selectedRakutenUrl = $('#gadget_rakuten_url').val()
+
+  if (selectedRakutenUrl && selectedRakutenUrl !== 'なし') {
+    $('#remove_rakuten_url_button').show();
+  }
 });
