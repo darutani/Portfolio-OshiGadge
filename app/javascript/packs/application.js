@@ -92,3 +92,53 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+// 楽天URL検索ページのモーダルウィンドウ
+$(document).on('turbolinks:load', function() {
+  // ”楽天のリンクを追加する”ボタンをクリックしたときの処理
+  $(document).on('click', '#rakuten-link-button', function(e) {
+    e.preventDefault();
+
+    // モーダルウィンドウを表示
+    $('#rakuten-modal').modal('show');
+  });
+});
+
+  // モーダルウィンドウ内の"追加"ボタンがクリックされたときの処理
+$(document).on('click', '.rakuten-add-button', function(e) {
+  e.preventDefault();
+
+  // data-url 属性から楽天URLを取得
+  var selectedRakutenUrl = $(this).data('url');
+
+  // hidden_field に選択した楽天URLを設定
+  $('#gadget_rakuten_url').val(selectedRakutenUrl);
+
+  // "選択された楽天リンク"表示部分にURLを表示
+  $('#rakuten_url_text').text(selectedRakutenUrl);
+
+  // 削除ボタンを表示
+  $('#remove_rakuten_url_button').show();
+
+  // 選択されたURLをLocalStorageに保存
+  localStorage.setItem('selectedRakutenUrl', selectedRakutenUrl);
+
+  // モーダルウィンドウを閉じる
+  $('#rakuten-modal').modal('hide');
+});
+
+  // 削除ボタンをクリックした時の処理
+$(document).on('click', '#remove_rakuten_url_button', function(e) {
+  e.preventDefault();
+
+  // "選択された楽天リンク"表示部分を "なし" に戻す
+  $('#rakuten_url_text').text('なし');
+
+  // hidden_field の値も空にする
+  $('#gadget_rakuten_url').val('');
+
+  // localStorageの値も削除する
+  localStorage.removeItem('selectedRakutenUrl');
+
+  // 削除ボタンを非表示にする
+  $(this).hide();
+});

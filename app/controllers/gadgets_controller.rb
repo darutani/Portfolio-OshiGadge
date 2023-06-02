@@ -58,6 +58,15 @@ class GadgetsController < ApplicationController
     @users = User.joins(:likes).where(likes: { gadget_id: @gadget.id }).order('likes.created_at DESC').page(params[:page])
   end
 
+  def search_rakuten
+    if params[:q].present?
+      @rakuten_items = RakutenWebService::Ichiba::Item.search(keyword: params[:q])
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gadget
@@ -66,7 +75,7 @@ class GadgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gadget_params
-      params.require(:gadget).permit(:user_id, :name, :start_date, :category_list, :reason, :point, :usage, :image).merge(user_id:current_user.id)
+      params.require(:gadget).permit(:user_id, :name, :start_date, :category_list, :reason, :point, :usage, :image, :rakuten_url).merge(user_id:current_user.id)
     end
 
     def ensure_correct_user
