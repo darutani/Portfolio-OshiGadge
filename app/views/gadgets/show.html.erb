@@ -58,6 +58,11 @@
         <p class="category">選んだ理由</p>
         <P class="content"><%= safe_join(@gadget.reason&.split("\n") || [], tag(:br)) %></P>
       </div>
+      <div class="gadget-detail mt-5 d-grid col-8 mx-auto">
+        <%= link_to @gadget.rakuten_url, class: "btn btn-danger fs-4" do %>
+          <span class="text-light">楽天で購入する</span><i class="fa-solid fa-arrow-up-right-from-square ms-2" style="color: #f7f7f7;"></i>
+        <% end %>
+      </div>
     </div>
 
     <% if current_user && @gadget.user_id == current_user.id %>
