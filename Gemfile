@@ -45,6 +45,9 @@ gem 'meta-tags'
 gem 'ransack'
 # タグ付け機能
 gem 'acts-as-taggable-on'
+# 楽天API
+gem 'rakuten_web_service'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -131,6 +131,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
+    json (2.6.3)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -230,6 +231,8 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
     rake (13.0.6)
+    rakuten_web_service (1.13.2)
+      json (~> 2.3)
     ransack (4.0.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
@@ -345,6 +348,7 @@ DEPENDENCIES
   rails (~> 6.1.7, >= 6.1.7.2)
   rails-erd
   rails-i18n
+  rakuten_web_service
   ransack
   rspec-rails
   sass-rails (>= 6)
