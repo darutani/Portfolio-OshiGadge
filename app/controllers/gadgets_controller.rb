@@ -48,7 +48,7 @@ class GadgetsController < ApplicationController
     flash[:notice] = "ガジェットを削除しました"
     @gadget.destroy
     respond_to do |format|
-      format.html { redirect_to gadgets_url, notice: "Gadget was successfully destroyed." }
+      format.html { redirect_to mygadgets_user_path(current_user.id), notice: "ガジェットを削除しました" }
       format.json { head :no_content }
     end
   end
