@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Gadgets", type: :system do
   let(:user) { create(:user) }
-  # let(:gadget) { create(:gadget, user: user) }
 
   before do
     sign_in user
