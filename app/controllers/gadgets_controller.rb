@@ -48,7 +48,7 @@ class GadgetsController < ApplicationController
     flash[:notice] = "ガジェットを削除しました"
     @gadget.destroy
     respond_to do |format|
-      format.html { redirect_to gadgets_url, notice: "Gadget was successfully destroyed." }
+      format.html { redirect_to mygadgets_user_path(current_user.id), notice: "ガジェットを削除しました" }
       format.json { head :no_content }
     end
   end
@@ -56,6 +56,15 @@ class GadgetsController < ApplicationController
   def liked_users
     @gadget = Gadget.find(params[:id])
     @users = User.joins(:likes).where(likes: { gadget_id: @gadget.id }).order('likes.created_at DESC').page(params[:page])
+  end
+
+  def search_rakuten
+    if params[:q].present?
+      @rakuten_items = RakutenWebService::Ichiba::Item.search(keyword: params[:q])
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
@@ -66,7 +75,7 @@ class GadgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gadget_params
-      params.require(:gadget).permit(:user_id, :name, :start_date, :category_list, :reason, :point, :usage, :image).merge(user_id:current_user.id)
+      params.require(:gadget).permit(:user_id, :name, :start_date, :category_list, :reason, :point, :usage, :image, :rakuten_url).merge(user_id:current_user.id)
     end
 
     def ensure_correct_user

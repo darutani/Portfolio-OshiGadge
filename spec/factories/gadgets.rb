@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :gadget do
     user
     name { Faker::Device.model_name }
-    category { Faker::Commerce.department(max: 1) }
+    category_list { Faker::Commerce.department(max: 1) }
     point { Faker::Lorem.sentence }
 
     # gadgetに画像を添付する

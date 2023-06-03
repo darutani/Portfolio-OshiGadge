@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :gadgets do
     collection do
       get 'top'
+      # 楽天商品検索
+      get 'search_rakuten'
     end
     resource :likes, only: [:create, :destroy]
     get 'liked_users', on: :member
