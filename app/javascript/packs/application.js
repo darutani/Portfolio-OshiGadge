@@ -119,9 +119,6 @@ $(document).on('click', '.rakuten-add-button', function(e) {
   // 削除ボタンを表示
   $('#remove_rakuten_url_button').show();
 
-  // 選択されたURLをLocalStorageに保存
-  localStorage.setItem('selectedRakutenUrl', selectedRakutenUrl);
-
   // モーダルウィンドウを閉じる
   $('#rakuten-modal').modal('hide');
 });
@@ -135,9 +132,6 @@ $(document).on('click', '#remove_rakuten_url_button', function(e) {
 
   // hidden_field の値も空にする
   $('#gadget_rakuten_url').val('');
-
-  // localStorageの値も削除する
-  localStorage.removeItem('selectedRakutenUrl');
 
   // 削除ボタンを非表示にする
   $(this).hide();
