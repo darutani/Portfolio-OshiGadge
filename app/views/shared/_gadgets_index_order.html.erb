@@ -1,0 +1,49 @@
+<div class="row g-4">
+  <% gadgets.each do |gadget| %>
+    <div class="col-md-6 col-xxl-4">
+      <div class="list-item">
+        <div class="post-container">
+          <div class="content">
+            <%= link_to mygadgets_user_path(gadget.user.id) do %>
+              <div class="info-container">
+                <div class="icon-image-sm">
+                  <%= user_avatar_image_tag(gadget.user) %>
+                </div>
+                <div class="user-name-and-creationdate-sm">
+                  <p class="user-name-sm"><%= gadget.user.name %></p>
+                  <p class="creationdate-sm"><%= gadget.created_at.to_s(:default) %></p>
+                </div>
+              </div>
+            <% end %>
+            <p class="gadget-name"><%= gadget.name %></p>
+            <p class="gadget-category">
+              <% gadget.category_list.each do |category| %>
+                <%= link_to category, searches_path(q: category, model: 'categories') %>
+              <% end %>
+            </p>
+            <%# いいねとコメント %>
+            <div class="likes-and-comments-container d-flex fs-4">
+              <div class="likes" id="likes-<%= gadget.id %>">
+                <%= render partial: 'shared/likes', locals: {gadget: gadget} %>
+              </div>
+              <div class="comments">
+                <%= link_to gadget_comments_path(gadget.id), class: "ms-5" do %>
+                  <i class="fa-regular fa-message me-2" style="color: #393e46;"></i> <span><%= gadget.comments.count %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% if gadget.image.present? %>
+            <div class="gadget-image-md">
+              <%= image_tag gadget.image %>
+            </div>
+          <% end %>
+        </div>
+        <div class="detail-link-container">
+          <%= link_to "＞ 投稿詳細へ", gadget_path(gadget), class: "btn detail-link" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate gadgets, params: { order: params[:order] }, remote: true %>
