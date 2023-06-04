@@ -145,3 +145,11 @@ $(document).on('turbolinks:load', function() {
     $('#remove_rakuten_url_button').show();
   }
 });
+
+// 投稿一覧ページにて、選択した並び順にactiveクラスを付与する
+$(document).on('turbolinks:load', function() {
+  $('.dropdown-menu .dropdown-item').on('click',function(){
+    $('.dropdown-menu .dropdown-item').removeClass('active');
+    $(this).addClass('active');
+  });
+});
