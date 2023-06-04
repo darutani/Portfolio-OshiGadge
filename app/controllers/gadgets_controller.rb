@@ -9,14 +9,27 @@ class GadgetsController < ApplicationController
   end
 
   def index
-    @gadgets = Gadget.all.order('created_at DESC').page(params[:page]).per(24)
-    @gadgets_new_order = Gadget.all.order('created_at DESC').page(params[:page])
-    @gadgets_older_order = Gadget.all.order('created_at ASC').page(params[:page])
-    @gadgets_ranking_order = Gadget.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page])
-    @gadgets_name_asc_order = Gadget.order('name ASC').page(params[:page])
-    @gadgets_name_desc_order = Gadget.order('name DESC').page(params[:page])
-    @gadgets_category_asc_order = Gadget.order('category_list ASC').page(params[:page])
-    @gadgets_category_desc_order = Gadget.order('category_list DESC').page(params[:page])
+    case params[:order]
+    when 'older'
+      @gadgets = Gadget.all.order('created_at ASC').page(params[:page]).per(24)
+    when 'ranking'
+      @gadgets = Gadget.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page]).per(24)
+    when 'name_asc'
+      @gadgets = Gadget.order('LOWER(name) ASC').page(params[:page]).per(24)
+    when 'name_desc'
+      @gadgets = Gadget.order('LOWER(name) DESC').page(params[:page]).per(24)
+    when 'category_asc'
+      @gadgets = Kaminari.paginate_array(Gadget.all.sort_by { |g| g.category_list.first }).page(params[:page]).per(24)
+    when 'category_desc'
+      @gadgets = Kaminari.paginate_array(Gadget.all.sort_by { |g| g.category_list.first }.reverse).page(params[:page]).per(24)
+    else 'new'
+      @gadgets = Gadget.all.order('created_at DESC').page(params[:page]).per(24)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
