@@ -3,7 +3,26 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit_profile, :account]
 
   def index
-    @users = User.all.order('created_at DESC').page(params[:page])
+    case params[:order]
+    when 'older'
+      @users = User.all.order('created_at ASC').page(params[:page]).per(24)
+    when 'ranking'
+      @users = User.left_joins(:passive_relationships)
+                .group('users.id')
+                .order('COUNT(relationships.follower_id) DESC')
+                .page(params[:page]).per(24)
+    when 'name_asc'
+      @users = User.order('LOWER(name) ASC').page(params[:page]).per(24)
+    when 'name_desc'
+      @users = User.order('LOWER(name) DESC').page(params[:page]).per(24)
+    else 'new'
+      @users = User.all.order('created_at DESC').page(params[:page]).per(24)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show_mygadgets
