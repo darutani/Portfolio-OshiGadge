@@ -12,7 +12,7 @@
           <li><%= link_to "マイページ", mygadgets_user_path(current_user.id), class: "dropdown-item" %></li>
           <li><%= link_to "ガジェット登録", new_gadget_path, class: "dropdown-item" %></li>
           <li><%= link_to "ユーザー一覧", users_path, class: "dropdown-item" %></li>
-          <li><%= link_to "新着投稿一覧", gadgets_path, class: "dropdown-item" %></li>
+          <li><%= link_to "投稿一覧", gadgets_path, class: "dropdown-item" %></li>
           <li><%= link_to "アカウント情報", account_user_path(current_user.id), class: "dropdown-item" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
           <li><%= link_to "お問い合わせ", contact_path, class: "dropdown-item" %></li>
