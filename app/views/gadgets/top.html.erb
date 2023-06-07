@@ -33,7 +33,6 @@
     </div>
   </div>
 <% end %>
-
 <div class="container mt-48">
   <hr class="search-border">
   <P class="mt-5 text-center fs-2 fw-bold">キーワードで検索</P>
@@ -50,10 +49,7 @@
       </div>
     </div>
   <% end %>
-  <%# <hr class="search-border"> %>
-
 </div>
-
 <div class="container mt-120">
   <div class="lists-title">
     <h2>新着投稿一覧</h2>
@@ -78,11 +74,11 @@
                   </div>
                 <% end %>
                 <p class="gadget-name"><%= gadget.name %></p>
-                <p class="gadget-category">
-                  <% gadget.category_list.each do |category| %>
+                <% gadget.category_list.each do |category| %>
+                  <p class="gadget-category">
                     <%= link_to category, searches_path(q: category, model: 'categories') %>
-                  <% end %>
-                </p>
+                  </p>
+                <% end %>
                 <%# いいねとコメント %>
                 <div class="likes-and-comments-container d-flex fs-4">
                   <div class="likes" id="likes-<%= gadget.id %>">

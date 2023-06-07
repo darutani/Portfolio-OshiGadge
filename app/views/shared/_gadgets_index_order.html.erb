@@ -16,11 +16,11 @@
               </div>
             <% end %>
             <p class="gadget-name"><%= gadget.name %></p>
-            <p class="gadget-category">
-              <% gadget.category_list.each do |category| %>
+            <% gadget.category_list.each do |category| %>
+              <p class="gadget-category">
                 <%= link_to category, searches_path(q: category, model: 'categories') %>
-              <% end %>
-            </p>
+              </p>
+            <% end %>
             <%# いいねとコメント %>
             <div class="likes-and-comments-container d-flex fs-4">
               <div class="likes" id="likes-<%= gadget.id %>">
