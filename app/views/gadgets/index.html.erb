@@ -6,8 +6,8 @@
       <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         並び替え
       </button>
-      <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="dropdownMenuButton1">
-        <li><%= link_to "新着順", gadgets_path(order: 'new'), class: "dropdown-item text-dark active", id: "new_order", remote: true %></li>
+      <ul class="dropdown-menu dropdown-menu-end" id="dropdown_menu" aria-labelledby="dropdownMenuButton1">
+        <li><%= link_to "新着順", gadgets_path(order: 'new'), class: "active dropdown-item text-dark", id: "new_order", remote: true %></li>
         <li><%= link_to "古い順", gadgets_path(order: 'older'), class: "dropdown-item text-dark", id: "older_order", remote: true %></li>
         <li><%= link_to "人気順", gadgets_path(order: 'ranking'), class: "dropdown-item text-dark", id: "ranking_order", remote: true %></li>
         <li><%= link_to "昇順(ガジェット名)", gadgets_path(order: 'name_asc'), class: "dropdown-item text-dark", id: "name_asc_order", remote: true %></li>
