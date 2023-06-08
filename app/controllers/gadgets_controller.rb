@@ -4,12 +4,32 @@ class GadgetsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def top
-    @gadgets = Gadget.all.order('created_at DESC').limit(10)
-    @users = User.all.order('created_at DESC').limit(10)
+    @gadgets = Gadget.all.order('created_at DESC').limit(9)
+    @users = User.all.order('created_at DESC').limit(9)
   end
 
   def index
-    @gadgets = Gadget.all.order('created_at DESC').page(params[:page])
+    case params[:order]
+    when 'older'
+      @gadgets = Gadget.all.order('created_at ASC').page(params[:page]).per(24)
+    when 'ranking'
+      @gadgets = Gadget.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').page(params[:page]).per(24)
+    when 'name_asc'
+      @gadgets = Gadget.order('LOWER(name) ASC').page(params[:page]).per(24)
+    when 'name_desc'
+      @gadgets = Gadget.order('LOWER(name) DESC').page(params[:page]).per(24)
+    when 'category_asc'
+      @gadgets = Kaminari.paginate_array(Gadget.all.sort_by { |g| g.category_list.first }).page(params[:page]).per(24)
+    when 'category_desc'
+      @gadgets = Kaminari.paginate_array(Gadget.all.sort_by { |g| g.category_list.first }.reverse).page(params[:page]).per(24)
+    else 'new'
+      @gadgets = Gadget.all.order('created_at DESC').page(params[:page]).per(24)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -34,7 +54,6 @@ class GadgetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /gadgets/1 or /gadgets/1.json
   def update
     if @gadget.update(gadget_params)
       redirect_to gadget_url(@gadget), notice: "ガジェット情報を更新しました"
@@ -43,7 +62,6 @@ class GadgetsController < ApplicationController
     end
   end
 
-  # DELETE /gadgets/1 or /gadgets/1.json
   def destroy
     flash[:notice] = "ガジェットを削除しました"
     @gadget.destroy
@@ -68,12 +86,10 @@ class GadgetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_gadget
       @gadget = Gadget.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def gadget_params
       params.require(:gadget).permit(:user_id, :name, :start_date, :category_list, :reason, :point, :usage, :image, :rakuten_url).merge(user_id:current_user.id)
     end
