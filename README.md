@@ -50,6 +50,7 @@
 <br>
 <br>
 <br>
+
 | 投稿（ガジェット）登録 | 楽天リンク検索 | 投稿（ガジェット）編集 |
 | :---: | :---: | :---: |
 | ![ガジェット新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/379bd257-fdfd-4195-9d1f-6a731e572934) | ![楽天リンク検索_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/cb2f0d1b-128a-487b-82d5-de30c3d2bb62) | ![ガジェット編集_OshiGadge_−推しガジェ− png sb-6dc0d654-hMnR02](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/64e63eaa-cf1a-422e-85ca-57f07d1722ff) |
@@ -57,13 +58,15 @@
 <br>
 <br>
 <br>
+
 | ユーザー一覧 | ユーザー詳細 | プロフィール編集 |
 | :---: | :---: | :---: |
-| ![ユーザー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/a68df6ac-25c0-4bbb-afa3-50dad7437215) | ![ユーザー詳細_OshiGadge_−推しガジェ− png sb-6dc0d654-qjQPn4](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/dd0fde15-32fe-42e4-87bf-7a8005420e38) | ![プロフィール編集_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/615f0c5d-14b9-4e48-b119-cfdfa0244732) |
+| ![ユーザー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/aba8f0c9-8506-4078-aa0d-a4d484ef18f4) | ![ユーザー詳細_OshiGadge_−推しガジェ− png sb-6dc0d654-qjQPn4](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/dd0fde15-32fe-42e4-87bf-7a8005420e38) | ![プロフィール編集_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/615f0c5d-14b9-4e48-b119-cfdfa0244732) |
 | 非同期通信でフォロー、フォロー解除が可能 | プロフィール編集ページへの遷移ボタンの設置。<br>フォロー、フォロワー数部分をクリックすることでフォロー・フォロワー一覧ページへ遷移可能。<br>ユーザーが登録したガジェットである”Myガジェット”とユーザーがいいねした投稿の一覧が表示される”お気に入り”タブの設置。 | メールアドレス、パスワード以外のユーザー情報の編集が可能。<br>メールアドレス、パスワードは別ページにて編集が可能。 |
 <br>
 <br>
 <br>
+
 | アカウント情報 | フォロー・フォロワー一覧 | 検索結果 |
 | :---: | :---: | :---: |
 | ![アカウント情報_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/f17ca478-867e-48fe-acdf-eed1a96675e8) ![アカウント情報編集_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/5ff7d02c-e86b-4950-9ca1-12035add0e6d) | ![フォロー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/54af00e0-f274-46e2-89e8-2332a25c526c) | ![検索結果_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/c7fbc440-88a1-46d6-95e2-4f69c88a0284) |
