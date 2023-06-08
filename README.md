@@ -35,16 +35,44 @@
 
 <br />
 
-| 新規登録 | ログイン | トップ | 投稿一覧 |
-| :---: | :---: | :---: |
-| ![ユーザー新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/eddecec3-87e2-4a65-9f2b-66d5e073c56b) | ![ログイン_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/177e171f-8b6f-47d2-a006-6983808271ab) | ![トップページ_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/88c2a6fd-693e-45f2-b845-8e80e4f70737) ![トップページ２_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/09a45245-e23c-49f8-91c3-f547264d730f) |
-| ユーザー名も登録。ログインページへのリンクも完備 | ゲストログインも可能 | キーワード検索欄、新着投稿9件、新着ユーザー9件を表示。<br />カテゴリーページに飛べるリンクや機能紹介を表示する。 | 2カラムでこれまでの投稿を一覧表示する。<br />投稿を選択すると詳細画面に遷移する。 |
-<br />
-<br />
-<br />
+| 新規登録 | ログイン | トップ ||
+| :---: | :---: | :---: | :---: |
+| ![ユーザー新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/eddecec3-87e2-4a65-9f2b-66d5e073c56b) | ![ログイン_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/177e171f-8b6f-47d2-a006-6983808271ab) | ![トップページ_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/88c2a6fd-693e-45f2-b845-8e80e4f70737) | ![トップページ２_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/09a45245-e23c-49f8-91c3-f547264d730f) |
+| ユーザー名も登録。ログインページへのリンクも完備 | ゲストログインも可能 | キーワード検索欄、新着投稿9件、新着ユーザー9件を表示。 | 各ガジェットとユーザーの詳細へのリンク、投稿・ユーザー一覧へのリンクを設置 |
+<br>
+<br>
+<br>
 
-## 実装機能概要
-- ユーザー登録／ログイン機能
+| 投稿一覧 | 投稿詳細 | コメント一覧 |
+| :---: | :---: | :---: |
+| ![投稿一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/664e283f-9a44-4745-b124-3dbc3fea5501) | ![ガジェット詳細３_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/3fe41116-1027-44e9-a5c1-8b62b143d229) |  |
+| ページネーションあり。1ページ24件まで表示。<br>並び替えが可能。非同期通信にて並び順の変更可能。<br>各投稿にいいねが可能。 | いいねが可能。<br>楽天市場購入ページへ遷移できるボタンが設置。<br>コメントが可能。このページでは最大5件までのコメントが表示。<br>6件以上の場合、”コメントを全て見る”リンクが表示されコメント一覧ページへ遷移できる。 |  |
+<br>
+<br>
+<br>
+| 投稿（ガジェット）登録 | 楽天リンク検索 | 投稿（ガジェット）編集 |
+| :---: | :---: | :---: |
+| ![ガジェット新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/379bd257-fdfd-4195-9d1f-6a731e572934) | ![楽天リンク検索_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/cb2f0d1b-128a-487b-82d5-de30c3d2bb62) | ![ガジェット編集_OshiGadge_−推しガジェ− png sb-6dc0d654-hMnR02](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/64e63eaa-cf1a-422e-85ca-57f07d1722ff) |
+| 楽天市場の購入ページリンクを設定可能。<br>”楽天のリンクを追加”ボタンをクリックするとモーダルでリンク検索ページが開く。 | キーワードに一致する楽天市場の購入リンクが検索可能。<br>検索結果は非同期通信で表示。<br>”追加”ボタンをクリックすることでモーダルが閉じ、投稿（ガジェット）登録ページに選択したURLが表示される。 | 楽天市場のURLは削除ボタンで削除可能。 |
+<br>
+<br>
+<br>
+| ユーザー一覧 | ユーザー詳細 | プロフィール編集 |
+| :---: | :---: | :---: |
+| ![ユーザー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/a68df6ac-25c0-4bbb-afa3-50dad7437215) | ![ユーザー詳細_OshiGadge_−推しガジェ− png sb-6dc0d654-qjQPn4](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/dd0fde15-32fe-42e4-87bf-7a8005420e38) | ![プロフィール編集_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/615f0c5d-14b9-4e48-b119-cfdfa0244732) |
+| 非同期通信でフォロー、フォロー解除が可能 | プロフィール編集ページへの遷移ボタンの設置。<br>フォロー、フォロワー数部分をクリックすることでフォロー・フォロワー一覧ページへ遷移可能。<br>ユーザーが登録したガジェットである”Myガジェット”とユーザーがいいねした投稿の一覧が表示される”お気に入り”タブの設置。 | メールアドレス、パスワード以外のユーザー情報の編集が可能。<br>メールアドレス、パスワードは別ページにて編集が可能。 |
+<br>
+<br>
+<br>
+| アカウント情報 | フォロー・フォロワー一覧 | 検索結果 |
+| :---: | :---: | :---: |
+| ![アカウント情報_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/f17ca478-867e-48fe-acdf-eed1a96675e8) ![アカウント情報編集_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/5ff7d02c-e86b-4950-9ca1-12035add0e6d) | ![フォロー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/54af00e0-f274-46e2-89e8-2332a25c526c) | ![検索結果_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/c7fbc440-88a1-46d6-95e2-4f69c88a0284) |
+| アカウント情報（メールアドレス、パスワード）の確認ページ。<br>アカウント情報編集ページ。変更するには現在のパスワードが必要。 | ユーザーのフォローとフォロワー一覧を表示。 | トップページの検索ボタン押下後に遷移するページ。<br>検索対象をガジェット名、カテゴリー、ユーザー名で絞ることが可能。それぞれのタブを選択することで非同期通信にて切り替え可能。 |
+<br>
+<br>
+
+## 実装機能概要。
+- ユーザー登録／ログイン機能。
 - ユーザー削除機能
 - ゲストログイン機能
 - ユーザー情報及びプロフィール情報の編集機能
