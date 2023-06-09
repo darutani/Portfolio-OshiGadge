@@ -29,13 +29,13 @@
       <div class="col text-center">
         <%= link_to user_followings_path(@user) do %>
           <P class="fs-6">フォロー</P>
-          <P class="fw-bold fs-5"><%= @user.followers.count %></P>
+          <P class="fw-bold fs-5"><%= @user.followings.count %></P>
         <% end %>
       </div>
       <div class="col text-center border-start border-end border-secondary border-2">
         <%= link_to user_followers_path(@user) do %>
           <P class="fs-6">フォロワー</P>
-          <P class="fw-bold fs-5"><%= @user.followings.count %></P>
+          <P class="fw-bold fs-5"><%= @user.followers.count %></P>
         <% end %>
       </div>
     </div>
