@@ -38,42 +38,42 @@
 | 新規登録 | ログイン | トップ |
 | :---: | :---: | :---: |
 | ![ユーザー新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/62bf9366-639c-4346-afa8-311ddfe45791) | ![ログイン_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/9186f679-21cb-4b34-8994-59bf314feb7a) | ![トップ_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/ae25b770-29cd-4474-adc6-b1ce8c748e60) |
-| ユーザー名も登録。<br>ログインページへのリンクも完備 | ゲストログインも可能 | ログアウト状態であれば新規登録・ログイン・<br>ゲストログインボタンを<設置。ログイン状態<br>では非表示に。キーワード検索欄を設置。 |
+| ユーザー名も登録。<br>ログインページへのリンクも完備 | ゲストログインも可能 | ログアウト状態であれば新規登録・<br>ログイン・ゲストログインボタンを<br>設置。ログイン状態では非表示に。<br>キーワード検索欄を設置。 |
 <br>
 <br>
 
 | トップ | 投稿一覧 | 投稿一覧 |
 | :---: | :---: | :---: |
 | ![トップ２_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/96c7b1b4-6706-4e41-91a2-ccc5edf28f38) | ![投稿一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/6300f51f-0ec2-45ec-a06c-f3207784fdc9) | ![投稿一覧２_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/56c38ec6-0a34-47a3-9c83-7f35fabc2937) |
-| 新着投稿９件、新着ユーザー９件を表示。<br>各投稿・ユーザーの詳細へのリンクと一覧へ<br>のリンクを設置。 | １ページ２４件まで表示。並び替えが可能で<br>あり非同期通信にて表示切り替え。<br>各投稿にいいねが可能。 | ページネーションを実装。 |
+| 新着投稿９件、新着ユーザー９件を<br>表示。各投稿・ユーザーの詳細への<br>リンクと一覧へのリンクを設置。 | １ページ２４件まで表示。並び替え<br>が可能であり非同期通信にて表示切<br>り替え。各投稿にいいねが可能。 | ページネーションを実装。 |
 <br>
 <br>
 
 | 投稿詳細 | 投稿詳細 | コメント一覧 |
 | :---: | :---: | :---: |
 | ![ガジェット詳細_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/adf30e96-4ef7-4590-8e83-042d5e5fe9f0) | ![ガジェット詳細２_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/ffeeaed6-e8be-4490-bbb2-b75278e16fc4) | ![コメント一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/7ef81560-b1d6-4ce3-afd3-f10c9cf25114) |
-| いいねが可能。カテゴリーをクリックする<br>ことで同カテゴリーのが投稿一覧へ遷移。 | 楽天市場購入ページへ遷移できるボタンが設置。<br>コメントが可能。このページでは最大５件<br>までのコメントが表示。 | コメントが６件以上の場合、このページで<br>コメント全件が閲覧可能。ドロップダウンで<br>ガジェット詳細情報も表示。 |
+| いいねが可能。カテゴリーをクリッ<br>クすることで同カテゴリーのが投稿一覧へ遷移。 | 楽天市場購入ページへ遷移できるボ<br>タンが設置。コメントが可能。この<br>ページでは最大５件までのコメントが表示。 | コメントが６件以上の場合、このペ<br>ージでコメント全件が閲覧可能。<br>ドロップダウンでガジェット詳細情報も表示。 |
 <br>
 <br>
 
 | 投稿（ガジェット）登録 | 楽天リンク検索 | 投稿（ガジェット）編集 |
 | :---: | :---: | :---: |
 | ![ガジェット新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/0217b42d-3551-4891-b345-d24f18b5deec) | ![楽天商品検索_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/25e84ee5-2846-41a6-80cc-152f2c753b4d) | ![ガジェット編集_OshiGadge_−推しガジェ− png sb-6dc0d654-ZhbBAP](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/b8b6335f-b0ca-479e-a97f-955d4b8d707a) |
-| 楽天市場の購入ページリンクを設定可能。<br>”楽天のリンクを追加”ボタンをクリックする<br>とモーダルでリンク検索ページが開く。 | キーワードに一致する楽天市場の購入リンクが<br>検索可能。”選択”ボタンをクリックすること<br>でモーダルが閉じ、投稿登録ページに選択した<br>URLが表示される。 | 楽天市場のURLは削除ボタンで削除可能。 |
+| 楽天市場の購入ページリンクを設定<br>可能。”楽天のリンクを追加”ボタ<br>ンをクリックするとモーダルでリンク検索ページが開く。 | キーワードに一致する楽天市場の購<br>入リンクが検索可能。”選択”ボタ<br>ンをクリックすることでモーダルが<br>閉じ、投稿登録ページに選択したURLが表示される。 | 楽天市場のURLは削除ボタンで削除可能。 |
 <br>
 <br>
 
 | ユーザー一覧 | ユーザー詳細 | プロフィール編集 |
 | :---: | :---: | :---: |
 | ![ユーザー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/5a5ada69-1fe7-47f0-a1bf-aecff3520ef6) | ![ユーザー詳細_OshiGadge_−推しガジェ− png sb-6dc0d654-C7WKuB](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/54664227-b69b-4509-9b8e-68e70abdc472) | ![プロフィール編集_OshiGadge_−推しガジェ− png sb-6dc0d654-uHb6CM](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/80236f97-17f9-445b-8934-1a5fa0bd2c3c) |
-| 非同期通信でフォロー、フォロー解除が可能 | フォロー、フォロワー数をクリックすること<br>でフォロー・フォロワー一覧ページへ遷移。<br>”Myガジェット”と”お気に入り”タブをクリックすることで表示を切替。 | メールアドレス、パスワード以外のユーザー<br>情報の編集が可能。メールアドレス、パスワ<br>ードは別ページにて編集が可能。 |
+| 非同期通信でフォロー、フォロー解除が可能 | フォロー、フォロワー数をクリック<br>することでフォロー・フォロワー<br>一覧ページへ遷移。”Myガジェッ<br>ト”と”お気に入り”タブをクリックすることで表示を切替。 | メールアドレス、パスワード以外の<br>ユーザー情報の編集が可能。メール<br>アドレス、パスワードは別ページにて編集が可能。 |
 <br>
 <br>
 
 | アカウント情報 | フォロー・フォロワー一覧 | 検索結果 |
 | :---: | :---: | :---: |
 | ![アカウント情報編集___OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/54788143-dbd9-4856-8535-61462eeedc06) | ![フォロー・フォロワー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/190d6a0e-950a-4fd9-adac-e0ad72949348) | ![検索結果_OshiGadge_−推しガジェ− png sb-6dc0d654-5y6HBW](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/0593aaeb-c7c7-4bdf-97eb-98d8c0d5d66f) |
-| アカウント情報編集ページ。変更するには<br>現在のパスワードが必要。アカウント情報の<br>確認ページから遷移。 | ユーザーのフォローとフォロワー一覧を表示。 | トップの検索ボタン押下後に遷移するページ。検索対象を投稿内容、カテゴリー、ユーザー名<br>で絞ることが可能。それぞれのタブを選択する<br>ことで非同期通信にて表示を切替。 |
+| アカウント情報編集ページ。<br>変更するには現在のパスワードが必<br>要。アカウント情報の確認ページから遷移。 | ユーザーのフォローとフォロワー一覧を表示。 | トップの検索ボタン押下後に遷移す<br>るページ。検索対象を投稿内容、カ<br>テゴリー、ユーザー名で絞ることが<br>可能。それぞれのタブを選択することで非同期通信にて表示を切替。 |
 <br>
 <br>
 
