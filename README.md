@@ -62,7 +62,7 @@
 | 投稿（ガジェット）登録 | 楽天リンク検索 | 投稿（ガジェット）編集 |
 | :---: | :---: | :---: |
 | ![ガジェット新規登録_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/0217b42d-3551-4891-b345-d24f18b5deec) | ![楽天商品検索_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/25e84ee5-2846-41a6-80cc-152f2c753b4d) | ![ガジェット編集_OshiGadge_−推しガジェ− png sb-6dc0d654-ZhbBAP](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/b8b6335f-b0ca-479e-a97f-955d4b8d707a) |
-| 楽天市場の購入ページリンクを設定可能。<br>”楽天のリンクを追加”ボタンをクリックするとモーダルでリンク検索ページが開く。 | キーワードに一致する楽天市場の購入リンクが検索可能。<br>”選択”ボタンをクリックすることでモーダルが閉じ、投稿登録ページに選択したURLが表示される。 | 楽天市場のURLは削除ボタンで削除可能。 |
+| 楽天市場の購入ページリンクを設定可能。<br>”楽天のリンクを追加”ボタンをクリックすると<br>モーダルでリンク検索ページが開く。 | キーワードに一致する楽天市場の購入リンクが検索可能。<br>”選択”ボタンをクリックすることでモーダルが閉じ、<br>投稿登録ページに選択したURLが表示される。 | 楽天市場のURLは削除ボタンで削除可能。 |
 <br>
 <br>
 <br>
@@ -77,7 +77,7 @@
 
 | アカウント情報 | フォロー・フォロワー一覧 | 検索結果 |
 | :---: | :---: | :---: |
-| ![アカウント情報編集___OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/54788143-dbd9-4856-8535-61462eeedc06) | ![フォロー・フォロワー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/190d6a0e-950a-4fd9-adac-e0ad72949348) |  |
+| ![アカウント情報編集___OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/54788143-dbd9-4856-8535-61462eeedc06) | ![フォロー・フォロワー一覧_OshiGadge_−推しガジェ−](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/190d6a0e-950a-4fd9-adac-e0ad72949348) | ![検索結果_OshiGadge_−推しガジェ− png sb-6dc0d654-5y6HBW](https://github.com/darutani/Portfolio-OshiGadge/assets/114204669/0593aaeb-c7c7-4bdf-97eb-98d8c0d5d66f) |
 | アカウント情報編集ページ。変更するには現在のパスワードが必要。<br>アカウント情報（メールアドレス、パスワード）の確認ページから遷移。 | ユーザーのフォローとフォロワー一覧を表示。 | トップページの検索ボタン押下後に遷移するページ。<br>検索対象を投稿内容、カテゴリー、ユーザー名で絞ることが可能。<br>それぞれのタブを選択することで非同期通信にて表示を切り替え。 |
 <br>
 <br>
