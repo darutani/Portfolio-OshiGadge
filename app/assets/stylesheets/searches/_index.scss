@@ -21,3 +21,19 @@
 .inactive-link {
   opacity: 0.5;
 }
+
+// 画面幅500px以下の場合
+@media screen and (max-width:500px) {
+
+  .search-title-item {
+    font-size: 2.2rem;
+  }
+}
+
+// 画面幅450px以下の場合
+@media screen and (max-width:450px) {
+
+  .search-title-item {
+    font-size: 1.6rem;
+  }
+}
