@@ -4,8 +4,8 @@ class GadgetsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def top
-    @gadgets = Gadget.all.order('created_at DESC').limit(9)
-    @users = User.all.order('created_at DESC').limit(9)
+    @gadgets = Gadget.all.order('created_at DESC').limit(12)
+    @users = User.all.order('created_at DESC').limit(12)
   end
 
   def index
